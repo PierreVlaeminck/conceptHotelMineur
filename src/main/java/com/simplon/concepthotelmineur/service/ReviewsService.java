@@ -18,8 +18,8 @@ public class ReviewsService {
         return reviewsRepository.save(reviews);
     }
 
-    public void deleteReviews(Reviews reviews){
-        reviewsRepository.delete(reviews);
+    public void deleteReviews(Long id){
+        reviewsRepository.deleteById(id);
     }
 
     public Reviews updateReviews(Reviews reviews){
