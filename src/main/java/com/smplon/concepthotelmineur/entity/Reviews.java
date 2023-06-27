@@ -1,9 +1,6 @@
 package com.smplon.concepthotelmineur.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Reviews {
@@ -16,10 +13,15 @@ public class Reviews {
 
     private Integer scores;
 
-    public Reviews(Long idRe, String commentary, Integer scores) {
+    @OneToOne
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
+
+    public Reviews(Long idRe, String commentary, Integer scores, Booking booking) {
         this.idRe = idRe;
         this.commentary = commentary;
         this.scores = scores;
+        this.booking = booking;
     }
 
     public Reviews() {
@@ -47,5 +49,13 @@ public class Reviews {
 
     public void setScores(Integer scores) {
         this.scores = scores;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 }
