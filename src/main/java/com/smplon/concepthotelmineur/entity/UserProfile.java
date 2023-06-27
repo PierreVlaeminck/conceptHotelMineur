@@ -23,20 +23,20 @@ public class UserProfile {
 
     private Integer phone;
 
-    private Integer cellPhone;
+    private Integer cellPhoneU;
 
     @ManyToOne
     @JoinColumn(name = "id_user_profile") // Nom de la colonne faisant référence à la clé primaire de la table "users"
     private UserProfile userProfileId;
 
-    public UserProfile(Long idUp, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, Integer phone, Integer cellPhone) {
+    public UserProfile(Long idUp, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, Integer phone, Integer cellPhoneU) {
         this.idUp = idUp;
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirthU = dateOfBirthU;
         this.mailU = mailU;
         this.phone = phone;
-        this.cellPhone = cellPhone;
+        this.cellPhoneU = cellPhoneU;
     }
 
     public UserProfile() {
@@ -94,12 +94,12 @@ public class UserProfile {
         this.phone = phone;
     }
 
-    public Integer getCellPhone() {
-        return cellPhone;
+    public Integer getCellPhoneU() {
+        return cellPhoneU;
     }
 
-    public void setCellPhone(Integer cellPhone) {
-        this.cellPhone = cellPhone;
+    public void setCellPhoneU(Integer cellPhoneU) {
+        this.cellPhoneU = cellPhoneU;
     }
 
     public UserProfile getUserProfileId() {
