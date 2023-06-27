@@ -6,8 +6,6 @@ import com.simplon.concepthotelmineur.entity.Reviews;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @RequiredArgsConstructor
 public class ReviewsService {
@@ -22,7 +20,7 @@ public class ReviewsService {
         reviewsRepository.deleteById(id);
     }
 
-    public List<Reviews> getReviewsByHostel(Hostel hostel) {
-        return reviewsRepository.getReviewsByHostel(hostel);
+    public Reviews getReviewsByHostel(Hostel hostel) {
+        return reviewsRepository.findReviewsByHostel(hostel);
     }
 }

@@ -14,7 +14,7 @@ public class BenefitService {
 
     private final BenefitRepository benefitRepository;
 
-    public List<Benefit> getServicesByHostel(Hostel hostel){
-        return benefitRepository.getServicesByHostel(hostel);
+    public Benefit getBenefitByHostel(Hostel hostel){
+        return benefitRepository.findBenefitByHostel(hostel);
     }
 }

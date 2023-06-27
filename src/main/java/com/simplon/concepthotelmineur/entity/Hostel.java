@@ -22,7 +22,7 @@ public class Hostel {
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "benefit_id")
     private Benefit benefit;
 
     private String name;

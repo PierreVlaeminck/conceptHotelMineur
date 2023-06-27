@@ -1,6 +1,7 @@
 package com.simplon.concepthotelmineur.service;
 
 import com.simplon.concepthotelmineur.entity.Booking;
+import com.simplon.concepthotelmineur.entity.UserProfile;
 import com.simplon.concepthotelmineur.repository.BookingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,4 +20,7 @@ public class BookingService {
         bookingRepository.deleteByIdB(idB);
     }
 
+    public Booking findAllBookingByUserProfil(UserProfile userProfile){
+        return bookingRepository.getBookingByUserProfile(userProfile);
+    }
 }
