@@ -22,10 +22,6 @@ public class ReviewsService {
         reviewsRepository.deleteById(id);
     }
 
-    public Reviews updateReviews(Reviews reviews){
-        return reviewsRepository.save(reviews);
-    }
-
     public List<Reviews> getReviewsByHostel(Hostel hostel){
         return reviewsRepository.getReviewsByHostel(hostel);
     }
