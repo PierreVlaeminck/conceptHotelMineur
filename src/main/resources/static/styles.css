@@ -1,0 +1,45 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.text-logo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+}
+.bg-blue{
+    background-color: #004AAD;
+}
+.shadow{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.img-logo{
+    height: 45px;
+    width: 45px;
+}
+.btn-white{
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+}
+.btn-white:hover{
+    border-color: #DD7F1E;
+    color: #004AAD !important;
+    background-color: #FFFFFF;
+}
+.btn-transparent {
+    border: 2px solid #DD7F1E;
+    border-radius: 10px;
+    color: white;
+}
+.btn-transparent:hover{
+    border: 2px solid #FFFFFF;
+    color: #DD7F1E;
+}
+.search{
+    background-color: #DD7F1E;
+    height: 100px;
+    border-radius: 10px;
+}
+.input-search{
+    height: 65%;
+    border-radius: 10px;
+}
