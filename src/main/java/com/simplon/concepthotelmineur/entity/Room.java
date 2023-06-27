@@ -14,7 +14,7 @@ public class Room {
     @Getter
     @Setter
     @OneToOne
-    @JoinColumn(name ="type_id")
+    @JoinColumn(name = "type_id")
     private Type type;
 
     private boolean available;
@@ -38,6 +38,7 @@ public class Room {
     public void setAvailable(boolean available) {
         this.available = available;
     }
+
     public Long getIdR() {
         return idR;
     }

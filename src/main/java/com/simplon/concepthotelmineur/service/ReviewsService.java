@@ -14,15 +14,15 @@ public class ReviewsService {
 
     private final ReviewsRepository reviewsRepository;
 
-    public Reviews addReviews(Reviews reviews){
+    public Reviews addReviews(Reviews reviews) {
         return reviewsRepository.save(reviews);
     }
 
-    public void deleteReviews(Long id){
+    public void deleteReviews(Long id) {
         reviewsRepository.deleteById(id);
     }
 
-    public List<Reviews> getReviewsByHostel(Hostel hostel){
+    public List<Reviews> getReviewsByHostel(Hostel hostel) {
         return reviewsRepository.getReviewsByHostel(hostel);
     }
 }

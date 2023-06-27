@@ -12,7 +12,7 @@ public class RoomService {
 
     private final RoomRepository roomRepository;
 
-    public Room getRoomByType(Type type){
+    public Room getRoomByType(Type type) {
         return roomRepository.findRoomByType(type);
     }
 }

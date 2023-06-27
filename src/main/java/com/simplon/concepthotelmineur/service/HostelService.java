@@ -11,7 +11,7 @@ public class HostelService {
 
     private final HostelRepository hostelRepository;
 
-    public Hostel getHostelByCity (Hostel hostel){
+    public Hostel getHostelByCity(Hostel hostel) {
         return hostelRepository.findAllByCity(hostel);
     }
 

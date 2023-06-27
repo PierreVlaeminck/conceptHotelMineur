@@ -14,19 +14,19 @@ public class MinorService {
 
     private final MinorRepository minorRepository;
 
-   public Minor addMinor(Minor minor){
-       return minorRepository.save(minor);
-   }
+    public Minor addMinor(Minor minor) {
+        return minorRepository.save(minor);
+    }
 
-    public List<Minor> getMinorByUserProfile(UserProfile userProfile){
+    public List<Minor> getMinorByUserProfile(UserProfile userProfile) {
         return minorRepository.findAllByUserProfile(userProfile);
     }
 
-    public void deleteMinor(Long id){
-       minorRepository.deleteById(id);
+    public void deleteMinor(Long id) {
+        minorRepository.deleteById(id);
     }
 
-    public Minor updateMinor(Minor minor){
-       return minorRepository.save(minor);
+    public Minor updateMinor(Minor minor) {
+        return minorRepository.save(minor);
     }
 }
