@@ -21,15 +21,11 @@ public class UserProfile {
     @Email
     private String mailU;
 
-    private Integer phone;
+    private String phone;
 
-    private Integer cellPhoneU;
+    private String cellPhoneU;
 
-    @ManyToOne
-    @JoinColumn(name = "id_user_profile") // Nom de la colonne faisant référence à la clé primaire de la table "users"
-    private UserProfile userProfileId;
-
-    public UserProfile(Long idUp, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, Integer phone, Integer cellPhoneU) {
+    public UserProfile(Long idUp, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
         this.idUp = idUp;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -42,15 +38,11 @@ public class UserProfile {
     public UserProfile() {
     }
 
-    public void setIdUp(Long idUp) {
-        this.idUp = idUp;
-    }
-
     public Long getIdUp() {
         return idUp;
     }
 
-    public void setIdUP(Long idUp) {
+    public void setIdUp(Long idUp) {
         this.idUp = idUp;
     }
 
@@ -86,27 +78,19 @@ public class UserProfile {
         this.mailU = mailU;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public Integer getCellPhoneU() {
+    public String getCellPhoneU() {
         return cellPhoneU;
     }
 
-    public void setCellPhoneU(Integer cellPhoneU) {
+    public void setCellPhoneU(String cellPhoneU) {
         this.cellPhoneU = cellPhoneU;
-    }
-
-    public UserProfile getUserProfileId() {
-        return userProfileId;
-    }
-
-    public void setUserProfileId(UserProfile userProfileId) {
-        this.userProfileId = userProfileId;
     }
 }

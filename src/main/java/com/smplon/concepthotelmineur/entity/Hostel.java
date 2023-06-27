@@ -28,9 +28,9 @@ public class Hostel {
     @Email
     private String mailH;
 
-    private Long phone;
+    private String phone;
 
-    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, Long phone) {
+    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone) {
         this.idH = idH;
         this.name = name;
         this.streetNumber = streetNumber;
@@ -109,11 +109,11 @@ public class Hostel {
         this.mailH = mailH;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

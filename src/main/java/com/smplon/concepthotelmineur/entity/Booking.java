@@ -21,11 +21,14 @@ public class Booking {
 
     private Double totalPrice;
 
-    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice) {
+    private Boolean pending;
+
+    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending) {
         this.idB = idB;
         this.dateArrived = dateArrived;
         this.departureDate = departureDate;
         this.totalPrice = totalPrice;
+        this.pending = pending;
     }
 
     public Booking() {
@@ -61,5 +64,13 @@ public class Booking {
 
     public void setTotalPrice(Double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Boolean getPending() {
+        return pending;
+    }
+
+    public void setPending(Boolean pending) {
+        this.pending = pending;
     }
 }

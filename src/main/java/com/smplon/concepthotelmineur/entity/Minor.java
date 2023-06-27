@@ -20,11 +20,11 @@ public class Minor {
 
     private LocalDate dateOfBirthM;
 
-    private Integer cellPhone;
+    private String cellPhone;
 
     private String additionalInformation;
 
-    public Minor(Long idM, String lastName, String firstName, LocalDate dateOfBirthM, Integer cellPhone, String additionalInformation) {
+    public Minor(Long idM, String lastName, String firstName, LocalDate dateOfBirthM, String cellPhone, String additionalInformation) {
         this.idM = idM;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -68,11 +68,11 @@ public class Minor {
         this.dateOfBirthM = dateOfBirthM;
     }
 
-    public Integer getCellPhone() {
+    public String getCellPhone() {
         return cellPhone;
     }
 
-    public void setCellPhone(Integer cellPhone) {
+    public void setCellPhone(String cellPhone) {
         this.cellPhone = cellPhone;
     }
 

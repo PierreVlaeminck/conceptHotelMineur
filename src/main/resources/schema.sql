@@ -3,13 +3,23 @@ DROP TABLE IF EXISTS 'users';
 
 CREATE TABLE users
 (
-    id_u     BIGINT(20) NOT NULL,
-    username VARCHAR(50)  NOT NULL,
-    password VARCHAR(100) NOT NULL,
-    enable   TINYINT      NOT NULL DEFAULT 1,
-    id_user_profile  BIGINT(20) NOT NULL,
+    id_u            BIGINT(20) NOT NULL,
+    username        VARCHAR(50)  NOT NULL,
+    password        VARCHAR(255) NOT NULL,
+    enable          TINYINT      NOT NULL DEFAULT 1,
     PRIMARY KEY (id_u),
-    FOREIGN KEY (id_user_profile) REFERENCES userProfile (id_up)
+);
+
+CREATE TABLE user_profile
+(
+    id_up BIGINT(20) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    formula VARCHAR(255) ,
+    FOREIGN KEY (username) REFERENCES users(username)
+
 );
 
 CREATE TABLE authorities
@@ -19,5 +29,5 @@ CREATE TABLE authorities
     authority VARCHAR(50) NOT NULL,
     id_users  BIGINT (20) NOT NULL,
     PRIMARY KEY (id_a),
-        FOREIGN KEY (id_users) REFERENCES users (id_u)
+    FOREIGN KEY (username) REFERENCES users(username)
 );
