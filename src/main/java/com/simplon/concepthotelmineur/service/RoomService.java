@@ -6,13 +6,15 @@ import com.simplon.concepthotelmineur.entity.Type;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RoomService {
 
     private final RoomRepository roomRepository;
 
-    public Room getRoomByType(Type type) {
+    public List<Room> findRoomByType(Type type) {
         return roomRepository.findRoomByType(type);
     }
 }

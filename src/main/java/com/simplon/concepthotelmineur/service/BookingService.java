@@ -6,6 +6,8 @@ import com.simplon.concepthotelmineur.repository.BookingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BookingService {
@@ -20,7 +22,7 @@ public class BookingService {
         bookingRepository.deleteByIdB(idB);
     }
 
-    public Booking findAllBookingByUserProfil(UserProfile userProfile){
+    public List<Booking> findAllBookingByUserProfil(UserProfile userProfile){
         return bookingRepository.getBookingByUserProfile(userProfile);
     }
 }

@@ -1,10 +1,13 @@
 package com.simplon.concepthotelmineur.service;
 
+import com.simplon.concepthotelmineur.entity.Booking;
 import com.simplon.concepthotelmineur.repository.ReviewsRepository;
 import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.entity.Reviews;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +23,7 @@ public class ReviewsService {
         reviewsRepository.deleteById(id);
     }
 
-    public Reviews getReviewsByHostel(Hostel hostel) {
-        return reviewsRepository.findReviewsByHostel(hostel);
+    public List<Reviews> getReviewsByBooking(Booking booking) {
+        return reviewsRepository.findReviewsByBooking(booking);
     }
 }

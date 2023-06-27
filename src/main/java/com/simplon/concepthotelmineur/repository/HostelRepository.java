@@ -4,8 +4,10 @@ import com.simplon.concepthotelmineur.entity.Hostel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface HostelRepository extends JpaRepository<Hostel, Long> {
 
-    Hostel findAllByCity(Hostel hostel);
+    List<Hostel> findAllByCity(Hostel hostel);
 }

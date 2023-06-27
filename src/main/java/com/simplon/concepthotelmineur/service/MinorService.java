@@ -18,7 +18,7 @@ public class MinorService {
         return minorRepository.save(minor);
     }
 
-    public List<Minor> getMinorByUserProfile(UserProfile userProfile) {
+    public List<Minor> findMinorByUserProfile(UserProfile userProfile) {
         return minorRepository.findAllByUserProfile(userProfile);
     }
 
