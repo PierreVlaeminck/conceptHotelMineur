@@ -27,8 +27,6 @@ public class Hostel {
 
     private String name;
 
-    private String streetNumber;
-
     private String address;
 
     private int postalCode;
@@ -42,10 +40,9 @@ public class Hostel {
 
     private String phone;
 
-    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone, Benefit benefit) {
+    public Hostel(Long idH, String name, String address, int postalCode, String city, String description, String mailH, String phone, Benefit benefit) {
         this.idH = idH;
         this.name = name;
-        this.streetNumber = streetNumber;
         this.address = address;
         this.postalCode = postalCode;
         this.city = city;
@@ -72,14 +69,6 @@ public class Hostel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
     }
 
     public String getAddress() {
