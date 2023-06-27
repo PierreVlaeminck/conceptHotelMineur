@@ -1,4 +1,4 @@
 package com.simplon.concepthotelmineur.controller;
 
-public class ServiceController {
+public class BenefitController {
 }

@@ -23,7 +23,7 @@ public class Hostel {
     @Setter
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service service;
+    private Benefit benefit;
 
     private String name;
 
@@ -42,7 +42,7 @@ public class Hostel {
 
     private String phone;
 
-    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone, Service service) {
+    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone, Benefit benefit) {
         this.idH = idH;
         this.name = name;
         this.streetNumber = streetNumber;
@@ -52,7 +52,7 @@ public class Hostel {
         this.description = description;
         this.mailH = mailH;
         this.phone = phone;
-        this.service = service;
+        this.benefit = benefit;
     }
 
     public Hostel() {

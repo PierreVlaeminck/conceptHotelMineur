@@ -4,7 +4,7 @@ package com.simplon.concepthotelmineur.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Service {
+public class Benefit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,13 +14,13 @@ public class Service {
 
     private Double priceS;
 
-    public Service(Long idS, String typeS, Double priceS) {
+    public Benefit(Long idS, String typeS, Double priceS) {
         this.idS = idS;
         this.typeS = typeS;
         this.priceS = priceS;
     }
 
-    public Service() {
+    public Benefit() {
     }
 
     public Long getIdS() {
