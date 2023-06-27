@@ -1,9 +1,8 @@
 package com.smplon.concepthotelmineur.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Room {
@@ -12,16 +11,33 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idR;
 
+    @Getter
+    @Setter
+    @OneToOne
+    @JoinColumn(name ="type_id")
+    private Type type;
+
+    private boolean available;
+
     private Integer roomNumber;
 
-    public Room(Long idR, Integer roomNumber) {
+    public Room(Long idR, Integer roomNumber, Boolean available, Type type) {
         this.idR = idR;
         this.roomNumber = roomNumber;
+        this.available = available;
+        this.type = type;
     }
 
     public Room() {
     }
 
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
     public Long getIdR() {
         return idR;
     }

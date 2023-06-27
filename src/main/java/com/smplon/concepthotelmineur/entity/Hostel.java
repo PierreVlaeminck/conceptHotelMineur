@@ -1,10 +1,12 @@
 package com.smplon.concepthotelmineur.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Hostel {
@@ -12,6 +14,16 @@ public class Hostel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idH;
+
+    @OneToMany
+    @JoinColumn(name = "room_id")
+    private List<Room> room = new ArrayList<Room>();
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    private Service service;
 
     private String name;
 
@@ -30,7 +42,7 @@ public class Hostel {
 
     private String phone;
 
-    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone) {
+    public Hostel(Long idH, String name, String streetNumber, String address, int postalCode, String city, String description, String mailH, String phone, Service service) {
         this.idH = idH;
         this.name = name;
         this.streetNumber = streetNumber;
@@ -40,6 +52,7 @@ public class Hostel {
         this.description = description;
         this.mailH = mailH;
         this.phone = phone;
+        this.service = service;
     }
 
     public Hostel() {

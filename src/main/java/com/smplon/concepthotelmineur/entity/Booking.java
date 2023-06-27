@@ -1,6 +1,10 @@
 package com.smplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -19,17 +23,24 @@ public class Booking {
 
     private Boolean pending;
 
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
     @ManyToOne
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
-    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending, UserProfile userProfile) {
+    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending, UserProfile userProfile, Room room) {
         this.idB = idB;
         this.dateArrived = dateArrived;
         this.departureDate = departureDate;
         this.totalPrice = totalPrice;
         this.pending = pending;
         this.userProfile = userProfile;
+        this.room = room;
     }
 
     public Booking() {
