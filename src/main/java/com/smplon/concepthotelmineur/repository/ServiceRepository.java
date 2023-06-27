@@ -1,4 +1,7 @@
 package com.smplon.concepthotelmineur.repository;
 
-public class ServiceRepository {
+import com.smplon.concepthotelmineur.entity.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ServiceRepository extends JpaRepository<Service, Long> {
 }
