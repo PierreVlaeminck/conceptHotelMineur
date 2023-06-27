@@ -1,11 +1,7 @@
 package com.smplon.concepthotelmineur.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,12 +19,17 @@ public class Booking {
 
     private Boolean pending;
 
-    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending) {
+    @ManyToOne
+    @JoinColumn(name = "user_profile_id")
+    private UserProfile userProfile;
+
+    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending, UserProfile userProfile) {
         this.idB = idB;
         this.dateArrived = dateArrived;
         this.departureDate = departureDate;
         this.totalPrice = totalPrice;
         this.pending = pending;
+        this.userProfile = userProfile;
     }
 
     public Booking() {
@@ -72,5 +73,13 @@ public class Booking {
 
     public void setPending(Boolean pending) {
         this.pending = pending;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }

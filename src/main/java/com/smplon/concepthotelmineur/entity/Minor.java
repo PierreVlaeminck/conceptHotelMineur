@@ -1,9 +1,6 @@
 package com.smplon.concepthotelmineur.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -24,13 +21,18 @@ public class Minor {
 
     private String additionalInformation;
 
-    public Minor(Long idM, String lastName, String firstName, LocalDate dateOfBirthM, String cellPhone, String additionalInformation) {
+    @ManyToOne
+    @JoinColumn(name = "user_profile_id")
+    private UserProfile userProfile;
+
+    public Minor(Long idM, String lastName, String firstName, LocalDate dateOfBirthM, String cellPhone, String additionalInformation, UserProfile userProfile) {
         this.idM = idM;
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirthM = dateOfBirthM;
         this.cellPhone = cellPhone;
         this.additionalInformation = additionalInformation;
+        this.userProfile = userProfile;
     }
 
     public Minor() {
@@ -82,5 +84,13 @@ public class Minor {
 
     public void setAdditionalInformation(String additionalInformation) {
         this.additionalInformation = additionalInformation;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 }
