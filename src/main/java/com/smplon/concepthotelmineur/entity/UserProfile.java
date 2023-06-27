@@ -12,6 +12,8 @@ public class UserProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUp;
 
+    private String username;
+
     private String lastName;
 
     private String firstName;
@@ -25,8 +27,9 @@ public class UserProfile {
 
     private String cellPhoneU;
 
-    public UserProfile(Long idUp, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
+    public UserProfile(Long idUp, String username, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
         this.idUp = idUp;
+        this.username = username;
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirthU = dateOfBirthU;
@@ -44,6 +47,14 @@ public class UserProfile {
 
     public void setIdUp(Long idUp) {
         this.idUp = idUp;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getLastName() {
