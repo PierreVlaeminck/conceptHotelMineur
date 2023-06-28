@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 
     void deleteByIdUp(Long idUp);
+
+    UserProfile findByIdUp(UserProfile userProfile);
 }

@@ -9,16 +9,30 @@ import java.time.LocalDateTime;
 @Entity
 public class Booking {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idB;
 
+    @Getter
+    @Setter
+    private String bookingCode;
+
+    @Getter
+    @Setter
     private LocalDateTime dateArrived;
 
+    @Getter
+    @Setter
     private LocalDateTime departureDate;
 
+    @Getter
+    @Setter
     private Double totalPrice;
 
+    @Getter
+    @Setter
     private Boolean pending;
 
     @Getter
@@ -27,68 +41,32 @@ public class Booking {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @Getter
+    @Setter
     @ManyToOne
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
-    public Booking(Long idB, LocalDateTime dateArrived, LocalDateTime departureDate, Double totalPrice, Boolean pending, UserProfile userProfile, Room room) {
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "minor_id")
+    private Minor minor;
+
+    public Booking(Long idB, String bookingCode, LocalDateTime dateArrived,
+                   LocalDateTime departureDate, Double totalPrice, Boolean pending,
+                   Room room, UserProfile userProfile, Minor minor) {
         this.idB = idB;
+        this.bookingCode = bookingCode;
         this.dateArrived = dateArrived;
         this.departureDate = departureDate;
         this.totalPrice = totalPrice;
         this.pending = pending;
-        this.userProfile = userProfile;
         this.room = room;
+        this.userProfile = userProfile;
+        this.minor = minor;
     }
 
     public Booking() {
-    }
-
-    public Long getIdB() {
-        return idB;
-    }
-
-    public void setIdB(Long idB) {
-        this.idB = idB;
-    }
-
-    public LocalDateTime getDateArrived() {
-        return dateArrived;
-    }
-
-    public void setDateArrived(LocalDateTime dateArrived) {
-        this.dateArrived = dateArrived;
-    }
-
-    public LocalDateTime getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(LocalDateTime departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public Boolean getPending() {
-        return pending;
-    }
-
-    public void setPending(Boolean pending) {
-        this.pending = pending;
-    }
-
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
     }
 }

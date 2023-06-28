@@ -13,8 +13,11 @@ public class HostelService {
 
     private final HostelRepository hostelRepository;
 
+    public Hostel findHostelByIdH(Hostel hostel){
+        return hostelRepository.findByIdH(hostel);
+    }
+
     public List<Hostel> findHostelByCity(Hostel hostel) {
         return hostelRepository.findAllByCity(hostel);
     }
-
 }
