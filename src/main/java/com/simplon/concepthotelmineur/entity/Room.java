@@ -13,45 +13,35 @@ public class Room {
 
     @Getter
     @Setter
+    private boolean available;
+
+    @Getter
+    @Setter
+    private Integer roomNumber;
+
+    @Getter
+    @Setter
+    private double price;
+
+    @Getter
+    @Setter
+    private String detail;
+
+    @Getter
+    @Setter
     @OneToOne
     @JoinColumn(name = "type_id")
     private Type type;
 
-    private boolean available;
-
-    private Integer roomNumber;
-
-    public Room(Long idR, Integer roomNumber, Boolean available, Type type) {
+    public Room(Long idR, Integer roomNumber, Boolean available, Double price, String detail, Type type) {
         this.idR = idR;
         this.roomNumber = roomNumber;
         this.available = available;
+        this.price = price;
+        this.detail = detail;
         this.type = type;
     }
 
     public Room() {
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public Long getIdR() {
-        return idR;
-    }
-
-    public void setIdR(Long idR) {
-        this.idR = idR;
-    }
-
-    public Integer getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
     }
 }
