@@ -1,5 +1,6 @@
 package com.simplon.concepthotelmineur.repository;
 
+import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.entity.Room;
 import com.simplon.concepthotelmineur.entity.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,4 +12,6 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
     List<Room> findRoomByType(Type type);
+
+    List<Room> findRoomByHostel(Hostel hostel);
 }
