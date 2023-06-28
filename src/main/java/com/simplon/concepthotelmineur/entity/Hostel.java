@@ -49,7 +49,7 @@ public class Hostel {
     @Getter
     @Setter
     @OneToMany
-    @JoinColumn(name = "room_id")
+    @JoinColumn(name = "hostel_id")
     private List<Room> room = new ArrayList<Room>();
 
     public Hostel(Long idH, String name, String address, int postalCode, String city, String description, String mailH, String phone) {
