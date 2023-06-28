@@ -9,6 +9,9 @@ body{
 .bg-blue{
     background-color: #004AAD;
 }
+.bg-orange{
+    background-color: #DD7F1E;
+}
 .shadow{
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -34,6 +37,20 @@ body{
     border: 2px solid #FFFFFF;
     color: #DD7F1E;
 }
+.btn-orange {
+    border: 2px solid #DD7F1E;
+    border-radius: 10px;
+    color: black;
+}
+.btn-orange:hover{
+    border: 2px solid #004AAD;
+    color: #DD7F1E;
+}
+.btn-taxi{
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    height:20px;
+}
 .search{
     background-color: #DD7F1E;
     height: 100px;
@@ -43,3 +60,17 @@ body{
     height: 65%;
     border-radius: 10px;
 }
+.card-footer .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.image-home{
+    height: 180px;
+    width: 180px ;
+}
+footer a:hover {
+    color: #DD7F1E;
+}
+
