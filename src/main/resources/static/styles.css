@@ -76,4 +76,19 @@ footer a:hover {
     color: #004AAD;
     border: 2px solid #004AAD;
 }
-
+.img-hotel{
+    height: 80%;
+    width:80% ;
+}
+.rating-square {
+    width: 30px;
+    height: 30px;
+    background-color: #004AAD;
+    border: 1px solid #DD7F1E;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
