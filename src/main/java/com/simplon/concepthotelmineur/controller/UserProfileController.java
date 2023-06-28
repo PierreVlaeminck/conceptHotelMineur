@@ -17,10 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -73,5 +71,24 @@ public class UserProfileController {
     @DeleteMapping("/users/{id}")
     public void deleteUserProfile(@PathVariable Long id) {
         userProfileService.deleteUserProfile(id);
+    }
+
+    @GetMapping("/users/{id}")
+    public UserProfile getUserProfile(@PathVariable Long id) {
+        return userProfileService.findUserProfileByIdUp(id);
+    }
+
+    @PutMapping("/users/{id}")
+    public UserProfile updateUserProfile(@PathVariable Long id, @RequestBody UserProfile newProfile) {
+        UserProfile userProfile = userProfileService.findUserProfileByIdUp(id);
+
+        userProfile.setFirstName(newProfile.getFirstName());
+        userProfile.setLastName(newProfile.getLastName());
+        userProfile.setMailU(newProfile.getMailU());
+        userProfile.setPhone(newProfile.getPhone());
+        userProfile.setCellPhoneU(newProfile.getCellPhoneU());
+        userProfile.setDateOfBirthU(newProfile.getDateOfBirthU());
+
+        return userProfileService.updateUserProfile(userProfile);
     }
 }
