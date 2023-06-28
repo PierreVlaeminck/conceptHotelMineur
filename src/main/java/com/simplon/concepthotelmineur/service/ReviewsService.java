@@ -19,11 +19,11 @@ public class ReviewsService {
         return reviewsRepository.save(reviews);
     }
 
-    public void deleteReviews(Long id) {
-        reviewsRepository.deleteById(id);
+    public List<Reviews> findReviewsByBooking(Booking booking) {
+        return reviewsRepository.findReviewsByBooking(booking);
     }
 
-    public List<Reviews> getReviewsByBooking(Booking booking) {
-        return reviewsRepository.findReviewsByBooking(booking);
+    public void deleteReviews(Long id) {
+        reviewsRepository.deleteById(id);
     }
 }

@@ -9,5 +9,4 @@ import org.springframework.stereotype.Service;
 public class TypeService {
 
     private final TypeRepository typeRepository;
-
 }

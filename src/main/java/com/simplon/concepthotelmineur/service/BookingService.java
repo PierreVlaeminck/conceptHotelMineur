@@ -18,11 +18,11 @@ public class BookingService {
         return bookingRepository.save(booking);
     }
 
-    public void deleteBooking (Long idB){
-        bookingRepository.deleteByIdB(idB);
-    }
-
     public List<Booking> findAllBookingByUserProfil(UserProfile userProfile){
         return bookingRepository.getBookingByUserProfile(userProfile);
+    }
+
+    public void deleteBooking (Long id){
+        bookingRepository.deleteById(id);
     }
 }
