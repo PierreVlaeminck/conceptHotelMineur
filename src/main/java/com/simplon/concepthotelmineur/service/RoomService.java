@@ -1,5 +1,6 @@
 package com.simplon.concepthotelmineur.service;
 
+import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.repository.RoomRepository;
 import com.simplon.concepthotelmineur.entity.Room;
 import com.simplon.concepthotelmineur.entity.Type;
@@ -16,5 +17,9 @@ public class RoomService {
 
     public List<Room> findRoomByType(Type type) {
         return roomRepository.findRoomByType(type);
+    }
+
+    public List<Room> findRoomByHostel(Hostel hostel) {
+        return roomRepository.findRoomByHostel(hostel);
     }
 }
