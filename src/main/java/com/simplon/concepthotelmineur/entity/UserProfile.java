@@ -18,7 +18,7 @@ public class UserProfile {
 
     @Getter
     @Setter
-    private String usernameP;
+    private String username;
 
     @Getter
     @Setter
@@ -45,9 +45,9 @@ public class UserProfile {
     @Setter
     private String cellPhoneU;
 
-    public UserProfile(Long idUp, String usernameP, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
+    public UserProfile(Long idUp, String username, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
         this.idUp = idUp;
-        this.usernameP = usernameP;
+        this.username = username;
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirthU = dateOfBirthU;
