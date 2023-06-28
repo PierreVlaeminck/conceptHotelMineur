@@ -14,8 +14,8 @@ public class BookingService {
 
     private final BookingRepository bookingRepository;
 
-    public void createBooking (Booking booking){
-        bookingRepository.save(booking);
+    public Booking createBooking (Booking booking){
+        return bookingRepository.save(booking);
     }
 
     public void deleteBooking (Long idB){
