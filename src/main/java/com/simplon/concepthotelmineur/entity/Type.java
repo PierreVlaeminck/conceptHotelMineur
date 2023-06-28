@@ -1,48 +1,31 @@
 package com.simplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Type {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idT;
 
+    @Getter
+    @Setter
     private String typeRoom;
 
-    private Double price;
+    @Getter
+    @Setter
+    private String descriptionT;
 
-    public Type(Long idT, String typeRoom, Double price) {
+    public Type(Long idT, String typeRoom) {
         this.idT = idT;
         this.typeRoom = typeRoom;
-        this.price = price;
     }
 
     public Type() {
-    }
-
-    public Long getIdT() {
-        return idT;
-    }
-
-    public void setIdT(Long idT) {
-        this.idT = idT;
-    }
-
-    public String getTypeRoom() {
-        return typeRoom;
-    }
-
-    public void setTypeRoom(String typeRoom) {
-        this.typeRoom = typeRoom;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 }
