@@ -29,7 +29,7 @@
 <main>
     <div class="container border shadow w-75 mt-5 mb-5">
         <form method="post">
-            <h1 class="text-center mt-3 mb-4">Réservation</h1>
+            <h1 class="text-center mt-3 mb-4">Informations du mineur</h1>
             <div>
                 <label class="form-label" for=""></label>
                 <input class="form-control" type="text" id="" name="" placeholder="Prénom de mon enfant" required>
@@ -40,14 +40,14 @@
             </div>
             <div>
                 <label class="form-label" for=""></label>
-                <input class="form-control" type="text" id="dob" name="" placeholder="Date de naissance" required>
+                <input class="form-control" type="date" id="dob" name="" placeholder="Date de naissance" required>
             </div>
             <div>
                 <label class="form-label" for=""></label>
                 <textarea class="form-control" rows="5" id="aut" name="" placeholder="Autorisation du représentant légal" required></textarea>
             </div>
-            <div class="bg-blue d-flex justify-content-end mb-2 mt-5">
-                <button class="btn btn-white nav-link text-light m-1 px-2" type="submit">Signature</button>
+            <div class="d-flex justify-content-end mb-2 mt-5">
+                <button class="btnF btn-white w-25 nav-link mt-2 mb-2 px-2" type="submit">Signature</button>
             </div>
             <div class="mb-5">
                 <label class="form-label" for=""></label>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-2">
                     <label class="form-label" for=""></label>
-                    <input class="form-control" type="datetime-local" id="de" name="" placeholder="Date d'expiration" required>
+                    <input class="form-control" type="text" id="de" name="" placeholder="Date d'exp" required>
                 </div>
                 <div class="col-2 mb-5">
                     <label class="form-label" for=""></label>
@@ -88,14 +88,24 @@
     </div>
     <!------------End Paiement Form Section--------->
 
-    <!------------Start Recap Form Section--------->
-    <div class="container border shadow">
-        <h1>Récapitulatif de la réservation</h1>
+    <!------------Start Recap Section--------->
+    <div class="container border shadow w-75 mb-4">
+        <h1 class="text-center mt-3 mb-4">Récapitulatif de la réservation</h1>
+        <div class="card shadow d-flex justify-content-center mt-5 mb-3">
+            <div class="card-body">
+                <p class="card-text">Nombre de chambres</p>
+                <p class="card-text">Nombre d'occupants</p>
+                <p class="card-text">Nombre de Lits</p>
+                <p class="card-text text-end">
+                    Prix <i class="bi bi-currency-euro"></i>
+                </p>
+            </div>
+        </div>
     </div>
 
-    <!------------End Recap Form Section--------->
-    <div class="bg-blue d-flex justify-content-center mt-7">
-        <button class="btn btn-white nav-link text-light m-2 px-2" type="submit">Réserver</button>
+    <!------------End Recap Section--------->
+    <div class="d-flex justify-content-center mt-7">
+        <button class="btnF btn-white w-50 nav-link mt-3 mb-4 px-2" type="submit">Réserver</button>
     </div>
 </main>
 <!-------------Start Footer Section---------->
