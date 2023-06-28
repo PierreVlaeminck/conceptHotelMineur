@@ -1,4 +1,6 @@
 package com.simplon.concepthotelmineur.repository;
 
-public class DocumentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DocumentRepository extends JpaRepository<DocumentRepository, Long> {
 }
