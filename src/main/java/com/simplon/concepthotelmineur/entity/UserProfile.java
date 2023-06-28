@@ -2,29 +2,47 @@ package com.simplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 public class UserProfile {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUp;
 
+    @Getter
+    @Setter
     private String username;
 
+    @Getter
+    @Setter
     private String lastName;
 
+    @Getter
+    @Setter
     private String firstName;
 
+    @Getter
+    @Setter
     private LocalDate dateOfBirthU;
 
+    @Getter
+    @Setter
     @Email
     private String mailU;
 
+    @Getter
+    @Setter
     private String phone;
 
+    @Getter
+    @Setter
     private String cellPhoneU;
 
     public UserProfile(Long idUp, String username, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
@@ -39,69 +57,5 @@ public class UserProfile {
     }
 
     public UserProfile() {
-    }
-
-    public Long getIdUp() {
-        return idUp;
-    }
-
-    public void setIdUp(Long idUp) {
-        this.idUp = idUp;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public LocalDate getDateOfBirthU() {
-        return dateOfBirthU;
-    }
-
-    public void setDateOfBirthU(LocalDate dateOfBirthU) {
-        this.dateOfBirthU = dateOfBirthU;
-    }
-
-    public String getMailU() {
-        return mailU;
-    }
-
-    public void setMailU(String mailU) {
-        this.mailU = mailU;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getCellPhoneU() {
-        return cellPhoneU;
-    }
-
-    public void setCellPhoneU(String cellPhoneU) {
-        this.cellPhoneU = cellPhoneU;
     }
 }

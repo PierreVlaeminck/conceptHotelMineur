@@ -1,18 +1,28 @@
 package com.simplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Reviews {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRe;
 
+    @Getter
+    @Setter
     private String commentary;
 
+    @Getter
+    @Setter
     private Integer scores;
 
+    @Getter
+    @Setter
     @OneToOne
     @JoinColumn(name = "booking_id")
     private Booking booking;
@@ -25,37 +35,5 @@ public class Reviews {
     }
 
     public Reviews() {
-    }
-
-    public Long getIdRe() {
-        return idRe;
-    }
-
-    public void setIdRe(Long idRe) {
-        this.idRe = idRe;
-    }
-
-    public String getCommentary() {
-        return commentary;
-    }
-
-    public void setCommentary(String commentary) {
-        this.commentary = commentary;
-    }
-
-    public Integer getScores() {
-        return scores;
-    }
-
-    public void setScores(Integer scores) {
-        this.scores = scores;
-    }
-
-    public Booking getBooking() {
-        return booking;
-    }
-
-    public void setBooking(Booking booking) {
-        this.booking = booking;
     }
 }
