@@ -32,7 +32,7 @@
 
     <div class="container border shadow mt-5 mb-5">
         <form method="post">
-            <h2 class="text-center mt-3 mb-4">Mes informations personnelles</h2>
+            <h1 class="text-center mt-3 mb-4">Mes informations personnelles</h1>
             <div>
                 <label class="form-label" for=""></label>
                 <input class="form-control" type="text" id="" name="" placeholder="Nom" required>
@@ -54,10 +54,10 @@
                 <input class="form-control" type="text" id="phone" name="" placeholder="Numéro de téléphone" required>
             </div>
             <div class="d-flex justify-content-center mb-5 mt-5">
-                <button class="btnF btn-white w-25 nav-link m-3 px-2" type="submit">Modifier</button>
+                <button class="btnF btn-white w-50 nav-link m-3 px-2" type="submit">Modifier</button>
             </div>
             <div class="d-flex justify-content-end mt-7 mb-2">
-                <button class="btnF btn-white w-25 nav-link m-3 px-2" type="submit">Modifier mon mot de passe</button>
+                <button class="btnF btn-white nav-link m-3 px-2">Modifier mon mot de passe</button>
             </div>
         </form>
     </div>
@@ -75,14 +75,17 @@
                             <div class="card border shadow mb-4">
                                 <div class="card-head m-2">
                                     <div class="row">
-                                        <span class="col-10">Nom de l'hôtel 1</span>
-                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-exclamation-circle-fill"></i></span>
-                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-x-circle-fill"></i></span>
+                                        <h2 class="col-10 fs-3">Nom de l'hôtel 1</h2>
+                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-exclamation-circle-fill fs-3"></i></span>
+                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-x-circle-fill fs-3"></i></span>
                                     </div>
                                 </div>
-                                <div class="card-body d-flex justify-content-between m-2">
+                                <div class="card-body d-flex justify-content-between m-1">
                                     <img src="/test-image1.jpg" alt="photo de l'hôtel">
-                                    <p class="m-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu sodales augue. Fusce aliquam ipsum eget congue aliquam.</p>
+                                    <div class="col-6 justify-content-center text-justify">
+                                        <p class="m-1 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu sodales augue. Fusce aliquam ipsum eget congue aliquam.</p>
+                                        <a th:href="@{/hotel}" class="btn btn-orange w-100"> <i class="bi bi-search me-2"></i> Plus d'infos</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,14 +100,18 @@
                             <div class="card border shadow mb-3">
                                 <div class="card-head m-2">
                                     <div class="row">
-                                        <span class="col-11">Nom de l'hôtel 1</span>
-                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-x-circle-fill"></i></span>
+                                        <h2 class="col-11 fs-3">Nom de l'hôtel 1</h2>
+                                        <span class="d-flex justify-content-end col-1"><i class="bi bi-x-circle-fill fs-3"></i></span>
                                     </div>
                                 </div>
-                                <div class="card-body d-flex justify-content-between m-2">
+                                <div class="card-body d-flex justify-content-between m-1">
                                     <img src="/test-image1.jpg" alt="photo de l'hôtel">
-                                    <p class="m-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu sodales augue. Fusce aliquam ipsum eget congue aliquam.</p>
+                                    <div class="col-6 justify-content-center text-justify">
+                                        <p class="m-1 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu sodales augue. Fusce aliquam ipsum eget congue aliquam.</p>
+                                        <a th:href="@{/hotel}" class="btn btn-orange w-100"> <i class="bi bi-search me-2"></i> Plus d'infos</a>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
