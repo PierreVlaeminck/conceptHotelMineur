@@ -2,7 +2,6 @@ package com.simplon.concepthotelmineur.service;
 
 import com.simplon.concepthotelmineur.entity.Booking;
 import com.simplon.concepthotelmineur.repository.ReviewsRepository;
-import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.entity.Reviews;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
