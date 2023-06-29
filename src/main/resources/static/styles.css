@@ -90,6 +90,10 @@ footer a:hover {
     border:solid 2px #DD7F1E;
 }
 
+.customHr{
+    color: #DD7F1E;
+    border-width: 2px;
+}
 
 /* Style boutons sur fond blanc*/
 .btnF {
@@ -103,6 +107,7 @@ footer a:hover {
     text-align : justify;
 }
 
+/* Home Map */
 #mapid{
     margin: 0;
     height: 200px;
