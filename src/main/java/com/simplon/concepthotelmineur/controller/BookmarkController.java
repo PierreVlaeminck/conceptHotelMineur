@@ -23,7 +23,7 @@ public class BookmarkController {
     }
 
     @DeleteMapping("/favoris/{id}")
-    public void deleteBookmark(@PathVariable Long id){
+    public void deleteBookmark(@PathVariable Long id) {
         bookmarkService.deleteBookmark(id);
     }
 }

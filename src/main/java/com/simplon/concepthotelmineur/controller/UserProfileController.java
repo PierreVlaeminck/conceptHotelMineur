@@ -53,8 +53,8 @@ public class UserProfileController {
 
         UserProfile userProfile = new UserProfile();
         userProfile.setUsername(createUser.getLogin());
-        userProfile.setFirstName(createUser.getFirstName());
-        userProfile.setLastName(createUser.getLastName());
+        userProfile.setFirstNameU(createUser.getFirstName());
+        userProfile.setLastNameU(createUser.getLastName());
         userProfile.setMailU(createUser.getMailU());
         userProfile.setPhone(createUser.getPhone());
         userProfile.setCellPhoneU(createUser.getCellPhoneU());
@@ -74,8 +74,8 @@ public class UserProfileController {
     public UserProfile updateUserProfile(@PathVariable Long id, @RequestBody UserProfile newProfile) {
         UserProfile userProfile = userProfileService.findUserProfileByIdUp(id);
 
-        userProfile.setFirstName(newProfile.getFirstName());
-        userProfile.setLastName(newProfile.getLastName());
+        userProfile.setFirstNameU(newProfile.getFirstNameU());
+        userProfile.setLastNameU(newProfile.getLastNameU());
         userProfile.setMailU(newProfile.getMailU());
         userProfile.setPhone(newProfile.getPhone());
         userProfile.setCellPhoneU(newProfile.getCellPhoneU());
