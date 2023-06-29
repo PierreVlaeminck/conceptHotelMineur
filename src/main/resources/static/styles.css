@@ -70,12 +70,6 @@ body{
 footer a:hover {
     color: #DD7F1E;
 }
-
-.btnF {
-    background-color: #FFFFFF;
-    color: #004AAD;
-    border: 2px solid #004AAD;
-}
 .img-hotel{
     height: 80%;
     width:80% ;
@@ -91,4 +85,12 @@ footer a:hover {
     font-weight: bold;
     font-size: 14px;
     color: white;
+}
+.border-home{
+    border:solid 2px #DD7F1E;
+}
+.btnF {
+    background-color: #FFFFFF;
+    color: #004AAD;
+    border: 2px solid #004AAD;
 }
