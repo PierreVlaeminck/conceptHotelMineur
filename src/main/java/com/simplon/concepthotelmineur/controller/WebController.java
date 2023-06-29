@@ -22,8 +22,6 @@ public class WebController {
     public String home(Hostel hostel, Model model) {
         List<Hostel> hostelList = hostelService.findAllHostel();
         model.addAttribute("hostelList", hostelList);
-        List<Hostel> hostelListByCity = hostelService.findHostelByCity(hostel);
-        model.addAttribute("hostelListByCity", hostelListByCity);
         return ("index");
     }
 
