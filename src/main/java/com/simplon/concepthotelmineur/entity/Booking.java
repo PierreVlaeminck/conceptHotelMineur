@@ -17,6 +17,7 @@ public class Booking {
 
     @Getter
     @Setter
+    @Column(unique = true, nullable = false)
     private String bookingCode;
 
     @Getter
@@ -68,5 +69,13 @@ public class Booking {
     }
 
     public Booking() {
+    }
+
+    @PrePersist
+    private void generateBookingCode() {
+        // Génération du code de réservation
+        String codePrefix = "R";
+        String codeNumber = String.format("%03d", idB);
+        bookingCode = codePrefix + codeNumber;
     }
 }

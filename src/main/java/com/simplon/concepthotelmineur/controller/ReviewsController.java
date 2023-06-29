@@ -4,7 +4,6 @@ import com.simplon.concepthotelmineur.dto.CreateReviews;
 import com.simplon.concepthotelmineur.entity.Booking;
 import com.simplon.concepthotelmineur.entity.Reviews;
 import com.simplon.concepthotelmineur.service.BookingService;
-import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.ReviewsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,12 +15,11 @@ public class ReviewsController {
 
     private final ReviewsService reviewsService;
     private final BookingService bookingService;
-    private final HostelService hostelService;
 
-    public ReviewsController(ReviewsService reviewsService, BookingService bookingService, HostelService hostelService) {
+    public ReviewsController(ReviewsService reviewsService,
+                             BookingService bookingService) {
         this.reviewsService = reviewsService;
         this.bookingService = bookingService;
-        this.hostelService = hostelService;
     }
 
     @PostMapping("avis_clients/{bookingId}/ajouter_un_avis")

@@ -22,11 +22,11 @@ public class UserProfile {
 
     @Getter
     @Setter
-    private String lastName;
+    private String lastNameU;
 
     @Getter
     @Setter
-    private String firstName;
+    private String firstNameU;
 
     @Getter
     @Setter
@@ -45,11 +45,11 @@ public class UserProfile {
     @Setter
     private String cellPhoneU;
 
-    public UserProfile(Long idUp, String username, String lastName, String firstName, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
+    public UserProfile(Long idUp, String username, String lastNameU, String firstNameU, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
         this.idUp = idUp;
         this.username = username;
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.lastNameU = lastNameU;
+        this.firstNameU = firstNameU;
         this.dateOfBirthU = dateOfBirthU;
         this.mailU = mailU;
         this.phone = phone;
