@@ -7,13 +7,10 @@ body{
     font-size: 18px;
 }
 .bg-blue{
-    background-color: #004AAD;
+    background-color: #004AAD !important;
 }
 .bg-orange{
     background-color: #DD7F1E;
-}
-.shadow{
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 .img-logo{
     height: 45px;
@@ -73,4 +70,27 @@ body{
 footer a:hover {
     color: #DD7F1E;
 }
-
+.img-hotel{
+    height: 80%;
+    width:80% ;
+}
+.rating-square {
+    width: 30px;
+    height: 30px;
+    background-color: #004AAD;
+    border: 1px solid #DD7F1E;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+.border-home{
+    border:solid 2px #DD7F1E;
+}
+.btnF {
+    background-color: #FFFFFF;
+    color: #004AAD;
+    border: 2px solid #004AAD;
+}

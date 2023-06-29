@@ -1,6 +1,5 @@
 package com.simplon.concepthotelmineur.service;
 
-import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.repository.UserProfileRepository;
 import com.simplon.concepthotelmineur.entity.UserProfile;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +11,8 @@ public class UserProfileService {
 
     private final UserProfileRepository userProfileRepository;
 
-    UserProfile findUserProfileByIdUp(UserProfile userProfile){
-        return userProfileRepository.findByIdUp(userProfile);
+    public UserProfile findUserProfileByIdUp(Long id){
+        return userProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("User Profile not found for this id : " + id));
     }
 
     public UserProfile addUserProfile(UserProfile userProfile) {
