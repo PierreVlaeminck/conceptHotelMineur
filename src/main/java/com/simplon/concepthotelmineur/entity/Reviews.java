@@ -22,7 +22,7 @@ public class Reviews {
 
     @Getter
     @Setter
-    private Integer scores;
+    private Double scores;
 
     @Getter
     @Setter
@@ -30,7 +30,7 @@ public class Reviews {
     @JoinColumn(name = "booking_id")
     private Booking booking;
 
-    public Reviews(Long idRe, String commentary, Integer scores, Booking booking) {
+    public Reviews(Long idRe, String commentary, Double scores, Booking booking) {
         this.idRe = idRe;
         this.commentary = commentary;
         this.scores = scores;
