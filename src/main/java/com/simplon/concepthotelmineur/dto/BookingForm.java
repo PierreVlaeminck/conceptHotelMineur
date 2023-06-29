@@ -10,10 +10,6 @@ public class BookingForm {
 
     @Getter
     @Setter
-    private String bookingCode;
-
-    @Getter
-    @Setter
     private LocalDateTime dateArrived;
 
     @Getter
