@@ -70,11 +70,6 @@ public class UserProfileController {
         userProfileService.deleteUserProfile(id);
     }
 
-    @GetMapping("/users/{id}")
-    public UserProfile getUserProfile(@PathVariable Long id) {
-        return userProfileService.findUserProfileByIdUp(id);
-    }
-
     @PutMapping("/users/{id}")
     public UserProfile updateUserProfile(@PathVariable Long id, @RequestBody UserProfile newProfile) {
         UserProfile userProfile = userProfileService.findUserProfileByIdUp(id);
