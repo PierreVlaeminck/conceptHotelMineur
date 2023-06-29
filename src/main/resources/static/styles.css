@@ -89,11 +89,15 @@ footer a:hover {
 .border-home{
     border:solid 2px #DD7F1E;
 }
+
+
+/* Style boutons sur fond blanc*/
 .btnF {
     background-color: #FFFFFF;
     color: #004AAD;
     border: 2px solid #004AAD;
 }
+
 #mapid{
     margin: 0;
     height: 200px;
