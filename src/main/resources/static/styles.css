@@ -98,6 +98,11 @@ footer a:hover {
     border: 2px solid #004AAD;
 }
 
+/* Style pour justifier les textes */
+.text-justify {
+    text-align : justify;
+}
+
 #mapid{
     margin: 0;
     height: 200px;
