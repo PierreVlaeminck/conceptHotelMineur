@@ -111,76 +111,16 @@
             </div>
             <div class="col-9 p-0">
                 <div class="d-flex flex-wrap flex-row justify-content-between">
-                    <div class="card border shadow col-3 mx-2 mt-5">
+                    <div class="card border shadow col-3 mx-2 mt-5" th:each="hostel : ${hostelList}">
                         <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 1</span>
+                            <span th:text="${hostel.name}">Nom de l'hôtel</span>
                         </div>
                         <div class="card-body d-flex justify-content-center px-0">
                             <img src="/test-image1.jpg" alt="photo de l'hôtel" class="image-home">
                         </div>
                         <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="card border shadow col-3 mx-2 mt-5">
-                        <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 2</span>
-                        </div>
-                        <div class="card-body d-flex justify-content-center px-0">
-                            <img src="/test-image2.jpg" alt="photo de l'hôtel" class="image-home">
-                        </div>
-                        <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="card border shadow col-3 mx-2 mt-5">
-                        <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 3</span>
-                        </div>
-                        <div class="card-body d-flex justify-content-center px-0">
-                            <img src="/test-image3.jpg" alt="photo de l'hôtel" class="image-home">
-                        </div>
-                        <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="card border shadow col-3 mx-2 mt-5">
-                        <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 3</span>
-                        </div>
-                        <div class="card-body d-flex justify-content-center px-0">
-                            <img src="/test-image3.jpg" alt="photo de l'hôtel" class="image-home">
-                        </div>
-                        <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="card border shadow col-3 mx-2 mt-5">
-                        <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 3</span>
-                        </div>
-                        <div class="card-body d-flex justify-content-center px-0">
-                            <img src="/test-image3.jpg" alt="photo de l'hôtel" class="image-home">
-                        </div>
-                        <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
-                        </div>
-                    </div>
-                    <div class="card border shadow col-3 mx-2 mt-5">
-                        <div class="card-head d-flex justify-content-center pt-3">
-                            <span>Nom de l'hôtel 3</span>
-                        </div>
-                        <div class="card-body d-flex justify-content-center px-0">
-                            <img src="/test-image3.jpg" alt="photo de l'hôtel" class="image-home">
-                        </div>
-                        <div class="card-footer d-flex flex-column justify-content-center">
-                            <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor venenatis velit at molestie. Maecenas porttitor interdum lacus, in lobortis metus. Integer accumsan erat et vestibulum tincidunt.</span>
-                            <a th:href="@{/hotel}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
+                            <span class="description" th:text="${hostel.description}"></span>
+                            <a th:href="@{/hotel/{id}(id=${hostel.idH})}" class="btn btn-orange my-2"> <i class="bi bi-search"></i> Plus d'infos</a>
                         </div>
                     </div>
                 </div>
