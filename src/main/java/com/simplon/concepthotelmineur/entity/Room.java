@@ -1,6 +1,7 @@
 package com.simplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +26,8 @@ public class Room {
 
     @Getter
     @Setter
+    @Column (columnDefinition = "text")
+    @Size(min = 3, max = 1000)
     private String detail;
 
     @Getter

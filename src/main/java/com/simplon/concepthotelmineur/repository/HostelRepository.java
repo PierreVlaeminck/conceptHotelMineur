@@ -11,5 +11,5 @@ public interface HostelRepository extends JpaRepository<Hostel, Long> {
 
     List<Hostel> findAllByCity(Hostel hostel);
 
-    Hostel findByIdH(Hostel hostel);
+    Hostel findByIdH(Long id);
 }

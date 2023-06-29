@@ -1,6 +1,7 @@
 package com.simplon.concepthotelmineur.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,8 @@ public class Reviews {
 
     @Getter
     @Setter
+    @Column (columnDefinition = "text")
+    @Size(min = 3, max = 1500)
     private String commentary;
 
     @Getter
