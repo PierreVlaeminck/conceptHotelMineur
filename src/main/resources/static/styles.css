@@ -46,7 +46,8 @@ body{
 .btn-taxi{
     border: 2px solid #FFFFFF;
     border-radius: 10px;
-    height:20px;
+    height:30px;
+    width: 120px
 }
 .search{
     background-color: #DD7F1E;
@@ -56,6 +57,7 @@ body{
 .input-search{
     height: 65%;
     border-radius: 10px;
+    border-style: none;
 }
 .card-footer .description {
     display: -webkit-box;
@@ -112,4 +114,11 @@ footer a:hover {
     margin: 0;
     height: 200px;
     width: 100%;
+}
+
+.sticky-menu {
+    position: sticky;
+    margin: 0 auto;
+    top: 0;
+
 }
