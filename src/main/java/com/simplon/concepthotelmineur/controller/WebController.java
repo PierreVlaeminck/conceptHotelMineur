@@ -1,5 +1,6 @@
 package com.simplon.concepthotelmineur.controller;
 
+import com.simplon.concepthotelmineur.dto.CreateUser;
 import com.simplon.concepthotelmineur.entity.*;
 import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
@@ -8,6 +9,7 @@ import com.simplon.concepthotelmineur.service.UserProfileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -69,7 +71,10 @@ public class WebController {
      * @return the view name for the registration page
      */
     @GetMapping("/inscription")
-    public String register() {
+    public String register(CreateUser createUser, Model model) {
+        if (createUser == null || !model.containsAttribute("createUser")) {
+            model.addAttribute("createUser", new CreateUser());
+        }
         return "userRegister";
     }
 
