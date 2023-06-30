@@ -19,27 +19,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.Collection;
 
+/**
+ * Controller class for managing user profiles.
+ */
 @Controller
 public class UserProfileController {
 
     private final UserProfileService userProfileService;
-
     private final PasswordEncoder passwordEncoder;
-
     private final UserDetailsManager userDetailsManager;
 
+    /**
+     * Constructs a new UserProfileController with the given UserProfileService, PasswordEncoder, and UserDetailsManager.
+     *
+     * @param userProfileService  the UserProfileService to be used
+     * @param passwordEncoder     the PasswordEncoder to be used
+     * @param userDetailsManager the UserDetailsManager to be used
+     */
     public UserProfileController(UserProfileService userProfileService, PasswordEncoder passwordEncoder, UserDetailsManager userDetailsManager) {
         this.userProfileService = userProfileService;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsManager = userDetailsManager;
     }
 
+    /**
+     * Creates a new user profile and user account.
+     *
+     * @param createUser  the CreateUser object containing the user details
+     * @param validation  the BindingResult object for validating the user input
+     * @param model       the Model object for handling the view
+     * @return a redirect to the home page
+     */
     @PostMapping("/Inscription")
     @Transactional
     public String createUser(@Valid @ModelAttribute("CreateUser") CreateUser createUser, BindingResult validation, Model model) {
         if (!createUser.getPassword().equals(createUser.getConfirmPassword())) {
             createUser.setConfirmPassword("");
-            validation.addError(new FieldError("CreateUser", "confirmPassword", "Les mots de passe ne correspondent pas."));
+            validation.addError(new FieldError("CreateUser", "confirmPassword", "Passwords do not match."));
         }
         if (validation.hasErrors()) {
             return "Inscription";
@@ -65,11 +81,23 @@ public class UserProfileController {
         return "redirect:/";
     }
 
+    /**
+     * Deletes a user profile.
+     *
+     * @param id the ID of the user profile to be deleted
+     */
     @DeleteMapping("/users/{id}")
     public void deleteUserProfile(@PathVariable Long id) {
         userProfileService.deleteUserProfile(id);
     }
 
+    /**
+     * Updates a user profile.
+     *
+     * @param id        the ID of the user profile to be updated
+     * @param newProfile the updated UserProfile object
+     * @return the updated UserProfile
+     */
     @PutMapping("/users/{id}")
     public UserProfile updateUserProfile(@PathVariable Long id, @RequestBody UserProfile newProfile) {
         UserProfile userProfile = userProfileService.findUserProfileByIdUp(id);

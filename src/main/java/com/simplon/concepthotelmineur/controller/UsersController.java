@@ -12,15 +12,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 
+/**
+ * Controller class for managing user accounts and password changes.
+ */
 @Controller
 public class UsersController {
 
     private final PasswordEncoder passwordEncoder;
-
     private final UserDetailsManager userDetailsManager;
-
     private static final String UPDATE_PASSWORD = "updatePassword";
 
+    /**
+     * Constructs a new UsersController with the given PasswordEncoder and UserDetailsManager.
+     *
+     * @param passwordEncoder     the PasswordEncoder to be used
+     * @param userDetailsManager the UserDetailsManager to be used
+     */
     public UsersController(PasswordEncoder passwordEncoder, UserDetailsManager userDetailsManager) {
         this.passwordEncoder = passwordEncoder;
         this.userDetailsManager = userDetailsManager;
@@ -29,10 +36,10 @@ public class UsersController {
     /**
      * Changes the user's password.
      *
-     * @param updatePassword          the password form object containing password data
-     * @param bindingResult         the binding result for form validation
-     * @param principal             the principal object representing the current user
-     * @param redirectAttributes    the redirect attributes
+     * @param updatePassword       the password form object containing password data
+     * @param bindingResult        the binding result for form validation
+     * @param principal            the principal object representing the current user
+     * @param redirectAttributes   the redirect attributes
      * @return a redirect to the home page or the change password form in case of validation errors
      */
     @PostMapping("/mot_de_passe")
@@ -59,11 +66,11 @@ public class UsersController {
         }
 
         String encodedPassword = passwordEncoder.encode(updatePassword.getNewPassword());
-        userDetailsManager.changePassword(String.valueOf
-                        (userDetailsManager.loadUserByUsername(username).getPassword()),
+        userDetailsManager.changePassword(
+                String.valueOf(userDetailsManager.loadUserByUsername(username).getPassword()),
                 encodedPassword);
 
-        redirectAttributes.addFlashAttribute("successMessage", "Votre mot de passe a été modifié avec succès.");
+        redirectAttributes.addFlashAttribute("successMessage", "Your password has been successfully changed.");
         return "redirect:/";
     }
 }

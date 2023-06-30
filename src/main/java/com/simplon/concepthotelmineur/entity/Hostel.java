@@ -62,4 +62,11 @@ public class Hostel {
         return rooms;
     }
 
+    @OneToMany(mappedBy = "hostel")
+    private List<Reviews> reviews;
+
+    public List<Reviews> getReviews(){
+        return reviews;
+    }
+
 }
