@@ -1,7 +1,7 @@
 package com.simplon.concepthotelmineur.controller;
 
 import ch.qos.logback.core.model.Model;
-import com.simplon.concepthotelmineur.dto.CreateUser;
+import com.simplon.concepthotelmineur.dto.UserForm;
 import com.simplon.concepthotelmineur.entity.UserProfile;
 import com.simplon.concepthotelmineur.service.UserProfileService;
 import jakarta.transaction.Transactional;
@@ -52,7 +52,7 @@ public class UserProfileController {
      */
     @PostMapping("/Inscription")
     @Transactional
-    public String createUser(@Valid @ModelAttribute("CreateUser") CreateUser createUser, BindingResult validation, Model model) {
+    public String createUser(@Valid @ModelAttribute("CreateUser") UserForm createUser, BindingResult validation, Model model) {
         if (!createUser.getPassword().equals(createUser.getConfirmPassword())) {
             createUser.setConfirmPassword("");
             validation.addError(new FieldError("CreateUser", "confirmPassword", "Passwords do not match."));

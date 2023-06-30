@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 @Getter
 @Setter
-public class CreateUser {
+public class UserForm {
 
 
     @Size(min=1, max=255)

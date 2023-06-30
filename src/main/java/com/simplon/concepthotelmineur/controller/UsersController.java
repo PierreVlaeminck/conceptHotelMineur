@@ -1,16 +1,30 @@
 package com.simplon.concepthotelmineur.controller;
 
 import com.simplon.concepthotelmineur.dto.UpdatePassword;
+import com.simplon.concepthotelmineur.dto.UserForm;
+import com.simplon.concepthotelmineur.entity.UserProfile;
+import com.simplon.concepthotelmineur.service.UserProfileService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Controller class for managing user accounts and password changes.
@@ -21,6 +35,9 @@ public class UsersController {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsManager userDetailsManager;
     private static final String UPDATE_PASSWORD = "updatePassword";
+
+    @Autowired
+    private UserProfileService userProfileService;
 
     /**
      * Constructs a new UsersController with the given PasswordEncoder and UserDetailsManager.
@@ -71,6 +88,46 @@ public class UsersController {
                 encodedPassword);
 
         redirectAttributes.addFlashAttribute("successMessage", "Your password has been successfully changed.");
+        return "redirect:/";
+    }
+
+    @PostMapping("/createUser")
+    @Transactional
+    public String createUser(
+            @Valid @ModelAttribute(name = "user") UserForm user,
+            BindingResult validation, Model model)
+    {
+        if (!user.getPassword().equals(user.getConfirmPassword()))
+        {
+            user.setConfirmPassword("");
+            validation.addError(new FieldError("user", "confirmPassword",
+                    "Les mots de passe ne correspondent pas"));
+        }
+        if (userDetailsManager.userExists(user.getLogin()))
+        {
+            user.setLogin("");
+            validation.addError(new ObjectError("user", "Cet utilisateur existe déjà"));
+        }
+        if (validation.hasErrors())
+        {
+            return "/createUser";
+        }
+
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        // Roles for new user
+        Collection<? extends GrantedAuthority> roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        UserDetails userDetails = new User(user.getLogin(), encodedPassword, roles);
+        // Create the account in database with all its roles
+        userDetailsManager.createUser(userDetails);
+
+        // Create a UserProfile from UserForm and save it to the database
+        UserProfile userProfile = new UserProfile();
+        userProfile.setUsername(user.getLogin());
+        userProfile.setFirstNameU(user.getFirstName());
+        userProfile.setLastNameU(user.getLastName());
+        userProfile.setPhone(user.getPhone());
+        userProfileService.addUserProfile(userProfile);
+
         return "redirect:/";
     }
 }

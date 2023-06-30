@@ -28,39 +28,43 @@
 <!------------Start Booking Form Section--------->
 <main>
     <div class="container border shadow w-75 mt-5 mb-5">
-        <form class="row">
+        <form  method="post" action="/createUser" class="row">
             <h1 class="text-center mt-3 mb-4">Inscription</h1>
             <div class="col-md-6">
+                <label for="validationDefault" class="form-label"></label>
+                <input type="text" class="form-control" id="validationDefault" name="login" placeholder="Pseudonyme" required>
+            </div>
+            <div class="col-md-6">
                 <label for="validationDefault01" class="form-label"></label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Nom" required>
+                <input type="text" class="form-control" id="validationDefault01" name="lastName" placeholder="Nom" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault02" class="form-label"></label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Prénom" required>
+                <input type="text" class="form-control" id="validationDefault02" name="firstName" placeholder="Prénom" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label"></label>
-                <input type="date" class="form-control" id="validationDefault03" placeholder="Date de naissance" required>
+                <input type="date" class="form-control" id="validationDefault03" name="dateOfBirthU" placeholder="Date de naissance" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault04" class="form-label"></label>
-                <input type="email" class="form-control" id="validationDefault04" placeholder="Email" required>
+                <input type="email" class="form-control" id="validationDefault04" name="email" placeholder="Email" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault05" class="form-label"></label>
-                <input type="tel" class="form-control" id="validationDefault05" placeholder="Portable" required>
+                <input type="tel" class="form-control" id="validationDefault05" name="cellPhoneU" placeholder="Portable" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault06" class="form-label"></label>
-                <input type="tel" class="form-control" id="validationDefault06" placeholder="Fixe" required>
+                <input type="tel" class="form-control" id="validationDefault06" name="phone" placeholder="Fixe">
             </div>
             <div class="col-md-6">
                 <label for="validationDefault07" class="form-label"></label>
-                <input type="password" class="form-control" id="validationDefault07" placeholder="Mot de passe" required>
+                <input type="password" class="form-control" id="validationDefault07" name="password" placeholder="Mot de passe" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault08" class="form-label"></label>
-                <input type="password" class="form-control" id="validationDefault08" placeholder="Confirmation du mot de passe" required>
+                <input type="password" class="form-control" id="validationDefault08" name="confirmPassword" placeholder="Confirmation du mot de passe" required>
             </div>
             <div class="col-12 d-flex justify-content-end">
                 <div class="form-check mt-3">
