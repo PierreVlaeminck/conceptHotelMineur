@@ -18,10 +18,10 @@ import javax.sql.DataSource;
 public class SpringSecurityConfig {
 
     @Bean
-    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorize -> authorize
+                .authorizeRequests(authorize -> authorize
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
