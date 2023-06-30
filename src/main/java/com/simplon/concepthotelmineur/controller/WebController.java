@@ -95,6 +95,8 @@ public class WebController {
         Hostel hostel = hostelService.findHostelByIdH(id);
         List<BenefitHostel> benefitHostels = hostel.getBenefitHostels();
         List<Room> rooms = hostel.getRooms();
+        List<Reviews> reviews = reviewsService.findReviewsByHostel(hostel);
+        model.addAttribute("reviews", reviews);
         model.addAttribute("hostel", hostel);
         model.addAttribute("benefitHostels", benefitHostels);
         model.addAttribute("rooms", rooms);

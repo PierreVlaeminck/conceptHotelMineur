@@ -23,6 +23,8 @@ public class Booking {
 
     private LocalDateTime departureDate;
 
+    private LocalDateTime createdAt = LocalDateTime.now();
+
     private Double totalPrice;
 
     private Boolean pending;

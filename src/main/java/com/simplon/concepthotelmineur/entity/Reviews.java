@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @Entity
@@ -19,6 +21,8 @@ public class Reviews {
     private String commentary;
 
     private Double scores;
+
+    private LocalDate createdAt;
 
     @OneToOne
     @JoinColumn(name = "booking_id")
