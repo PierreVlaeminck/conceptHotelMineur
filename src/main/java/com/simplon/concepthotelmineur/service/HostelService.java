@@ -13,7 +13,8 @@ public class HostelService {
 
     private final HostelRepository hostelRepository;
 
-    public List<Hostel> findAllHostel() { return hostelRepository.findAll(); }
+    public List<Hostel> findAllHostel() {
+        return hostelRepository.findAll(); }
 
     public Hostel findHostelByIdH(Long id){
         return hostelRepository.findByIdH(id);

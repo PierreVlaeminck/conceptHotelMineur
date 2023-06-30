@@ -15,6 +15,10 @@ public class RoomService {
 
     private final RoomRepository roomRepository;
 
+    public Room findRoomById(Room room){
+        return roomRepository.save(room);
+    }
+
     public List<Room> findRoomByType(Type type) {
         return roomRepository.findRoomByType(type);
     }

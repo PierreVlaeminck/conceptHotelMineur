@@ -14,10 +14,6 @@ public class Room {
 
     @Getter
     @Setter
-    private boolean available;
-
-    @Getter
-    @Setter
     private String roomNumber;
 
     @Getter
@@ -42,10 +38,9 @@ public class Room {
     @JoinColumn(name = "hostel_id")
     private Hostel hostel;
 
-    public Room(Long idR, String roomNumber, Boolean available, Double price, String detail, Type type) {
+    public Room(Long idR, String roomNumber, Double price, String detail, Type type) {
         this.idR = idR;
         this.roomNumber = roomNumber;
-        this.available = available;
         this.price = price;
         this.detail = detail;
         this.type = type;
