@@ -129,7 +129,7 @@ public class WebController {
      * @param id          the ID of the user profile
      * @return the view name for the user profile page
      */
-    @GetMapping("/profil/{id}")
+    @GetMapping("/profil")
     public String profil(Model model, UserProfile userProfile, @PathVariable Long id) {
         List<Booking> bookingListByUserProfile = bookingService.findAllBookingByUserProfil(userProfile);
         model.addAttribute("bookingListByUserProfile", bookingListByUserProfile);
