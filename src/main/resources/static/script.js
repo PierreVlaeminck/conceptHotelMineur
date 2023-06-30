@@ -1,30 +1,43 @@
-// create a map centered on Bretagne
+/**
+ * Creates a map and initializes it with a centered view on Bretagne.
+ */
 let map = L.map('mapid').setView([48.3905283, -4.4860088], 8);
 
-// add an OpenStreetMap tile layer to the map.
+/**
+ * Adds an OpenStreetMap tile layer to the map.
+ */
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
     maxZoom: 18
 }).addTo(map);
 
-// create an initial marker
+/**
+ * Creates an initial marker on the map.
+ */
 let marker = L.marker([latitudeInput.value, longitudeInput.value]).addTo(map);
 
-<!-- Javascript barre de prix -->
+<!-- Javascript price slider -->
 
-// Récupérer les éléments HTML nécessaires pour la barre de prix
+/**
+ * Retrieves the necessary HTML elements for the price slider.
+ */
 const priceRangeInput = document.getElementById('customRange2');
 const priceDisplay = document.getElementById('priceDisplay');
 
-// Définir une fonction pour mettre à jour le prix
+/**
+ * Updates the price display based on the position of the slider.
+ */
 function updatePrice() {
-    const price = priceRangeInput.value * 10; // Exemple : prix = position du curseur * 10
+    const price = priceRangeInput.value * 10;
     priceDisplay.textContent = price + '€';
 }
 
-// Ajouter un gestionnaire d'événement pour détecter les changements de position du curseur pour la barre de prix
+/**
+ * Adds an event listener to detect changes in the slider position.
+ */
 priceRangeInput.addEventListener('input', updatePrice);
 
-// Appeler la fonction updatePrice pour afficher le prix initial
+/**
+ * Calls the updatePrice function to display the initial price.
+ */
 updatePrice();
-

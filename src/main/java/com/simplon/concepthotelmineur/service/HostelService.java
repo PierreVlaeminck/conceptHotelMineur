@@ -7,19 +7,40 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for managing Hostel entities.
+ */
 @Service
 @RequiredArgsConstructor
 public class HostelService {
 
     private final HostelRepository hostelRepository;
 
+    /**
+     * Retrieves a list of all hostels.
+     *
+     * @return a list of all hostels
+     */
     public List<Hostel> findAllHostel() {
-        return hostelRepository.findAll(); }
+        return hostelRepository.findAll();
+    }
 
+    /**
+     * Retrieves a hostel by its ID.
+     *
+     * @param id the ID of the hostel
+     * @return the hostel with the specified ID
+     */
     public Hostel findHostelByIdH(Long id){
         return hostelRepository.findByIdH(id);
     }
 
+    /**
+     * Retrieves a list of hostels based on the city.
+     *
+     * @param hostel the hostel object containing the city
+     * @return a list of hostels with the specified city
+     */
     public List<Hostel> findHostelByCity(Hostel hostel) {
         return hostelRepository.findAllByCity(hostel);
     }

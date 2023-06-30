@@ -13,10 +13,20 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
+/**
+ * Configuration class for Spring Security.
+ */
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
 
+    /**
+     * Configures the security filter chain.
+     *
+     * @param http the HttpSecurity object
+     * @return the configured SecurityFilterChain
+     * @throws Exception if an error occurs during configuration
+     */
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http

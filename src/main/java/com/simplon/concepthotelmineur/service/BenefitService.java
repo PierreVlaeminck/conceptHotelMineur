@@ -4,8 +4,9 @@ import com.simplon.concepthotelmineur.repository.BenefitRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+/**
+ * Service class for managing Benefit entities.
+ */
 @Service
 @RequiredArgsConstructor
 public class BenefitService {
