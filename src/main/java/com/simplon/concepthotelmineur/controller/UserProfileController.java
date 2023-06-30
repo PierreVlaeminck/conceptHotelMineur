@@ -58,7 +58,7 @@ public class UserProfileController {
             validation.addError(new FieldError("CreateUser", "confirmPassword", "Passwords do not match."));
         }
         if (validation.hasErrors()) {
-            return "Inscription";
+            return "userRegister";
         }
 
         String encodedPassword = passwordEncoder.encode(createUser.getPassword());
