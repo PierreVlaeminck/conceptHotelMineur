@@ -61,12 +61,4 @@ public class Hostel {
     public List<Room> getRooms() {
         return rooms;
     }
-
-    @OneToMany(mappedBy = "hostel")
-    private List<Reviews> reviews;
-
-    public List<Reviews> getReviews(){
-        return reviews;
-    }
-
 }

@@ -104,8 +104,7 @@ public class WebController {
     @GetMapping("/avis_clients/{id}")
     public String getReviewsByHotel(@PathVariable Long id, Model model) {
         Hostel hostel = hostelService.findHostelByIdH(id);
-        List<Reviews> reviews = hostel.getReviews(); // Obtenez la liste des avis liés à l'hôtel
-        model.addAttribute("reviews", reviews); // Ajoutez les avis au modèle
+        model.addAttribute("hostel", hostel); // Ajoutez les avis au modèle
         return "reviews";
     }
 
