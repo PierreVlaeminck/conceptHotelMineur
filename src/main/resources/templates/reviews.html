@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org " xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -71,49 +71,16 @@
 
             <div class="col-7 p-0">
                 <h1 class="text-center mt-5 mb-5">Commentaires Clients</h1>
-                <div class="card shadow mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4 d-flex justify-content-center mt-5">
-                            <div class="text-center">
-                                <h5 class="card-title">Jean-Pierre</h5>
-                                <p class="card-text"><small class="text-body-secondary">France</small></p>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="container border shadow">
-                                    <p class="card-text p-2 mt-2 mb-2"><small class="text-body-secondary">Reponse Hotel:
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                        minim veniam. </small></p>
-                                </div>
-                            </div>
+                <div class="card shadow px-3 pt-3 col-12 mb-2" th:each="reviews : ${reviews}">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title mb-3">Jean-Pierre Dujardin</h5>
+                        <div class="rating-square">
+                            4
                         </div>
                     </div>
-                </div>
-                <div class="card shadow mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4 d-flex justify-content-center mt-5">
-                            <div class="text-center">
-                                <h5 class="card-title">Marie</h5>
-                                <p class="card-text"><small class="text-body-secondary">Belgique</small></p>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="container border shadow">
-                                    <p class="card-text p-2 mt-2 mb-2"><small class="text-body-secondary">Reponse Hotel:
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                        minim veniam. </small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Chambre simple</h6>
+                    <p class="card-text" th:text="${reviews.commentary}"></p>
+                    <p class="text-end" th:text="${#temporals.format(reviews.createdAt, 'dd/MM/yyyy HH:mm')}"></p>
                 </div>
             </div>
         </div>
