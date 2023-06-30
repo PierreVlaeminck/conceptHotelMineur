@@ -1,8 +1,6 @@
 package com.simplon.concepthotelmineur.controller;
 
-import com.simplon.concepthotelmineur.entity.Booking;
-import com.simplon.concepthotelmineur.entity.Hostel;
-import com.simplon.concepthotelmineur.entity.UserProfile;
+import com.simplon.concepthotelmineur.entity.*;
 import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
@@ -53,9 +51,16 @@ public class WebController {
     @GetMapping("/hotel/{id}")
     public String hotel(@PathVariable Long id, Model model){
         Hostel hostel = hostelService.findHostelByIdH(id);
+        List<BenefitHostel> benefitHostels = hostel.getBenefitHostels();
+        List<Room> rooms = hostel.getRooms(); // Récupérer la liste des chambres liées à l'hôtel
         model.addAttribute("hostel", hostel);
-        return ("hostel");
+        model.addAttribute("benefitHostels", benefitHostels);
+        model.addAttribute("rooms", rooms); // Ajouter la liste des chambres au modèle
+        return "hostel";
     }
+
+
+
 
     @GetMapping("/avis_clients")
     public String reviews(){

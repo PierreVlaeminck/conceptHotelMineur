@@ -30,7 +30,7 @@
             <!-----------Start Reservation Section-------------->
             <form>
                 <div class="col-12 mt-5">
-                    <h1 class="mb-4">
+                    <h1 class="mb-4" th:text="${hostel.name}">
                         Nom de l'hôtel
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-7 d-flex">
                                 <div class="d-flex flex-column">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                    <p th:text="${hostel.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
                                         eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
@@ -102,49 +102,14 @@
                 </div>
                 <div class="mt-5 d-flex">
                     <div class="card shadow d-flex w-50 me-2">
-                        <h3 class="text-center mt-2">Services</h3>
+                        <h3 class="text-center mt-2">Services Supplémentaires</h3>
                         <hr class="customHr mt-0">
                         <div class="d-flex mt-2 mx-3 flex-wrap">
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service1">
-                                <label class="form-check-label" for="service1">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service2">
-                                <label class="form-check-label" for="service2">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service3">
-                                <label class="form-check-label" for="service3">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service4">
-                                <label class="form-check-label" for="service4">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service5">
-                                <label class="form-check-label" for="service5">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service6">
-                                <label class="form-check-label" for="service6">
-                                    Wifi
-                                </label>
-                            </div>
-                            <div class="form-check col-3 mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="service7">
-                                <label class="form-check-label" for="service7">
-                                    Wifi
+                            <div class="form-check col-3 mb-3" th:each="benefitHostel : ${hostel.benefitHostels}">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label d-flex flex-column">
+                                    <span th:text="${benefitHostel.benefit.typeS}">Wifi</span>
+                                    <span th:text="${benefitHostel.price}+€">2€</span>
                                 </label>
                             </div>
                         </div>
@@ -153,32 +118,11 @@
                         <h3 class="text-center mt-2">Types de chambre</h3>
                         <hr class="customHr mt-0">
                         <div class="d-flex justify-content-between mb-4 mt-2 mx-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="type1">
-                                <label class="form-check-label d-flex flex-column" for="type1">
-                                    <span>Simple</span>
-                                    <span>89€</span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="type2">
-                                <label class="form-check-label d-flex flex-column" for="type2">
-                                    <span>Double</span>
-                                    <span>139€</span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="type3">
-                                <label class="form-check-label d-flex flex-column" for="type3">
-                                    <span>Twin</span>
-                                    <span>139€</span>
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="type4">
-                                <label class="form-check-label d-flex flex-column" for="type4">
-                                    <span>Suite</span>
-                                    <span>139€</span>
+                            <div class="form-check" th:each="room : ${rooms}">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <label class="form-check-label d-flex flex-column">
+                                    <span th:text="${room.type.typeRoom}">Simple</span>
+                                    <span th:text="${room.price}+ €">89€</span>
                                 </label>
                             </div>
                         </div>

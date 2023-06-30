@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Hostel {
 
@@ -59,4 +62,19 @@ public class Hostel {
 
     public Hostel() {
     }
+
+    @OneToMany(mappedBy = "hostel")
+    private List<BenefitHostel> benefitHostels;
+
+    public List<BenefitHostel> getBenefitHostels() {
+        return benefitHostels;
+    }
+
+    @OneToMany(mappedBy = "hostel")
+    private List<Room> rooms;
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
 }
