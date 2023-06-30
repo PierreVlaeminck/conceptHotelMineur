@@ -34,8 +34,21 @@ public class ReviewsService {
      * @param hostel the hostel object
      * @return a list of reviews associated with the specified hostel
      */
-    public List<Reviews> findReviewsByHostel(Hostel hostel){
+    public List<Reviews> findReviewsByHostel(Hostel hostel) {
         return reviewsRepository.findByBooking_Room_Hostel(hostel);
+    }
+
+    /**
+     * Retrieves a limited list of reviews associated with the specified hostel.
+     *
+     * @param hostel the hostel object
+     * @param limit  the maximum number of reviews to retrieve
+     * @return a limited list of reviews associated with the specified hostel
+     */
+    public List<Reviews> findReviewsByHostelLimited(Hostel hostel, int limit) {
+        List<Reviews> allReviews = reviewsRepository.findByBooking_Room_Hostel(hostel);
+        int endIndex = Math.min(limit, allReviews.size());
+        return allReviews.subList(0, endIndex);
     }
 
     /**

@@ -27,9 +27,9 @@ public class WebController {
     /**
      * Constructs a new WebController with the given services.
      *
-     * @param hostelService       the HostelService to be used
-     * @param bookingService      the BookingService to be used
-     * @param userProfileService  the UserProfileService to be used
+     * @param hostelService      the HostelService to be used
+     * @param bookingService     the BookingService to be used
+     * @param userProfileService the UserProfileService to be used
      */
     public WebController(HostelService hostelService, BookingService bookingService,
                          UserProfileService userProfileService, ReviewsService reviewsService) {
@@ -42,8 +42,8 @@ public class WebController {
     /**
      * Renders the home page.
      *
-     * @param hostel  the Hostel object
-     * @param model   the model to be used for rendering the view
+     * @param hostel the Hostel object
+     * @param model  the model to be used for rendering the view
      * @return the view name for the home page
      */
     @GetMapping("/")
@@ -84,18 +84,18 @@ public class WebController {
     }
 
     /**
-     * Renders the hostel page for the given hostel ID.
+     * Retrieves the details of a hotel and prepares the data to be displayed on the hotel detail page.
      *
-     * @param id     the ID of the hostel
-     * @param model  the model to be used for rendering the view
-     * @return the view name for the hostel page
+     * @param id    the ID of the hotel
+     * @param model the model object to hold the data for the view
+     * @return the name of the view template for the hotel detail page
      */
     @GetMapping("/hotel/{id}")
     public String hotel(@PathVariable Long id, Model model) {
         Hostel hostel = hostelService.findHostelByIdH(id);
         List<BenefitHostel> benefitHostels = hostel.getBenefitHostels();
         List<Room> rooms = hostel.getRooms();
-        List<Reviews> reviews = reviewsService.findReviewsByHostel(hostel);
+        List<Reviews> reviews = reviewsService.findReviewsByHostelLimited(hostel, 3);
         model.addAttribute("reviews", reviews);
         model.addAttribute("hostel", hostel);
         model.addAttribute("benefitHostels", benefitHostels);
@@ -120,9 +120,9 @@ public class WebController {
     /**
      * Renders the user profile page for the given user profile ID.
      *
-     * @param model          the model to be used for rendering the view
-     * @param userProfile   the UserProfile object
-     * @param id             the ID of the user profile
+     * @param model       the model to be used for rendering the view
+     * @param userProfile the UserProfile object
+     * @param id          the ID of the user profile
      * @return the view name for the user profile page
      */
     @GetMapping("/profil/{id}")
