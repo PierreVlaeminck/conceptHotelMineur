@@ -3,6 +3,7 @@ package com.simplon.concepthotelmineur.controller;
 import com.simplon.concepthotelmineur.entity.*;
 import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
+import com.simplon.concepthotelmineur.service.ReviewsService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,8 @@ public class WebController {
     private final BookingService bookingService;
     private final UserProfileService userProfileService;
 
+    private final ReviewsService reviewsService;
+
     /**
      * Constructs a new WebController with the given services.
      *
@@ -28,10 +31,12 @@ public class WebController {
      * @param bookingService      the BookingService to be used
      * @param userProfileService  the UserProfileService to be used
      */
-    public WebController(HostelService hostelService, BookingService bookingService, UserProfileService userProfileService) {
+    public WebController(HostelService hostelService, BookingService bookingService,
+                         UserProfileService userProfileService, ReviewsService reviewsService) {
         this.hostelService = hostelService;
         this.bookingService = bookingService;
         this.userProfileService = userProfileService;
+        this.reviewsService = reviewsService;
     }
 
     /**
@@ -104,7 +109,8 @@ public class WebController {
     @GetMapping("/avis_clients/{id}")
     public String getReviewsByHotel(@PathVariable Long id, Model model) {
         Hostel hostel = hostelService.findHostelByIdH(id);
-        model.addAttribute("hostel", hostel); // Ajoutez les avis au modèle
+        List<Reviews> reviews = reviewsService.findReviewsByHostel(hostel);
+        model.addAttribute("reviews", reviews);
         return "reviews";
     }
 

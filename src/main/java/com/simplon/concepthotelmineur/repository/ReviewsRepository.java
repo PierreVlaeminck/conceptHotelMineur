@@ -1,6 +1,7 @@
 package com.simplon.concepthotelmineur.repository;
 
 import com.simplon.concepthotelmineur.entity.Booking;
+import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.entity.Reviews;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -20,4 +21,6 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
      * @return a list of reviews associated with the specified booking
      */
     List<Reviews> findReviewsByBooking(Booking booking);
+
+    List<Reviews> findByBooking_Room_Hostel(Hostel hostel);
 }
