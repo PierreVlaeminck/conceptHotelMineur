@@ -4,25 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class Document {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idD;
 
-    @Getter
-    @Setter
     private String name;
 
-    @Getter
-    @Setter
     private String document;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name="user_profile_id")
     private UserProfile userProfile;

@@ -7,43 +7,29 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @Entity
 public class Minor {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idM;
 
-    @Getter
-    @Setter
     private String lastName;
 
-    @Getter
-    @Setter
     private String firstName;
 
-    @Getter
-    @Setter
     private LocalDate dateOfBirthM;
 
-    @Getter
-    @Setter
     private String cellPhone;
 
-    @Getter
-    @Setter
     private String familyRelationship;
 
-    @Getter
-    @Setter
     @Column (columnDefinition = "text")
     @Size(min = 3, max = 1500)
     private String additionalInformation;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;

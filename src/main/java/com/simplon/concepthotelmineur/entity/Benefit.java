@@ -5,17 +5,15 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class Benefit {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idB;
 
-    @Getter
-    @Setter
     private String typeS;
 
     public Benefit(Long idB, String typeS) {

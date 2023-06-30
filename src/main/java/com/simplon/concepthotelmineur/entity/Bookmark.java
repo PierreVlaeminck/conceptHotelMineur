@@ -4,23 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class Bookmark {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBk;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name="user_profile_id")
     private UserProfile userProfile;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name="hostel_id")
     private Hostel hostel;

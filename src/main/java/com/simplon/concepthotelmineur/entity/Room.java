@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 public class Room {
 
@@ -12,28 +14,18 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idR;
 
-    @Getter
-    @Setter
     private String roomNumber;
 
-    @Getter
-    @Setter
     private double price;
 
-    @Getter
-    @Setter
     @Column (columnDefinition = "text")
     @Size(min = 3, max = 1000)
     private String detail;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "type_id")
     private Type type;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "hostel_id")
     private Hostel hostel;

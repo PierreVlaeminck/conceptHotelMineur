@@ -6,22 +6,18 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class CreateReviews {
 
-    @Getter
-    @Setter
     @NotBlank
     @NotNull
     private String commentary;
 
-    @Getter
-    @Setter
     @NotBlank
     @NotNull
     private Double scores;
 
-    @Getter
-    @Setter
     @NotBlank
     @NotNull
     @Column(name = "booking_id")

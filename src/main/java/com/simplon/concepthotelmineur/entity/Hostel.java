@@ -6,47 +6,32 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Hostel {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idH;
 
-    @Getter
-    @Setter
     private String name;
 
-    @Getter
-    @Setter
     private String address;
 
-    @Getter
-    @Setter
     private int postalCode;
 
-    @Getter
-    @Setter
     private String city;
 
-    @Getter
-    @Setter
     @Column (columnDefinition = "text")
     @Size (min = 3, max = 1000)
     private String description;
 
-    @Getter
-    @Setter
     @Email
     private String mailH;
 
-    @Getter
-    @Setter
     private String phone;
 
     public Hostel(Long idH, String name, String address, int postalCode, String city, String description, String mailH, String phone) {

@@ -6,50 +6,34 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 public class Booking {
 
-    @Getter
-    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idB;
 
-    @Getter
-    @Setter
     @Column(unique = true, nullable = false)
     private String bookingCode;
 
-    @Getter
-    @Setter
     private LocalDateTime dateArrived;
 
-    @Getter
-    @Setter
     private LocalDateTime departureDate;
 
-    @Getter
-    @Setter
     private Double totalPrice;
 
-    @Getter
-    @Setter
     private Boolean pending;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "minor_id")
     private Minor minor;
