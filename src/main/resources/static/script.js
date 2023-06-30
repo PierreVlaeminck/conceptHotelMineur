@@ -28,16 +28,3 @@ priceRangeInput.addEventListener('input', updatePrice);
 // Appeler la fonction updatePrice pour afficher le prix initial
 updatePrice();
 
-<!-- Javascript barre de score -->
-
-const scoreRangeInput = document.getElementById("customRange3");
-const scoreElement = document.getElementById("score");
-
-function updateScore() {
-    const score = scoreRangeInput.value + 1;
-    scoreElement.textContent = score;
-}
-
-scoreRangeInput.addEventListener("input", updateScore);
-
-updateScore();
