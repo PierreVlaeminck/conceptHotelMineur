@@ -99,20 +99,20 @@
         <div class="container border shadow w-75 mt-5 mb-5">
             <h1 class="text-center mt-3 mb-4">Récapitulatif de la réservation</h1>
             <div class="card-body">
-                <p class="card-text">Nom de l'hôtel: <span th:field="${selectedHostelName}"></span></p>
-                <p class="card-text">Adresse: <span th:field="${selectedHostelAddress}"></span></p>
-                <p class="card-text">Code Postal: <span th:field="${selectedHostelPostalCode}"></span></p>
-                <p class="card-text">Ville: <span th:field="${selectedHostelCity}"></span></p>
-                <p class="card-text">Date d'arrivée: <span th:field="${selectedDateArrived}" th:id="dateArrived" th:name="dateArrived"></span></p>
-                <p class="card-text">Date de départ: <span th:field="${selectedDepartureDate}" th:id="departureDate" th:name="departureDate"></span></p>
+                <p class="card-text">Nom de l'hôtel: <span th:text="${selectedHostelName}"></span></p>
+                <p class="card-text">Adresse: <span th:text="${selectedHostelAddress}"></span></p>
+                <p class="card-text">Code Postal: <span th:text="${selectedHostelPostalCode}"></span></p>
+                <p class="card-text">Ville: <span th:text="${selectedHostelCity}"></span></p>
+                <p class="card-text">Date d'arrivée: <span th:text="${selectedDateArrived}" th:id="dateArrived" th:name="dateArrived"></span></p>
+                <p class="card-text">Date de départ: <span th:text="${selectedDepartureDate}" th:id="departureDate" th:name="departureDate"></span></p>
                 <p class="card-text">Nombre de nuit: <span></span></p>
-                <p class="card-text">Type de chambre: <span th:field="${selectedRoom}"></span></p>
+                <p class="card-text">Type de chambre: <span th:text="${selectedRoom}"></span></p>
                 <p class="card-text">Prix de la chambre: <span th:text="${selectedRoomPrice}"></span></p>
                 <p class="card-text">Services supplémentaires:</p>
                 <ul>
                     <li th:each="benefit, i : ${selectedBenefits}">
-                        <span th:field="${benefit}"></span>
-                        <span th:field="${selectedBenefitsPrice[i]}"></span>
+                        <span th:text="${benefit}"></span>
+                        <span th:text="${selectedBenefitsPrice[i]}"></span>
                     </li>
                 </ul>
                 <p class="card-text text-end">
