@@ -6,6 +6,8 @@ import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.ReviewsService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -91,7 +94,30 @@ public class WebController {
      * @return the view name for the booking page
      */
     @GetMapping("/reservation")
-    public String booking() {
+    public String booking(HttpSession session, Model model) {
+
+        String selectedHostelName = (String) session.getAttribute("selectedHostelName");
+        String selectedHostelAddress = (String) session.getAttribute("selectedHostelAddress");
+        String selectedHostelPostalCode = (String) session.getAttribute("selectedHostelPostalCode");
+        String selectedHostelCity = (String) session.getAttribute("selectedHostelCity");
+        String selectedDateArrived = (String) session.getAttribute("selectedDateArrived");
+        String selectedDepartureDate = (String) session.getAttribute("selectedDepartureDate");
+        String selectedRoom = (String) session.getAttribute("selectedRoom");
+        String selectedRoomPrice = (String) session.getAttribute("selectedRoomPrice");
+        String[] selectedBenefits = (String[]) session.getAttribute("selectedBenefits");
+        String[] selectedBenefitsPrice = (String[]) session.getAttribute("selectedBenefitsPrice");
+
+        model.addAttribute("selectedHostelName", selectedHostelName);
+        model.addAttribute("selectedHostelAddress", selectedHostelAddress);
+        model.addAttribute("selectedHostelPostalCode", selectedHostelPostalCode);
+        model.addAttribute("selectedHostelCity", selectedHostelCity);
+        model.addAttribute("selectedDateArrived", selectedDateArrived);
+        model.addAttribute("selectedDepartureDate", selectedDepartureDate);
+        model.addAttribute("selectedRoom", selectedRoom);
+        model.addAttribute("selectedRoomPrice", selectedRoomPrice);
+        model.addAttribute("selectedBenefits", selectedBenefits);
+        model.addAttribute("selectedBenefitsPrice", selectedBenefitsPrice);
+
         return "booking";
     }
 
@@ -103,7 +129,7 @@ public class WebController {
      * @return the name of the view template for the hotel detail page
      */
     @GetMapping("/hotel/{id}")
-    public String hotel(@PathVariable Long id, Model model) {
+    public String hotel(@PathVariable Long id, Model model, HttpSession session) {
         Hostel hostel = hostelService.findHostelByIdH(id);
         List<BenefitHostel> benefitHostels = hostel.getBenefitHostels();
         List<Room> rooms = hostel.getRooms();
@@ -112,8 +138,10 @@ public class WebController {
         model.addAttribute("hostel", hostel);
         model.addAttribute("benefitHostels", benefitHostels);
         model.addAttribute("rooms", rooms);
+
         return "hostel";
     }
+
 
     /**
      * Renders the reviews page.

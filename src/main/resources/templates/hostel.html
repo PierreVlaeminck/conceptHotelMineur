@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -14,7 +15,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,400;1,500&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,400;1,500&family=Tajawal:wght@500&display=swap"
+          rel="stylesheet">
 
     <title>User Page</title>
 </head>
@@ -28,20 +30,27 @@
 <main>
     <div class="container">
         <!-----------Start Reservation Section-------------->
-        <form>
+        <form method="post" action="/reservation">
             <div class="col-12 mt-5">
                 <h1 class="mb-4" th:text="${hostel.name}">
                     Nom de l'hôtel
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                         class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                         class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                         class="bi bi-star-fill text-yellow" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                     </svg>
                 </h1>
+                <input type="hidden" th:name="selectedHostelName" th:value="${hostel.name}">
+                <input type="hidden" th:name="selectedHostelAddress" th:value="${hostel.address}">
+                <input type="hidden" th:name="selectedHostelPostalCode" th:value="${hostel.postalCode}">
+                <input type="hidden" th:name="selectedHostelCity" th:value="${hostel.city}">
                 <div class="card shadow d-flex py-3">
                     <div class="row align-items-center">
                         <div id="carouselExampleFade" class="carousel slide carousel-fade ms-3 col-4">
@@ -56,19 +65,23 @@
                                     <img src="/hotel3.jpg" class="d-block img-hotel w-100" alt="photo de l'hôtel">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                                    data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                                    data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
                         <div class="col-7 d-flex">
                             <div class="d-flex flex-column">
-                                <p th:text="${hostel.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                <p th:text="${hostel.description}">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                    veniam.
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
                                     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                                 </p>
@@ -100,38 +113,52 @@
                     </div>
                 </div>
             </div>
+            <div class="card-body d-flex justify-content-between align-items-center mt-5">
+                <label for="selectedDateArrived">Date d'arrivée</label>
+                <input class="input-search" id="selectedDateArrived" th:value="selectedDateArrived" th:name="selectedDateArrived" type="datetime-local"/>
+                <label for="selectedDepartureDate">Date de départ</label>
+                <input class="input-search" id="selectedDepartureDate" th:value="selectedDepartureDate" th:name="selectedDepartureDate" type="datetime-local"/>
+            </div>
             <div class="mt-5 d-flex">
                 <div class="card shadow d-flex w-50 me-2">
                     <h3 class="text-center mt-2">Services Supplémentaires</h3>
                     <hr class="customHr mt-0">
                     <div class="d-flex mt-2 mx-3 flex-wrap">
                         <div class="form-check col-3 mb-3" th:each="benefitHostel : ${hostel.benefitHostels}">
-                            <input class="form-check-input" type="checkbox" value="">
+                            <input class="form-check-input" type="checkbox">
                             <label class="form-check-label d-flex flex-column">
                                 <span th:text="${benefitHostel.benefit.typeS}">Wifi</span>
                                 <span th:text="${benefitHostel.price}">2€</span>
+                                <input type="hidden" th:name="${benefitHostel.benefit.typeS}"
+                                       th:value="${benefitHostel.benefit.typeS}">
+                                <input type="hidden" th:name="${benefitHostel.price}" th:value="${benefitHostel.price}">
                             </label>
                         </div>
                     </div>
                 </div>
+
                 <div class="card shadow d-flex w-50 ms-2">
                     <h3 class="text-center mt-2">Types de chambre</h3>
                     <hr class="customHr mt-0">
-                    <div class="d-flex justify-content-between mb-4 mt-2 mx-3">
-                        <div class="form-check" th:each="room : ${rooms}">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label d-flex flex-column">
-                                <span th:text="${room.type.typeRoom}">Simple</span>
-                                <span th:text="${room.price}">89€</span>
-                            </label>
-                        </div>
+                    <div class="form-check" th:each="room, roomIndex : ${rooms}">
+                        <input class="form-check-input" type="radio" id="roomRadio-[[${roomIndex.index}]]"
+                               th:value="${room.type.typeRoom}">
+                        <label class="form-check-label d-flex flex-column" for="roomRadio-[[${roomIndex.index}]]">
+                            <span th:text="${room.type.typeRoom}">Simple</span>
+                            <span th:text="${room.price}" th:name="selectedRoomPrice" data-price="${room.price}"
+                                  th:value="${room.price}">89€</span>
+                            <input type="hidden" id="selectedRoom" name="selectedRoom" value="">
+                            <input type="hidden" id="selectedRoomPrice" name="selectedRoomPrice"
+                                   data-price="${room.price}" th:value="${room.price}">
+                        </label>
                     </div>
                 </div>
             </div>
             <div class="card shadow d-flex justify-content-center my-5">
                 <div class="card-body">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" th:name="taxi" th:value="oui"
+                               id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Réserver un taxi avec Kidcab*
                         </label>
@@ -140,7 +167,9 @@
                         Total : <i class="bi bi-currency-euro"></i>
                     </p>
                     <div class="d-grid gap-2 col-6 mx-auto my-2">
-                        <a href="/reservation" class="btn shadow btnF btn-white" type="button"><i class="bi bi-calendar-check me-2"></i>Réserver</a>
+                        <button class="btn shadow btnF btn-white" type="submit"><i
+                                class="bi bi-calendar-check me-2"></i>Réserver
+                        </button>
                     </div>
                 </div>
             </div>
@@ -158,7 +187,8 @@
                         </div>
                     </div>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Chambre simple</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
                     <p class="text-end">Séjour en 2023</p>
                 </div>
                 <div class="card shadow px-3 pt-3 col-3">
@@ -169,7 +199,8 @@
                         </div>
                     </div>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Suite</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
                     <p class="text-end">Séjour en 2023</p>
                 </div>
                 <div class="card shadow px-3 pt-3 col-3">
@@ -180,12 +211,14 @@
                         </div>
                     </div>
                     <h6 class="card-subtitle mb-2 text-body-secondary">Chambre double</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
                     <p class="text-end">Séjour en 2023</p>
                 </div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5">
-                <a href="#" class="btn shadow btnF btn-white" type="button"><i class="bi bi-plus-circle me-2"></i>Voir plus d'avis</a>
+                <a href="#" class="btn shadow btnF btn-white" type="button"><i class="bi bi-plus-circle me-2"></i>Voir
+                    plus d'avis</a>
             </div>
         </div>
     </div>
@@ -193,7 +226,34 @@
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
 <!-------------End Footer Section------------>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sélectionnez tous les boutons radio
+        const radioButtons = document.querySelectorAll('.form-check-input[type="radio"]');
+
+        // Parcourez les boutons radio et ajoutez un écouteur d'événement de clic
+        radioButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Récupérez la valeur sélectionnée
+                const selectedRoom = this.value;
+                const selectedRoomPrice = this.getAttribute('data-price');
+
+                // Mettez à jour les champs cachés correspondants avec la valeur sélectionnée
+                const roomHiddenInput = document.getElementById('selectedRoom');
+                roomHiddenInput.value = selectedRoom;
+
+                const priceHiddenInput = document.getElementById('selectedRoomPrice');
+                priceHiddenInput.value = selectedRoomPrice
+
+            });
+        });
+    });
+</script>
 </body>
 </html>

@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -14,7 +15,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,400;1,500&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,400;1,500&family=Tajawal:wght@500&display=swap"
+          rel="stylesheet">
 
     <title>Booking Page</title>
 </head>
@@ -44,14 +46,16 @@
             </div>
             <div>
                 <label class="form-label" for=""></label>
-                <textarea class="form-control" rows="5" id="aut" name="" placeholder="Autorisation du représentant légal" required></textarea>
+                <textarea class="form-control" rows="5" id="aut" name=""
+                          placeholder="Autorisation du représentant légal" required></textarea>
             </div>
             <div class="d-flex justify-content-end mb-2 mt-5">
                 <button class="btnF btn-white w-25 nav-link mt-2 mb-2 px-2" type="submit">Signature</button>
             </div>
             <div class="mb-5">
                 <label class="form-label" for=""></label>
-                <textarea class="form-control" rows="4" id="info" name="" placeholder="Informations complémentaires"></textarea>
+                <textarea class="form-control" rows="4" id="info" name=""
+                          placeholder="Informations complémentaires"></textarea>
             </div>
         </form>
     </div>
@@ -68,11 +72,13 @@
             <div class="row">
                 <div class="col-4">
                     <label class="form-label" for=""></label>
-                    <input class="form-control" type="text" id="tit" name="" placeholder="Titulaire de la carte" required>
+                    <input class="form-control" type="text" id="tit" name="" placeholder="Titulaire de la carte"
+                           required>
                 </div>
                 <div class="col-4">
                     <label class="form-label" for=""></label>
-                    <input class="form-control" type="text" id="numcard" name="" placeholder="Numéro de la carte" required>
+                    <input class="form-control" type="text" id="numcard" name="" placeholder="Numéro de la carte"
+                           required>
                 </div>
                 <div class="col-2">
                     <label class="form-label" for=""></label>
@@ -89,18 +95,30 @@
     <!------------End Paiement Form Section--------->
 
     <!------------Start Recap Section--------->
-    <div class="container border shadow w-75 mb-4">
+    <div class="container border shadow w-75 mt-5 mb-5">
         <h1 class="text-center mt-3 mb-4">Récapitulatif de la réservation</h1>
-        <div class="card shadow d-flex justify-content-center mt-5 mb-3">
-            <div class="card-body">
-                <p class="card-text">Nombre de chambres</p>
-                <p class="card-text">Nombre d'occupants</p>
-                <p class="card-text">Nombre de Lits</p>
-                <p class="card-text text-end">
-                    Prix <i class="bi bi-currency-euro"></i>
-                </p>
-            </div>
+        <div class="card-body">
+            <p class="card-text">Nom de l'hôtel: <span th:text="${selectedHostelName}"></span></p>
+            <p class="card-text">Adresse: <span th:text="${selectedHostelAddress}"></span></p>
+            <p class="card-text">Code Postal: <span th:text="${selectedHostelPostalCode}"></span></p>
+            <p class="card-text">Ville: <span th:text="${selectedHostelCity}"></span></p>
+            <p class="card-text">Date d'arrivée: <span th:text="${selectedDateArrived}"></span></p>
+            <p class="card-text">Date de départ: <span th:text="${selectedDepartureDate}"></span></p>
+            <p class="card-text">Nombre de nuit: <span th:text="${selectedHostelCity}"></span></p>
+            <p class="card-text">Type de chambre: <span th:text="${selectedRoom}"></span></p>
+            <p class="card-text">Prix de la chambre: <span th:text="${selectedRoomPrice}"></span></p>
+            <p class="card-text">Services supplémentaires:</p>
+            <ul>
+                <li th:each="benefit, i : ${selectedBenefits}">
+                    <span th:text="${benefit}"></span>
+                    <span th:text="${selectedBenefitsPrice[i]}"></span>
+                </li>
+            </ul>
+            <p class="card-text text-end">
+                Total : <i class="bi bi-currency-euro"></i> <!-- Calcul du total à ajouter ici -->
+            </p>
         </div>
+
     </div>
 
     <!------------End Recap Section--------->
@@ -111,7 +129,29 @@
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
 <!-------------End Footer Section------------>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Récupérez le prix de la chambre en tant que chaîne de caractères
+        const selectedRoomPriceString = "{{selectedRoomPrice}}";
+
+        // Convertissez la chaîne de caractères en un nombre décimal
+        const selectedRoomPrice = parseFloat(selectedRoomPriceString);
+
+        // Vérifiez si la conversion a réussi
+        if (!isNaN(selectedRoomPrice)) {
+            // Mettez à jour l'affichage du prix de la chambre avec le nombre décimal
+            const priceElement = document.querySelector("#selectedRoomPrice");
+            priceElement.textContent = selectedRoomPrice.toFixed(2) + "€";
+        } else {
+            console.error("Invalid price: " + selectedRoomPriceString);
+        }
+    });
+</script>
 </body>
 </html>

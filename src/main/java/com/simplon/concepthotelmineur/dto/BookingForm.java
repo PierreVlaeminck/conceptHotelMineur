@@ -36,9 +36,9 @@ public class BookingForm {
     @Size(min = 1, max = 255)
     private String cellphone;
 
-    @Size(min = 1, max = 255)
     private String familyRelationship;
 
-    @Size(min = 1, max = 1500)
+    @Size(max = 1500)
     private String additionalInformation;
+
 }
