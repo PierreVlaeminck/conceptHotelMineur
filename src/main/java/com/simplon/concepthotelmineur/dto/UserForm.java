@@ -20,10 +20,10 @@ public class UserForm {
     private String confirmPassword;
 
     @Size(min=1, max=255)
-    private String lastName;
+    private String lastNameU;
 
     @Size(min=1, max=255)
-    private String firstName;
+    private String firstNameU;
 
     private LocalDate dateOfBirthU;
 

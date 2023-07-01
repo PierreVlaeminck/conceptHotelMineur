@@ -42,7 +42,7 @@ public class UsersController {
     /**
      * Constructs a new UsersController with the given PasswordEncoder and UserDetailsManager.
      *
-     * @param passwordEncoder     the PasswordEncoder to be used
+     * @param passwordEncoder    the PasswordEncoder to be used
      * @param userDetailsManager the UserDetailsManager to be used
      */
     public UsersController(PasswordEncoder passwordEncoder, UserDetailsManager userDetailsManager) {
@@ -53,10 +53,10 @@ public class UsersController {
     /**
      * Changes the user's password.
      *
-     * @param updatePassword       the password form object containing password data
-     * @param bindingResult        the binding result for form validation
-     * @param principal            the principal object representing the current user
-     * @param redirectAttributes   the redirect attributes
+     * @param updatePassword     the password form object containing password data
+     * @param bindingResult      the binding result for form validation
+     * @param principal          the principal object representing the current user
+     * @param redirectAttributes the redirect attributes
      * @return a redirect to the home page or the change password form in case of validation errors
      */
     @PostMapping("/mot_de_passe")
@@ -91,43 +91,4 @@ public class UsersController {
         return "redirect:/";
     }
 
-    @PostMapping("/createUser")
-    @Transactional
-    public String createUser(
-            @Valid @ModelAttribute(name = "user") UserForm user,
-            BindingResult validation, Model model)
-    {
-        if (!user.getPassword().equals(user.getConfirmPassword()))
-        {
-            user.setConfirmPassword("");
-            validation.addError(new FieldError("user", "confirmPassword",
-                    "Les mots de passe ne correspondent pas"));
-        }
-        if (userDetailsManager.userExists(user.getLogin()))
-        {
-            user.setLogin("");
-            validation.addError(new ObjectError("user", "Cet utilisateur existe déjà"));
-        }
-        if (validation.hasErrors())
-        {
-            return "/createUser";
-        }
-
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        // Roles for new user
-        Collection<? extends GrantedAuthority> roles = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
-        UserDetails userDetails = new User(user.getLogin(), encodedPassword, roles);
-        // Create the account in database with all its roles
-        userDetailsManager.createUser(userDetails);
-
-        // Create a UserProfile from UserForm and save it to the database
-        UserProfile userProfile = new UserProfile();
-        userProfile.setUsername(user.getLogin());
-        userProfile.setFirstNameU(user.getFirstName());
-        userProfile.setLastNameU(user.getLastName());
-        userProfile.setPhone(user.getPhone());
-        userProfileService.addUserProfile(userProfile);
-
-        return "redirect:/";
-    }
 }

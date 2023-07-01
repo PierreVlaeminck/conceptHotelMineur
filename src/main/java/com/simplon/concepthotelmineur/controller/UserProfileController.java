@@ -50,7 +50,7 @@ public class UserProfileController {
      * @param model       the Model object for handling the view
      * @return a redirect to the home page
      */
-    @PostMapping("/Inscription")
+    @PostMapping("/createUser")
     @Transactional
     public String createUser(@Valid @ModelAttribute("CreateUser") UserForm createUser, BindingResult validation, Model model) {
         if (!createUser.getPassword().equals(createUser.getConfirmPassword())) {
@@ -69,8 +69,8 @@ public class UserProfileController {
 
         UserProfile userProfile = new UserProfile();
         userProfile.setUsername(createUser.getLogin());
-        userProfile.setFirstNameU(createUser.getFirstName());
-        userProfile.setLastNameU(createUser.getLastName());
+        userProfile.setFirstNameU(createUser.getFirstNameU());
+        userProfile.setLastNameU(createUser.getLastNameU());
         userProfile.setMailU(createUser.getMailU());
         userProfile.setPhone(createUser.getPhone());
         userProfile.setCellPhoneU(createUser.getCellPhoneU());
