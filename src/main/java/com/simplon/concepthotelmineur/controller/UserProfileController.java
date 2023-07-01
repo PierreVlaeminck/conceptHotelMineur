@@ -7,8 +7,10 @@ import com.simplon.concepthotelmineur.service.UserProfileService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
@@ -91,24 +93,22 @@ public class UserProfileController {
         userProfileService.deleteUserProfile(id);
     }
 
-    /**
-     * Updates a user profile.
-     *
-     * @param id        the ID of the user profile to be updated
-     * @param newProfile the updated UserProfile object
-     * @return the updated UserProfile
-     */
-    @PutMapping("/users/{id}")
-    public UserProfile updateUserProfile(@PathVariable Long id, @RequestBody UserProfile newProfile) {
-        UserProfile userProfile = userProfileService.findUserProfileByIdUp(id);
 
-        userProfile.setFirstNameU(newProfile.getFirstNameU());
-        userProfile.setLastNameU(newProfile.getLastNameU());
-        userProfile.setMailU(newProfile.getMailU());
-        userProfile.setPhone(newProfile.getPhone());
-        userProfile.setCellPhoneU(newProfile.getCellPhoneU());
-        userProfile.setDateOfBirthU(newProfile.getDateOfBirthU());
+    @PostMapping("/profil/modification")
+    public String updateUserProfile(@AuthenticationPrincipal UserDetails userDetails, @ModelAttribute UserForm userForm) {
+        String username = userDetails.getUsername();
+        UserProfile userProfile = userProfileService.findByUsername(username);
 
-        return userProfileService.updateUserProfile(userProfile);
+        userProfile.setFirstNameU(userForm.getFirstNameU());
+        userProfile.setLastNameU(userForm.getLastNameU());
+        userProfile.setDateOfBirthU(userForm.getDateOfBirthU());
+        userProfile.setMailU(userForm.getMailU());
+        userProfile.setPhone(userForm.getPhone());
+        userProfile.setCellPhoneU(userForm.getCellPhoneU());
+
+        userProfileService.updateUserProfile(userProfile);
+
+        return "redirect:/profil";
     }
+
 }

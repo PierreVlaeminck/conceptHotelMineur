@@ -30,7 +30,7 @@ public class UserForm {
     @Size(min=1, max=320)
     private String mailU;
 
-    @Size(min=1, max=255)
+    @Size(max=255)
     private String phone;
 
     @Size(min=1, max=255)

@@ -2,12 +2,10 @@ package com.simplon.concepthotelmineur.controller;
 
 import com.simplon.concepthotelmineur.dto.UserForm;
 import com.simplon.concepthotelmineur.entity.*;
-import com.simplon.concepthotelmineur.repository.UserProfileRepository;
 import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.ReviewsService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -140,9 +138,17 @@ public class WebController {
         model.addAttribute("userProfile", userProfile);
         return "userPage";
     }
+    @GetMapping("/profil/modification")
+    public String getProfileEdit(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        UserProfile userProfile = userProfileService.findByUsername(username);
+        model.addAttribute("userProfile", userProfile);
+        return "updateUserProfile";
+    }
 
     @GetMapping("/mot_de_passe")
     public String getPassword(){
         return "updatePassword";
     }
+
 }
