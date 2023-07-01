@@ -140,4 +140,9 @@ public class WebController {
         model.addAttribute("userProfile", userProfile);
         return "userPage";
     }
+
+    @GetMapping("/mot_de_passe")
+    public String getPassword(){
+        return "updatePassword";
+    }
 }
