@@ -2,10 +2,14 @@ package com.simplon.concepthotelmineur.controller;
 
 import com.simplon.concepthotelmineur.dto.UserForm;
 import com.simplon.concepthotelmineur.entity.*;
+import com.simplon.concepthotelmineur.repository.UserProfileRepository;
 import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.ReviewsService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -125,16 +129,15 @@ public class WebController {
      * Renders the user profile page for the given user profile ID.
      *
      * @param model       the model to be used for rendering the view
-     * @param userProfile the UserProfile object
-     * @param id          the ID of the user profile
+     * @param userDetails the UserProfile object
      * @return the view name for the user profile page
      */
+
     @GetMapping("/profil")
-    public String profil(Model model, UserProfile userProfile, @PathVariable Long id) {
-        List<Booking> bookingListByUserProfile = bookingService.findAllBookingByUserProfil(userProfile);
-        model.addAttribute("bookingListByUserProfile", bookingListByUserProfile);
-        UserProfile userProfileById = userProfileService.findUserProfileByIdUp(id);
-        model.addAttribute("userProfileById", userProfileById);
+    public String getProfile(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        UserProfile userProfile = userProfileService.findByUsername(username);
+        model.addAttribute("userProfile", userProfile);
         return "userPage";
     }
 }
