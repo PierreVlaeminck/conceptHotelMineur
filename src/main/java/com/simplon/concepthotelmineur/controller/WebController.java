@@ -6,12 +6,14 @@ import com.simplon.concepthotelmineur.service.BookingService;
 import com.simplon.concepthotelmineur.service.HostelService;
 import com.simplon.concepthotelmineur.service.ReviewsService;
 import com.simplon.concepthotelmineur.service.UserProfileService;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -50,9 +52,13 @@ public class WebController {
      * @return the view name for the home page
      */
     @GetMapping("/")
-    public String home(Hostel hostel, Model model) {
-        List<Hostel> hostelList = hostelService.findAllHostel();
+    public String home(@RequestParam(defaultValue = "1") int pageNo, Model model) {
+        Page<Hostel> page = hostelService.findPaginated(pageNo, 9);
+        List<Hostel> hostelList = page.getContent();
         model.addAttribute("hostelList", hostelList);
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
         return "index";
     }
 

@@ -3,6 +3,9 @@ package com.simplon.concepthotelmineur.service;
 import com.simplon.concepthotelmineur.entity.Hostel;
 import com.simplon.concepthotelmineur.repository.HostelRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +24,9 @@ public class HostelService {
      *
      * @return a list of all hostels
      */
-    public List<Hostel> findAllHostel() {
-        return hostelRepository.findAll();
+    public Page<Hostel> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return this.hostelRepository.findAll(pageable);
     }
 
     /**
