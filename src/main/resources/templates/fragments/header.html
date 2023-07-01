@@ -7,7 +7,7 @@
     <ul class="nav">
       <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/inscription}" class=" btn btn-white nav-link text-light px-2 me-4">Créer un compte</a></li>
       <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/login}" class="btn btn-white nav-link text-light px-2">Se connecter</a></li>
-      <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/profil}" class="btn btn-white nav-link text-light px-2">Profil</a></li>
+      <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/profil}" class="btn btn-white nav-link text-light px-2 me-4">Profil</a></li>
       <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/logout}" class="btn btn-white nav-link text-light px-2">Se déconnecter</a></li>
     </ul>
   </div>

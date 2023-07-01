@@ -46,7 +46,7 @@ body{
 .btn-taxi{
     border: 2px solid #FFFFFF;
     border-radius: 10px;
-    height:30px;
+    min-height:40px;
     width: 120px
 }
 .search{
