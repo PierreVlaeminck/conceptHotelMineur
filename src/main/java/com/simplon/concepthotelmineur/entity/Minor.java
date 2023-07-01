@@ -27,17 +27,16 @@ public class Minor {
     private String familyRelationship;
 
     @Column (columnDefinition = "text")
-    @Size(min = 3, max = 1500)
+    @Size(max = 1500)
     private String additionalInformation;
 
     @ManyToOne
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
-    public Minor(Long idM, String lastName, String firstName,
+    public Minor(String lastName, String firstName,
                  LocalDate dateOfBirthM, String cellPhone, String familyRelationship,
                  String additionalInformation, UserProfile userProfile) {
-        this.idM = idM;
         this.lastName = lastName;
         this.firstName = firstName;
         this.dateOfBirthM = dateOfBirthM;

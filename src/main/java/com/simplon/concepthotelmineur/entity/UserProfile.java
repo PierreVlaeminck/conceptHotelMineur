@@ -31,8 +31,7 @@ public class UserProfile {
 
     private String cellPhoneU;
 
-    public UserProfile(Long idUp, String username, String lastNameU, String firstNameU, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
-        this.idUp = idUp;
+    public UserProfile(String username, String lastNameU, String firstNameU, LocalDate dateOfBirthU, String mailU, String phone, String cellPhoneU) {
         this.username = username;
         this.lastNameU = lastNameU;
         this.firstNameU = firstNameU;
