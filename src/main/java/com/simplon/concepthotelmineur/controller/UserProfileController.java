@@ -93,7 +93,13 @@ public class UserProfileController {
         userProfileService.deleteUserProfile(id);
     }
 
-
+    /**
+     * Updates a user profile.
+     *
+     * @param userDetails the UserDetails object containing the user details
+     * @param userForm    the UserForm object containing the updated user information
+     * @return a redirect to the user profile page
+     */
     @PostMapping("/profil/modification")
     public String updateUserProfile(@AuthenticationPrincipal UserDetails userDetails, @ModelAttribute UserForm userForm) {
         String username = userDetails.getUsername();
@@ -110,5 +116,4 @@ public class UserProfileController {
 
         return "redirect:/profil";
     }
-
 }

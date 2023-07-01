@@ -26,7 +26,6 @@ public class WebController {
     private final HostelService hostelService;
     private final BookingService bookingService;
     private final UserProfileService userProfileService;
-
     private final ReviewsService reviewsService;
 
     /**
@@ -35,6 +34,7 @@ public class WebController {
      * @param hostelService      the HostelService to be used
      * @param bookingService     the BookingService to be used
      * @param userProfileService the UserProfileService to be used
+     * @param reviewsService     the ReviewsService to be used
      */
     public WebController(HostelService hostelService, BookingService bookingService,
                          UserProfileService userProfileService, ReviewsService reviewsService) {
@@ -47,7 +47,7 @@ public class WebController {
     /**
      * Renders the home page.
      *
-     * @param hostel the Hostel object
+     * @param pageNo the page number
      * @param model  the model to be used for rendering the view
      * @return the view name for the home page
      */
@@ -128,7 +128,6 @@ public class WebController {
         return "reviews";
     }
 
-
     /**
      * Renders the user profile page for the given user profile ID.
      *
@@ -136,7 +135,6 @@ public class WebController {
      * @param userDetails the UserProfile object
      * @return the view name for the user profile page
      */
-
     @GetMapping("/profil")
     public String getProfile(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
@@ -144,6 +142,14 @@ public class WebController {
         model.addAttribute("userProfile", userProfile);
         return "userPage";
     }
+
+    /**
+     * Renders the user profile edit page for the given user profile ID.
+     *
+     * @param model       the model to be used for rendering the view
+     * @param userDetails the UserProfile object
+     * @return the view name for the user profile edit page
+     */
     @GetMapping("/profil/modification")
     public String getProfileEdit(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
@@ -152,8 +158,13 @@ public class WebController {
         return "updateUserProfile";
     }
 
+    /**
+     * Renders the password update page.
+     *
+     * @return the view name for the password update page
+     */
     @GetMapping("/mot_de_passe")
-    public String getPassword(){
+    public String getPassword() {
         return "updatePassword";
     }
 
