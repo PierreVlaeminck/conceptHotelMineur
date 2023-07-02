@@ -37,7 +37,7 @@
                 <h1 class="text-center mt-5 mb-5">Laissez un avis</h1>
                 <div class="card shadow">
                     <div class="p-3 mt-3 mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Rédiger votre commentaire</label>
+                        <label for="exampleFormControlTextarea2" class="form-label">Rédiger votre commentaire</label>
                         <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
                     </div>
                     <div class="p-3 mt-3 mb-3">
@@ -70,15 +70,15 @@
             </div>
 
             <div class="col-7 p-0">
-                <h1 class="text-center mt-5 mb-5">Commentaires Clients</h1>
+                <h1 class="text-center mt-5 mb-5">Avis Clients</h1>
                 <div class="card shadow px-3 pt-3 col-12 mb-2" th:each="reviews : ${reviews}">
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-title mb-3">Jean-Pierre Dujardin</h5>
-                        <div class="rating-square">
+                        <h5 class="card-title mb-3" th:text="${reviews.booking.userProfile.lastNameU} +' '+ ${reviews.booking.userProfile.firstNameU}">Jean-Pierre Dujardin</h5>
+                        <div class="rating-square" th:text="${reviews.scores}">
                             4
                         </div>
                     </div>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Chambre simple</h6>
+                    <h6 class="card-subtitle mb-2 text-body-secondary" th:text="${reviews.booking.room.type.typeRoom}">Chambre simple</h6>
                     <p class="card-text" th:text="${reviews.commentary}"></p>
                     <p class="text-end" th:text="${#temporals.format(reviews.createdAt, 'dd/MM/yyyy HH:mm')}"></p>
                 </div>
