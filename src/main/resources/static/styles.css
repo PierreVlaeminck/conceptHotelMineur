@@ -159,3 +159,6 @@ footer a:hover {
 .text-blue {
     color: #004AAD;
 }
+.border-bottom-none{
+    border-bottom: none;
+}

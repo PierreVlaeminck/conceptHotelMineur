@@ -29,113 +29,148 @@
 <!-----------End Nav Section---------------->
 <!------------Start Booking Form Section--------->
 <main>
-    <form method="post" th:object="${bookingForm}" action="/paiement">
-        <div class="container border shadow w-75 mt-5 mb-5">
-
-            <h1 class="text-center mt-3 mb-4">Informations du mineur</h1>
-            <div>
-                <label class="form-label" for="firstName"></label>
-                <input class="form-control" type="text" id="firstName" name="firstName"
-                       placeholder="Prénom de mon enfant">
-            </div>
-            <div>
-                <label class="form-label" for="lastName"></label>
-                <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Nom de mon enfant">
-            </div>
-            <div>
-                <label class="form-label" for="cellphone"></label>
-                <input class="form-control" type="text" id="cellphone" name="cellphone"
-                       placeholder="Mobile de mon enfant">
-            </div>
-            <div>
-                <label class="form-label" for="dateOfBirthM"></label>
-                <input class="form-control" type="date" id="dateOfBirthM" name="dateOfBirthM"
-                       placeholder="Date de naissance">
-            </div>
-            <div>
-                <label class="form-label" for="familyRelationship"></label>
-                <textarea class="form-control" rows="5" id="familyRelationship" name="familyRelationship"
-                          placeholder="Autorisation du représentant légal"></textarea>
-            </div>
-            <div class="mb-5">
-                <label class="form-label" for="additionalInformation"></label>
-                <textarea class="form-control" rows="4" id="additionalInformation" name="additionalInformation"
-                          placeholder="Informations complémentaires"></textarea>
-            </div>
-            <div class="d-flex justify-content-end mb-2 mt-5">
-                <button class="btnF btn-white w-25 nav-link mt-2 mb-2 px-2" disabled>Signature</button>
-            </div>
-        </div>
-
-        <!------------End Booking Form Section--------->
-
-        <!------------Start Paiement Form Section--------->
-
-        <div class="container border shadow w-75 mt-5 mb-5">
-
-            <h1 class="text-center mt-3 mb-4">Coordonnées Bancaires</h1>
-            <div class="row">
-                <div class="col-4">
-                    <label class="form-label"></label>
-                    <input class="form-control" type="text" placeholder="Titulaire de la carte"
-                           disabled>
-                </div>
-                <div class="col-4">
-                    <label class="form-label"></label>
-                    <input class="form-control" type="text" placeholder="Numéro de la carte"
-                           disabled>
-                </div>
-                <div class="col-2">
-                    <label class="form-label"></label>
-                    <input class="form-control" type="text" placeholder="Date d'exp" disabled>
-                </div>
-                <div class="col-2 mb-5">
-                    <label class="form-label"></label>
-                    <input class="form-control" type="text" placeholder="Crypt." disabled>
-                </div>
-            </div>
-
-        </div>
-        <!------------End Paiement Form Section--------->
-
-        <!------------Start Recap Section--------->
-        <div class="container border shadow w-75 mt-5 mb-5">
-            <h1 class="text-center mt-3 mb-4">Récapitulatif de la réservation</h1>
-            <div class="card-body">
-                <div class="card-text">Nom de l'hôtel: <p th:text="${selectedHostelName}"></p></div>
-                <div class="card-text">Adresse: <p th:text="${selectedHostelAddress}"></p></div>
-                <div class="card-text">Code Postal: <p th:text="${selectedHostelPostalCode}"></p></div>
-                <div class="card-text">Ville: <p th:text="${selectedHostelCity}"></p></p>
-                    <div class="card-text">Date d'arrivée: <p th:text="${selectedDateArrived}" th:id="dateArrived"
-                                                              th:name="dateArrived"></p></p>
-                        <div class="card-text">Date de départ: <p th:text="${selectedDepartureDate}"
-                                                                  th:id="departureDate" th:name="departureDate"></p>
+    <div class="container">
+        <div class="row">
+            <form method="post" th:object="${bookingForm}" action="/paiement" class="d-flex flex-wrap">
+                <div class="col-md-6 pe-3 mt-5">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent border-bottom-none pb-0">
+                            <h3 class="text-center">Informations du mineur</h3>
                         </div>
-                        <div class="card-text">Nombre de nuit: <p></p></div>
-                        <div class="card-text">Type de chambre: <p th:text="${selectedRoom}"></p></div>
-                        <div class="card-text">Prix de la chambre: <p th:text="${selectedRoomPrice}"></p></div>
-                        <p class="card-text">Services supplémentaires:</p>
-                        <ul>
-                            <li th:each="benefit, i : ${selectedBenefits}">
-                                <span th:text="${benefit}"></span>
-                                <span th:text="${selectedBenefitsPrice[i]}"></span>
-                            </li>
-                        </ul>
-                        <p class="card-text text-end">
-                            Total : <i class="bi bi-currency-euro"></i> <!-- Calcul du total à ajouter ici -->
-                        </p>
+                        <hr class="customHr">
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label class="form-label" for="firstName"></label>
+                                <input class="form-control" type="text" id="firstName" name="firstName"
+                                       placeholder="Prénom de mon enfant">
+                            </div>
+                            <div>
+                                <label class="form-label" for="lastName"></label>
+                                <input class="form-control" type="text" id="lastName" name="lastName"
+                                       placeholder="Nom de mon enfant">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label class="form-label" for="cellphone"></label>
+                                <input class="form-control" type="text" id="cellphone" name="cellphone"
+                                       placeholder="Mobile de mon enfant">
+                            </div>
+                            <div>
+                                <label class="form-label" for="dateOfBirthM"></label>
+                                <input class="form-control" type="date" id="dateOfBirthM" name="dateOfBirthM"
+                                       placeholder="Date de naissance">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <label class="form-label" for="familyRelationship"></label>
+                                <textarea class="form-control" rows="5" id="familyRelationship"
+                                          name="familyRelationship"
+                                          placeholder="Autorisation du représentant légal"></textarea>
+                            </div>
+                            <div class="">
+                                <label class="form-label" for="additionalInformation"></label>
+                                <textarea class="form-control" rows="5" id="additionalInformation"
+                                          name="additionalInformation"
+                                          placeholder="Informations complémentaires"></textarea>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 m-5">
+                            <button class="btnF btn-white shadow py-2" disabled>Signature</button>
+                        </div>
                     </div>
-
                 </div>
-
-                <!------------End Recap Section--------->
-                <div class="d-flex justify-content-center mt-7">
-                    <button class="btnF btn-white w-50 nav-link mt-3 mb-4 px-2" type="submit">Réserver</button>
+                <div class="col-md-6 ps-3 mt-5">
+                    <div class="card shadow">
+                        <div class="card-header bg-transparent border-bottom-none pb-0">
+                            <h3 class="text-center">Récapitulatif de la réservation</h3>
+                        </div>
+                        <hr class="customHr">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="card-text me-3 mb-4"><span class="text-blue">Nom de l'hôtel : </span>
+                                    <span th:text="${selectedHostelName}"></span></div>
+                                <div class="card-text"><span class="text-blue">Adresse : </span>
+                                    <span th:text="${selectedHostelAddress}"></span></div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="card-text me-3 mb-4"><span class="text-blue">Code Postal : </span>
+                                    <span th:text="${selectedHostelPostalCode}"></span></div>
+                                <div class="card-text"><span class="text-blue">Ville : </span>
+                                    <span th:text="${selectedHostelCity}"></span>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="card-text me-3 mb-4"><span class="text-blue">Date d'arrivée : </span>
+                                    <span th:text="${selectedDateArrived}" th:id="dateArrived"
+                                          th:name="dateArrived"></span></p></div>
+                                <div class="card-text"><span class="text-blue">Date de départ : </span>
+                                    <span th:text="${selectedDepartureDate}"
+                                          th:id="departureDate" th:name="departureDate"></span></div>
+                            </div>
+                            <div class="card-text me-3 mb-4"><span class="text-blue">Nombre de nuit : </span>
+                                <span></span></div>
+                            <div class="d-flex">
+                                <div class="card-text me-3 mb-4"><span class="text-blue">Type de chambre : </span>
+                                    <span th:text="${selectedRoom}"></span></div>
+                                <div class="card-text"><span class="text-blue">Prix de la chambre : </span>
+                                    <span th:text="${selectedRoomPrice}+ ' €'"></span></div>
+                            </div>
+                            <div class="d-flex">
+                                <span class="card-text"><span class="text-blue">Services supplémentaires :</span></span>
+                                <ul>
+                                    <li th:each="benefit, i : ${selectedBenefits}">
+                                        <span class="text-blue">Type de service :</span><span th:text="${benefit}"></span>
+                                        <span class="text-blue">Prix du service :</span><span th:text="${selectedBenefitsPrice[i]}"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="card-text text-end mb-3">
+                                <span class="text-blue">Total : </span><i class="bi bi-currency-euro"></i>
+                                <!-- Calcul du total à ajouter ici -->
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="d-flex w-100 justify-content-center">
+                    <div class="card shadow col-8  mt-5">
+                        <div class="card-header bg-transparent border-bottom-none pb-0">
+                            <h3 class="text-center">Coordonnées Bancaires</h3>
+                        </div>
+                        <hr class="customHr">
+                        <div class="row">
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <label class="form-label"></label>
+                                    <input class="form-control" type="text" placeholder="Titulaire de la carte"
+                                           disabled>
+                                </div>
+                                <div>
+                                    <label class="form-label"></label>
+                                    <input class="form-control" type="text" placeholder="Numéro de la carte"
+                                           disabled>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <label class="form-label"></label>
+                                    <input class="form-control" type="text" placeholder="Date d'expiration" disabled>
+                                </div>
+                                <div>
+                                    <label class="form-label"></label>
+                                    <input class="form-control" type="text" placeholder="Code de sécurité" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 m-5">
+                            <button class="btnF btn-white shadow py-2" type="submit">Réserver</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-
+    </div>
 </main>
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>

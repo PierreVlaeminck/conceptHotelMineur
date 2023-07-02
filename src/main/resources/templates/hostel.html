@@ -156,15 +156,15 @@
                     <hr class="customHr mt-0">
                     <div class="d-flex mt-2 mx-3 flex-wrap">
                         <div class="form-check col-3 mb-3" th:each="room, roomIndex : ${rooms}">
-                            <input class="form-check-input" type="radio" id="roomRadio-[[${roomIndex.index}]]"
+                            <input class="form-check-input" name="inlineRadioOptions" type="radio" id="roomRadio-[[${roomIndex.index}]]"
                                    th:value="${room.type.typeRoom}">
                             <label class="form-check-label d-flex flex-column" for="roomRadio-[[${roomIndex.index}]]">
                                 <span th:text="${room.type.typeRoom}">Simple</span>
                                 <span th:text="${room.price}+ ' €'" th:name="selectedRoomPrice"
                                       data-price="${room.price}"
                                       th:value="${room.price}">89€</span>
-                                <input type="hidden" id="selectedRoom" name="selectedRoom" value="">
-                                <input type="hidden" id="selectedRoomPrice" name="selectedRoomPrice"
+                                <input type="hidden" id="selectedRoom" th:name="selectedRoom" th:value="${room.type.typeRoom}">
+                                <input type="hidden" id="selectedRoomPrice" th:name="selectedRoomPrice"
                                        data-price="${room.price}" th:value="${room.price}">
                             </label>
                         </div>
@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5">
-                <a href="#" class="btn shadow btnF btn-white" type="button"><i class="bi bi-plus-circle me-2"></i>Voir
+                <a href="#" th:href="@{/avis_clients/{id}(id=${hostel.idH})}" class="btn shadow btnF btn-white" type="button"><i class="bi bi-plus-circle me-2"></i>Voir
                     plus d'avis</a>
             </div>
         </div>
@@ -230,28 +230,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Sélectionnez tous les boutons radio
-        const radioButtons = document.querySelectorAll('.form-check-input[type="radio"]');
 
-        // Parcourez les boutons radio et ajoutez un écouteur d'événement de clic
-        radioButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                // Récupérez la valeur sélectionnée
-                const selectedRoom = this.value;
-                const selectedRoomPrice = this.getAttribute('data-price');
-
-                // Mettez à jour les champs cachés correspondants avec la valeur sélectionnée
-                const roomHiddenInput = document.getElementById('selectedRoom');
-                roomHiddenInput.value = selectedRoom;
-
-                const priceHiddenInput = document.getElementById('selectedRoomPrice');
-                priceHiddenInput.value = selectedRoomPrice
-
-            });
-        });
-    });
-</script>
 </body>
 </html>

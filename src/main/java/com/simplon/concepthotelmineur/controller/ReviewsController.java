@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+
 /**
  * Controller class for managing reviews.
  */
@@ -39,10 +41,11 @@ public class ReviewsController {
      */
     @PostMapping("avis_clients/{bookingId}/ajouter_un_avis")
     public String createReviews(@PathVariable("bookingId") Long bookingId,
-                                @ModelAttribute("CreateReviews") CreateReviews createReviews) {
+                                @ModelAttribute("CreateReviews") CreateReviews createReviews,
+                                Principal principal) {
         Booking booking = bookingService.findBookingById(bookingId);
 
-        if (booking == null) {
+        if (booking == null || !booking.getUserProfile().getUsername().equals(principal.getName())) {
             return "redirect:/index";
         }
 
@@ -55,4 +58,5 @@ public class ReviewsController {
 
         return "redirect:/hotels/" + booking.getRoom().getHostel().getIdH();
     }
+
 }
