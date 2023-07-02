@@ -18,7 +18,7 @@ public class Document {
     private String document;
 
     @ManyToOne
-    @JoinColumn(name="user_profile_id")
+    @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
     public Document(Long idD, String name, String document, UserProfile userProfile) {
@@ -28,7 +28,7 @@ public class Document {
         this.userProfile = userProfile;
     }
 
-    public Document(){
+    public Document() {
 
     }
 }

@@ -26,7 +26,7 @@ public class Minor {
 
     private String familyRelationship;
 
-    @Column (columnDefinition = "text")
+    @Column(columnDefinition = "text")
     @Size(max = 1500)
     private String additionalInformation;
 

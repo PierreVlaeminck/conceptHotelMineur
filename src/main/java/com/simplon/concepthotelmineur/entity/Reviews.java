@@ -17,7 +17,7 @@ public class Reviews {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRe;
 
-    @Column (columnDefinition = "text")
+    @Column(columnDefinition = "text")
     @Size(min = 3, max = 1500)
     private String commentary;
 

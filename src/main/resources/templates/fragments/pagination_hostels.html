@@ -1,17 +1,17 @@
 <nav class="d-flex justify-content-end mt-5" aria-label="Page list of hostels">
-  <ul class="pagination">
-    <li class="page-item" th:if="${currentPage != 1}">
-      <a class="page-link" th:href="@{/(pageNo=${currentPage - 1})}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item" th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
-      <a class="page-link" th:href="@{/(pageNo=${pageNumber})}" th:text="${pageNumber}"></a>
-    </li>
-    <li class="page-item" th:if="${currentPage != totalPages}">
-      <a class="page-link" th:href="@{/(pageNo=${currentPage + 1})}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+    <ul class="pagination">
+        <li class="page-item" th:if="${currentPage != 1}">
+            <a class="page-link" th:href="@{/(pageNo=${currentPage - 1})}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item" th:each="pageNumber : ${#numbers.sequence(1, totalPages)}">
+            <a class="page-link" th:href="@{/(pageNo=${pageNumber})}" th:text="${pageNumber}"></a>
+        </li>
+        <li class="page-item" th:if="${currentPage != totalPages}">
+            <a class="page-link" th:href="@{/(pageNo=${currentPage + 1})}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
 </nav>

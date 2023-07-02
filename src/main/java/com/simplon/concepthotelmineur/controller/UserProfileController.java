@@ -34,8 +34,8 @@ public class UserProfileController {
     /**
      * Constructs a new UserProfileController with the given UserProfileService, PasswordEncoder, and UserDetailsManager.
      *
-     * @param userProfileService  the UserProfileService to be used
-     * @param passwordEncoder     the PasswordEncoder to be used
+     * @param userProfileService the UserProfileService to be used
+     * @param passwordEncoder    the PasswordEncoder to be used
      * @param userDetailsManager the UserDetailsManager to be used
      */
     public UserProfileController(UserProfileService userProfileService, PasswordEncoder passwordEncoder, UserDetailsManager userDetailsManager) {
@@ -47,9 +47,9 @@ public class UserProfileController {
     /**
      * Creates a new user profile and user account.
      *
-     * @param createUser  the CreateUser object containing the user details
-     * @param validation  the BindingResult object for validating the user input
-     * @param model       the Model object for handling the view
+     * @param createUser the CreateUser object containing the user details
+     * @param validation the BindingResult object for validating the user input
+     * @param model      the Model object for handling the view
      * @return a redirect to the home page
      */
     @PostMapping("/createUser")

@@ -16,7 +16,7 @@ public class Type {
 
     private String typeRoom;
 
-    @Column (columnDefinition = "text")
+    @Column(columnDefinition = "text")
     @Size(min = 3, max = 1000)
     private String descriptionT;
 

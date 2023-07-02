@@ -24,7 +24,7 @@ public class RoomService {
      * @param room the room object
      * @return the found room
      */
-    public Room findRoomById(Room room){
+    public Room findRoomById(Room room) {
         return roomRepository.save(room);
     }
 

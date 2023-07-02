@@ -160,7 +160,8 @@
                                    th:value="${room.type.typeRoom}">
                             <label class="form-check-label d-flex flex-column" for="roomRadio-[[${roomIndex.index}]]">
                                 <span th:text="${room.type.typeRoom}">Simple</span>
-                                <span th:text="${room.price}+ ' €'" th:name="selectedRoomPrice" data-price="${room.price}"
+                                <span th:text="${room.price}+ ' €'" th:name="selectedRoomPrice"
+                                      data-price="${room.price}"
                                       th:value="${room.price}">89€</span>
                                 <input type="hidden" id="selectedRoom" name="selectedRoom" value="">
                                 <input type="hidden" id="selectedRoomPrice" name="selectedRoomPrice"
@@ -198,13 +199,17 @@
             <div class="d-flex justify-content-between">
                 <div class="card shadow px-3 pt-3 col-3" th:each="reviews : ${reviews}">
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-title mb-3" th:text="${reviews.booking.userProfile.lastNameU + ' ' + reviews.booking.userProfile.firstNameU}">Jean-Pierre Dujardin</h5>
+                        <h5 class="card-title mb-3"
+                            th:text="${reviews.booking.userProfile.lastNameU + ' ' + reviews.booking.userProfile.firstNameU}">
+                            Jean-Pierre Dujardin</h5>
                         <div class="rating-square" th:text="${reviews.scores}">
                             4
                         </div>
                     </div>
-                    <h6 class="card-subtitle mb-2 text-body-secondary"th:text="${reviews.booking.room.type.typeRoom}">Chambre simple</h6>
-                    <p class="card-text" th:text="${reviews.commentary}">Some quick example text to build on the card title and make up the bulk of the
+                    <h6 class="card-subtitle mb-2 text-body-secondary" th:text="${reviews.booking.room.type.typeRoom}">
+                        Chambre simple</h6>
+                    <p class="card-text" th:text="${reviews.commentary}">Some quick example text to build on the card
+                        title and make up the bulk of the
                         card's content.</p>
                     <p class="text-end" th:text="${reviews.createdAt}">Séjour en 2023</p>
                 </div>

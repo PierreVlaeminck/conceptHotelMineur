@@ -20,7 +20,7 @@ public class BookmarkService {
      * @param bookmark the bookmark to add
      * @return the added bookmark
      */
-    public Bookmark addBookmark(Bookmark bookmark){
+    public Bookmark addBookmark(Bookmark bookmark) {
         return bookmarkRepository.save(bookmark);
     }
 
@@ -29,7 +29,7 @@ public class BookmarkService {
      *
      * @param id the ID of the bookmark to delete
      */
-    public void deleteBookmark(Long id){
+    public void deleteBookmark(Long id) {
         bookmarkRepository.deleteById(id);
     }
 }

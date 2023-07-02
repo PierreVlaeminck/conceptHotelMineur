@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 
-   /**
-    * Finds a UserProfile entity by the given username.
-    *
-    * @param username the username
-    * @return the UserProfile entity if found, or null if not found
-    */
-   UserProfile findByUsername(String username);
+    /**
+     * Finds a UserProfile entity by the given username.
+     *
+     * @param username the username
+     * @return the UserProfile entity if found, or null if not found
+     */
+    UserProfile findByUsername(String username);
 }

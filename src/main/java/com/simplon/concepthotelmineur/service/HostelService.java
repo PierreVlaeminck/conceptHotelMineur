@@ -39,7 +39,7 @@ public class HostelService {
      * @param id the ID of the hostel
      * @return the hostel with the specified ID
      */
-    public Hostel findHostelByIdH(Long id){
+    public Hostel findHostelByIdH(Long id) {
         return hostelRepository.findByIdH(id);
     }
 

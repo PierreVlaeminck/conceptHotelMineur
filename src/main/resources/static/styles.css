@@ -1,81 +1,99 @@
-body{
+body {
     font-family: 'Montserrat', sans-serif;
 }
-.text-logo{
+
+.text-logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 18px;
 }
-.bg-blue{
+
+.bg-blue {
     background-color: #004AAD !important;
 }
-.bg-orange{
+
+.bg-orange {
     background-color: #DD7F1E;
 }
-.img-logo{
+
+.img-logo {
     height: 45px;
     width: 45px;
 }
-.btn-white{
+
+.btn-white {
     border: 2px solid #FFFFFF;
     border-radius: 10px;
 }
-.btn-white:hover{
+
+.btn-white:hover {
     border-color: #DD7F1E;
     color: #004AAD !important;
     background-color: #FFFFFF;
 }
+
 .btn-transparent {
     border: 2px solid #DD7F1E;
     border-radius: 10px;
     color: white;
 }
-.btn-transparent:hover{
+
+.btn-transparent:hover {
     border: 2px solid #FFFFFF;
     color: #DD7F1E;
 }
+
 .btn-orange {
     border: 2px solid #DD7F1E;
     border-radius: 10px;
     color: black;
 }
-.btn-orange:hover{
+
+.btn-orange:hover {
     border: 2px solid #004AAD;
     color: #DD7F1E;
 }
-.btn-taxi{
+
+.btn-taxi {
     border: 2px solid #FFFFFF;
     border-radius: 10px;
-    min-height:40px;
+    min-height: 40px;
     width: 120px
 }
-.search{
+
+.search {
     background-color: #DD7F1E;
     height: 100px;
     border-radius: 10px;
 }
-.input-search{
+
+.input-search {
     height: 65%;
     border-radius: 10px;
     border-style: none;
 }
+
 .card-footer .description {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.image-home{
+
+.image-home {
     height: 180px;
-    width: 180px ;
+    width: 180px;
 }
+
 footer a:hover {
     color: #DD7F1E;
 }
-.img-hotel{
+
+.img-hotel {
     height: 80%;
-    width:80% ;
+    width: 80%;
 }
+
 .rating-square {
     width: 30px;
     height: 30px;
@@ -88,11 +106,12 @@ footer a:hover {
     font-size: 14px;
     color: white;
 }
-.border-home{
-    border:solid 2px #DD7F1E;
+
+.border-home {
+    border: solid 2px #DD7F1E;
 }
 
-.customHr{
+.customHr {
     color: #DD7F1E;
     border-width: 2px;
 }
@@ -106,11 +125,11 @@ footer a:hover {
 
 /* Style pour justifier les textes */
 .text-justify {
-    text-align : justify;
+    text-align: justify;
 }
 
 /* Home Map */
-#mapid{
+#mapid {
     margin: 0;
     height: 200px;
     width: 100%;
@@ -121,18 +140,22 @@ footer a:hover {
     margin: 0 auto;
     top: 0;
 }
-.selected-date{
+
+.selected-date {
     height: 100%;
 }
-.border-selectedDate{
-    border:solid 2px #DD7F1E;
+
+.border-selectedDate {
+    border: solid 2px #DD7F1E;
     height: 100px;
 }
-.input-selectedDate{
+
+.input-selectedDate {
     height: 65%;
     border-radius: 10px;
-    border-color:#004AAD;
+    border-color: #004AAD;
 }
-.text-blue{
+
+.text-blue {
     color: #004AAD;
 }

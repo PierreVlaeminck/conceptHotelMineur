@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -35,7 +35,8 @@
             <h1 class="text-center mt-3 mb-4">Informations du mineur</h1>
             <div>
                 <label class="form-label" for="firstName"></label>
-                <input class="form-control" type="text" id="firstName" name="firstName" placeholder="Prénom de mon enfant">
+                <input class="form-control" type="text" id="firstName" name="firstName"
+                       placeholder="Prénom de mon enfant">
             </div>
             <div>
                 <label class="form-label" for="lastName"></label>
@@ -43,11 +44,13 @@
             </div>
             <div>
                 <label class="form-label" for="cellphone"></label>
-                <input class="form-control" type="text" id="cellphone" name="cellphone" placeholder="Mobile de mon enfant">
+                <input class="form-control" type="text" id="cellphone" name="cellphone"
+                       placeholder="Mobile de mon enfant">
             </div>
             <div>
                 <label class="form-label" for="dateOfBirthM"></label>
-                <input class="form-control" type="date" id="dateOfBirthM" name="dateOfBirthM" placeholder="Date de naissance">
+                <input class="form-control" type="date" id="dateOfBirthM" name="dateOfBirthM"
+                       placeholder="Date de naissance">
             </div>
             <div>
                 <label class="form-label" for="familyRelationship"></label>
@@ -103,28 +106,33 @@
                 <div class="card-text">Adresse: <p th:text="${selectedHostelAddress}"></p></div>
                 <div class="card-text">Code Postal: <p th:text="${selectedHostelPostalCode}"></p></div>
                 <div class="card-text">Ville: <p th:text="${selectedHostelCity}"></p></p>
-                <div class="card-text">Date d'arrivée: <p th:text="${selectedDateArrived}" th:id="dateArrived" th:name="dateArrived"></p></p>
-                <div class="card-text">Date de départ: <p th:text="${selectedDepartureDate}" th:id="departureDate" th:name="departureDate"></p></div>
-                <div class="card-text">Nombre de nuit: <p></p></div>
-                <div class="card-text">Type de chambre: <p th:text="${selectedRoom}"></p></div>
-                <div class="card-text">Prix de la chambre: <p th:text="${selectedRoomPrice}"></p></div>
-                <p class="card-text">Services supplémentaires:</p>
-                <ul>
-                    <li th:each="benefit, i : ${selectedBenefits}">
-                        <span th:text="${benefit}"></span>
-                        <span th:text="${selectedBenefitsPrice[i]}"></span>
-                    </li>
-                </ul>
-                <p class="card-text text-end">
-                    Total : <i class="bi bi-currency-euro"></i> <!-- Calcul du total à ajouter ici -->
-                </p>
+                    <div class="card-text">Date d'arrivée: <p th:text="${selectedDateArrived}" th:id="dateArrived"
+                                                              th:name="dateArrived"></p></p>
+                        <div class="card-text">Date de départ: <p th:text="${selectedDepartureDate}"
+                                                                  th:id="departureDate" th:name="departureDate"></p>
+                        </div>
+                        <div class="card-text">Nombre de nuit: <p></p></div>
+                        <div class="card-text">Type de chambre: <p th:text="${selectedRoom}"></p></div>
+                        <div class="card-text">Prix de la chambre: <p th:text="${selectedRoomPrice}"></p></div>
+                        <p class="card-text">Services supplémentaires:</p>
+                        <ul>
+                            <li th:each="benefit, i : ${selectedBenefits}">
+                                <span th:text="${benefit}"></span>
+                                <span th:text="${selectedBenefitsPrice[i]}"></span>
+                            </li>
+                        </ul>
+                        <p class="card-text text-end">
+                            Total : <i class="bi bi-currency-euro"></i> <!-- Calcul du total à ajouter ici -->
+                        </p>
+                    </div>
+
+                </div>
+
+                <!------------End Recap Section--------->
+                <div class="d-flex justify-content-center mt-7">
+                    <button class="btnF btn-white w-50 nav-link mt-3 mb-4 px-2" type="submit">Réserver</button>
+                </div>
             </div>
-
-        </div>
-
-        <!------------End Recap Section--------->
-        <div class="d-flex justify-content-center mt-7">
-            <button class="btnF btn-white w-50 nav-link mt-3 mb-4 px-2" type="submit">Réserver</button>
         </div>
     </form>
 
@@ -132,11 +140,11 @@
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
 <!-------------End Footer Section------------>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {

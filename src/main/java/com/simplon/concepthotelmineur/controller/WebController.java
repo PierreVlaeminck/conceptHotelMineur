@@ -147,7 +147,6 @@ public class WebController {
     }
 
 
-
     /**
      * Renders the reviews page.
      *

@@ -24,9 +24,9 @@ public class BookingService {
      * @return the booking with the specified ID
      * @throws RuntimeException if no booking is found with the given ID
      */
-    public Booking findBookingById(Long id){
+    public Booking findBookingById(Long id) {
         return bookingRepository.findById(id).orElseThrow(
-                ()-> new RuntimeException("No booking found with ID: " + id));
+                () -> new RuntimeException("No booking found with ID: " + id));
     }
 
     /**
@@ -35,7 +35,7 @@ public class BookingService {
      * @param booking the booking to create
      * @return the created booking
      */
-    public Booking createBooking (Booking booking){
+    public Booking createBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
 
@@ -45,7 +45,7 @@ public class BookingService {
      * @param userProfile the user profile associated with the bookings
      * @return a list of bookings associated with the user profile
      */
-    public List<Booking> findAllBookingByUserProfil(UserProfile userProfile){
+    public List<Booking> findAllBookingByUserProfil(UserProfile userProfile) {
         return bookingRepository.getBookingByUserProfile(userProfile);
     }
 
@@ -54,7 +54,7 @@ public class BookingService {
      *
      * @param id the ID of the booking to delete
      */
-    public void deleteBooking (Long id){
+    public void deleteBooking(Long id) {
         bookingRepository.deleteById(id);
     }
 }

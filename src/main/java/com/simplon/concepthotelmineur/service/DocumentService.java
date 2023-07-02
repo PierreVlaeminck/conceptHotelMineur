@@ -20,7 +20,7 @@ public class DocumentService {
      * @param document the document to add
      * @return the added document
      */
-    public Document addDocument(Document document){
+    public Document addDocument(Document document) {
         return documentRepository.save(document);
     }
 
@@ -29,7 +29,7 @@ public class DocumentService {
      *
      * @param id the ID of the document to delete
      */
-    public void deleteDocument(Long id){
+    public void deleteDocument(Long id) {
         documentRepository.deleteById(id);
     }
 }

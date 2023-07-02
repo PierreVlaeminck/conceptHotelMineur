@@ -20,7 +20,7 @@ public class Room {
 
     private double price;
 
-    @Column (columnDefinition = "text")
+    @Column(columnDefinition = "text")
     @Size(min = 3, max = 1000)
     private String detail;
 

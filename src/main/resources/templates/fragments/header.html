@@ -1,14 +1,23 @@
 <header class="bg-blue border-bottom">
-  <div class="mx-4 d-flex flex-wrap justify-content-center align-items-end py-3">
-    <a href="/" class="d-flex flex-column align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none text-light">
-      <img src="/dormir.png" alt="Logo de l'entreprise Minorease" class="img-logo">
-      <span class="text-logo">MINOREASE</span>
-    </a>
-    <ul class="nav">
-      <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/inscription}" class=" btn btn-white nav-link text-light px-2 me-4">Créer un compte</a></li>
-      <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/login}" class="btn btn-white nav-link text-light px-2">Se connecter</a></li>
-      <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/profil}" class="btn btn-white nav-link text-light px-2 me-4">Profil</a></li>
-      <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/logout}" class="btn btn-white nav-link text-light px-2">Se déconnecter</a></li>
-    </ul>
-  </div>
+    <div class="mx-4 d-flex flex-wrap justify-content-center align-items-end py-3">
+        <a href="/"
+           class="d-flex flex-column align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none text-light">
+            <img src="/dormir.png" alt="Logo de l'entreprise Minorease" class="img-logo">
+            <span class="text-logo">MINOREASE</span>
+        </a>
+        <ul class="nav">
+            <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/inscription}"
+                                                                       class=" btn btn-white nav-link text-light px-2 me-4">Créer
+                un compte</a></li>
+            <li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/login}"
+                                                                       class="btn btn-white nav-link text-light px-2">Se
+                connecter</a></li>
+            <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/profil}"
+                                                                      class="btn btn-white nav-link text-light px-2 me-4">Profil</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/logout}"
+                                                                      class="btn btn-white nav-link text-light px-2">Se
+                déconnecter</a></li>
+        </ul>
+    </div>
 </header>

@@ -25,8 +25,8 @@ public class Hostel {
 
     private String city;
 
-    @Column (columnDefinition = "text")
-    @Size (min = 3, max = 1000)
+    @Column(columnDefinition = "text")
+    @Size(min = 3, max = 1000)
     private String description;
 
     @Email

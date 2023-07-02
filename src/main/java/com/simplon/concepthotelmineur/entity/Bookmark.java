@@ -14,11 +14,11 @@ public class Bookmark {
     private Long idBk;
 
     @ManyToOne
-    @JoinColumn(name="user_profile_id")
+    @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
     @ManyToOne
-    @JoinColumn(name="hostel_id")
+    @JoinColumn(name = "hostel_id")
     private Hostel hostel;
 
     public Bookmark(Long idBk, UserProfile userProfile, Hostel hostel) {
@@ -27,7 +27,7 @@ public class Bookmark {
         this.hostel = hostel;
     }
 
-    public Bookmark(){
+    public Bookmark() {
 
     }
 }
