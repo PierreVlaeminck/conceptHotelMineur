@@ -85,43 +85,47 @@
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
                                     eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                                 </p>
-                                <div class="d-flex justify-content-between my-2">
-                                    <span>
+                                <div class="d-flex flex-wrap my-2">
+                                    <div class="me-3">
                                         <i class="bi bi-wifi me-1"></i>
                                         Wi-Fi
-                                    </span>
-                                    <span>
+                                    </div>
+                                    <div class="me-3">
                                         <i class="bi bi-cup-hot-fill me-1"></i>
                                         Petit déjeuner
-                                    </span>
-                                    <span>
+                                    </div>
+                                    <div class="me-3">
                                         <i class="bi bi-p-square-fill me-1"></i>
                                         Parking
-                                    </span>
-                                    <span>
+                                    </div>
+                                    <div class="me-3">
                                         <i class="bi bi-life-preserver me-1"></i>
                                         Piscine
-                                    </span>
-
-                                    <div class="rating-square">
-                                        4.7
                                     </div>
-                                    Avis clients
+                                    <div class="d-flex me-3">
+                                        <div class="rating-square me-1">
+                                            4.7
+                                        </div>
+                                        Avis clients
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card search shadow mt-5">
+            <div class="card border-selectedDate shadow mt-5">
                 <div class="card-body d-flex justify-content-between align-items-center">
-                    <div class="card-text selected-date">
-                        <label for="selectedDateArrived">Date d'arrivée</label>
-                        <input class="input-search" id="selectedDateArrived" th:value="selectedDateArrived" th:name="selectedDateArrived" type="datetime-local"/>
+                    <span>Sélectionner vos dates de séjour :</span>
+                    <div class="card-text selected-date d-flex align-items-center">
+                        <label for="selectedDateArrived" class="me-2">Date d'arrivée : </label>
+                        <input class="input-selectedDate" id="selectedDateArrived" th:value="selectedDateArrived"
+                               th:name="selectedDateArrived" type="datetime-local"/>
                     </div>
-                    <div class="card-text selected-date">
-                        <label for="selectedDepartureDate">Date de départ</label>
-                        <input class="input-search" id="selectedDepartureDate" th:value="selectedDepartureDate" th:name="selectedDepartureDate" type="datetime-local"/>
+                    <div class="card-text selected-date d-flex align-items-center">
+                        <label for="selectedDepartureDate" class="me-2">Date de départ : </label>
+                        <input class="input-selectedDate" id="selectedDepartureDate" th:value="selectedDepartureDate"
+                               th:name="selectedDepartureDate" type="datetime-local"/>
                     </div>
                 </div>
             </div>
@@ -146,17 +150,19 @@
                 <div class="card shadow d-flex w-50 ms-2">
                     <h3 class="text-center mt-2">Types de chambre</h3>
                     <hr class="customHr mt-0">
-                    <div class="form-check" th:each="room, roomIndex : ${rooms}">
-                        <input class="form-check-input" type="radio" id="roomRadio-[[${roomIndex.index}]]"
-                               th:value="${room.type.typeRoom}">
-                        <label class="form-check-label d-flex flex-column" for="roomRadio-[[${roomIndex.index}]]">
-                            <span th:text="${room.type.typeRoom}">Simple</span>
-                            <span th:text="${room.price}" th:name="selectedRoomPrice" data-price="${room.price}"
-                                  th:value="${room.price}">89€</span>
-                            <input type="hidden" id="selectedRoom" name="selectedRoom" value="">
-                            <input type="hidden" id="selectedRoomPrice" name="selectedRoomPrice"
-                                   data-price="${room.price}" th:value="${room.price}">
-                        </label>
+                    <div class="d-flex mt-2 mx-3 flex-wrap">
+                        <div class="form-check col-3 mb-3" th:each="room, roomIndex : ${rooms}">
+                            <input class="form-check-input" type="radio" id="roomRadio-[[${roomIndex.index}]]"
+                                   th:value="${room.type.typeRoom}">
+                            <label class="form-check-label d-flex flex-column" for="roomRadio-[[${roomIndex.index}]]">
+                                <span th:text="${room.type.typeRoom}">Simple</span>
+                                <span th:text="${room.price}" th:name="selectedRoomPrice" data-price="${room.price}"
+                                      th:value="${room.price}">89€</span>
+                                <input type="hidden" id="selectedRoom" name="selectedRoom" value="">
+                                <input type="hidden" id="selectedRoomPrice" name="selectedRoomPrice"
+                                       data-price="${room.price}" th:value="${room.price}">
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -172,11 +178,12 @@
                     <p class="card-text text-end">
                         Total : <i class="bi bi-currency-euro"></i>
                     </p>
-                    <div class="d-grid gap-2 col-6 mx-auto my-2">
+                    <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-4">
                         <button class="btn shadow btnF btn-white" type="submit"><i
                                 class="bi bi-calendar-check me-2"></i>Réserver
                         </button>
                     </div>
+                    <span>*Service de taxi spécialisé dans le transport des mineurs, plus d'infos dans notre FAQ</span>
                 </div>
             </div>
         </form>
@@ -185,41 +192,17 @@
         <div class="col-12">
             <h2 class="my-4">Avis clients</h2>
             <div class="d-flex justify-content-between">
-                <div class="card shadow px-3 pt-3 col-3">
+                <div class="card shadow px-3 pt-3 col-3" th:each="reviews : ${reviews}">
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-title mb-3">Jean-Pierre Dujardin</h5>
-                        <div class="rating-square">
+                        <h5 class="card-title mb-3" th:text="${reviews.booking.userProfile.lastNameU + ' ' + reviews.booking.userProfile.firstNameU}">Jean-Pierre Dujardin</h5>
+                        <div class="rating-square" th:text="${reviews.scores}">
                             4
                         </div>
                     </div>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Chambre simple</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    <h6 class="card-subtitle mb-2 text-body-secondary"th:text="${reviews.booking.room.type.typeRoom}">Chambre simple</h6>
+                    <p class="card-text" th:text="${reviews.commentary}">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
-                    <p class="text-end">Séjour en 2023</p>
-                </div>
-                <div class="card shadow px-3 pt-3 col-3">
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-title mb-3">Marie Petit</h5>
-                        <div class="rating-square">
-                            5
-                        </div>
-                    </div>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Suite</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <p class="text-end">Séjour en 2023</p>
-                </div>
-                <div class="card shadow px-3 pt-3 col-3">
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-title mb-3">John Doe</h5>
-                        <div class="rating-square">
-                            4
-                        </div>
-                    </div>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Chambre double</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <p class="text-end">Séjour en 2023</p>
+                    <p class="text-end" th:text="${reviews.createdAt}">Séjour en 2023</p>
                 </div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto mt-5 mb-5">

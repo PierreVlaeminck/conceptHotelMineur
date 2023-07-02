@@ -124,3 +124,12 @@ footer a:hover {
 .selected-date{
     height: 100%;
 }
+.border-selectedDate{
+    border:solid 2px #DD7F1E;
+    height: 100px;
+}
+.input-selectedDate{
+    height: 65%;
+    border-radius: 10px;
+    border-color:#004AAD;
+}
