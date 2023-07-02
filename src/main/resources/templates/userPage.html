@@ -28,87 +28,105 @@
 <div th:replace="fragments/nav :: nav"></div>
 <!-----------End Nav Section---------------->
 <main>
-    <h1 class="m-5">Mon espace</h1>
-
     <!----- Start update personal data form ----->
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="card border shadow mt-5 mb-5 col-md-8">
+                <div class="card-head text-center">
+                    <h3 class="pt-3">Mes informations personnelles</h3>
+                </div>
+                <hr class="customHr">
+                <div class="card-text px-3">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="lastNameU">Nom :</label>
+                            <input class="form-control" type="text" id="lastNameU" name="lastNameU"
+                                   th:field="${userProfile.lastNameU}"
+                                   readonly>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-4" for="firstNameU">Prénom : </label>
+                            <input class="form-control" type="text" id="firstNameU" name="firstNameU"
+                                   th:field="${userProfile.firstNameU}" readonly>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="dateOfBirthU">Date de naissance :</label>
+                            <input class="form-control" type="text" id="dateOfBirthU" name="dateOfBirthU"
+                                   th:field="${userProfile.dateOfBirthU}" readonly>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="mailU">Email :</label>
+                            <input class="form-control" type="text" id="mailU" name="mailU"
+                                   th:field="${userProfile.mailU}"
+                                   readonly>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="phone">Fixe :</label>
+                            <input class="form-control" type="text" id="phone" name="phone"
+                                   th:field="${userProfile.phone}"
+                                   readonly>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-4" for="cellPhoneU">Portable :</label>
+                            <input class="form-control" type="text" id="cellPhoneU" name="cellPhoneU"
+                                   th:field="${userProfile.cellPhoneU}" readonly>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto my-5">
+                        <a class="btnF btn-white shadow py-2 text-decoration-none text-center"
+                           href="/profil/modification"
+                           type="button">
+                            Modifier mes informations
+                        </a>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto mt-2 mb-5">
+                        <a class="btnF btn-white shadow py-2 text-decoration-none text-center" href="/mot_de_passe"
+                           type="button">
+                            Modifier mon mot de passe
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----- End update personal data form ----->
 
-    <div class="container border shadow mt-5 mb-5">
+        <!----- Start container booked and favorites ----->
 
-        <h1 class="text-center mt-3 mb-4">Mes informations personnelles</h1>
-        <div>
-            <label class="form-label" for="firstNameU">Prénom</label>
-            <input class="form-control" type="text" id="firstNameU" name="firstNameU"
-                   th:field="${userProfile.firstNameU}" readonly>
-        </div>
-        <div>
-            <label class="form-label" for="lastNameU">Nom</label>
-            <input class="form-control" type="text" id="lastNameU" name="lastNameU" th:field="${userProfile.lastNameU}"
-                   readonly>
-        </div>
-        <div>
-            <label class="form-label" for="dateOfBirthU">Date de naissance</label>
-            <input class="form-control" type="text" id="dateOfBirthU" name="dateOfBirthU"
-                   th:field="${userProfile.dateOfBirthU}" readonly>
-        </div>
-        <div>
-            <label class="form-label" for="mailU"></label>
-            <input class="form-control" type="text" id="mailU" name="mailU" th:field="${userProfile.mailU}" readonly>
-        </div>
-        <div>
-            <label class="form-label" for="phone"></label>
-            <input class="form-control" type="text" id="phone" name="phone" th:field="${userProfile.phone}" readonly>
-        </div>
-        <div>
-            <label class="form-label" for="cellPhoneU"></label>
-            <input class="form-control" type="text" id="cellPhoneU" name="cellPhoneU"
-                   th:field="${userProfile.cellPhoneU}" readonly>
-        </div>
-        <div class="d-flex justify-content-center mb-5 mt-5">
-            <a type="button" href="/profil/modification" class="btnF btn-white w-50 nav-link m-3 px-2">Modifier</a>
-        </div>
-        <div class="d-flex justify-content-end mt-7 mb-2">
-            <a type="button" href="/mot_de_passe" class="btnF btn-white nav-link m-3 px-2">Modifier mon mot de passe</a>
-        </div>
-
-    </div>
-    <!----- End update personal data form ----->
-
-    <!----- Start container booked and favorites ----->
-
-    <div class="container mb-5">
-        <div class="row">
-            <div class="container border shadow col m-2">
-                <h2 class="text-center mb-4 mt-4">Réservations</h2>
-                <div class="container">
-                    <div class="row">
-                        <div class="d-flex">
-                            <div class="card border shadow mb-4">
-                                <div class="card-head m-2">
-                                    <div class="row">
-                                        <h2 class="col-10 fs-3">Nom de l'hôtel 1</h2>
-                                        <span class="d-flex justify-content-end col-1"><i
-                                                class="bi bi-exclamation-circle-fill fs-3"></i></span>
-                                        <span class="d-flex justify-content-end col-1"><i
-                                                class="bi bi-x-circle-fill fs-3"></i></span>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex justify-content-between m-1">
-                                    <img src="/test-image1.jpg" alt="photo de l'hôtel">
-                                    <div class="col-7 justify-content-center text-justify">
-                                        <p class="m-1 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nulla eu sodales augue. Fusce aliquam ipsum eget congue aliquam.</p>
-                                        <a th:href="@{/hotel}" class="btn btn-orange w-100"> <i
-                                                class="bi bi-search me-2"></i> Plus d'infos</a>
-                                    </div>
-                                </div>
+        <div class="mb-5 col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="text-center mb-4 mt-4">Réservations</h2>
+                    <div class="card shadow mb-4">
+                        <div class="card-head m-2">
+                            <div class="row">
+                                <h2 class="col-10 fs-3">Nom de l'hôtel 1</h2>
+                                <span class="d-flex justify-content-end col-1"><i
+                                        class="bi bi-exclamation-circle-fill fs-3"></i></span>
+                                <span class="d-flex justify-content-end col-1"><i
+                                        class="bi bi-x-circle-fill fs-3"></i></span>
+                                <p class="m-1 text-blue">Numéro de réservation :</p>
+                            </div>
+                        </div>
+                        <hr class="customHr mt-0">
+                        <div class="card-body d-flex m-1">
+                            <img src="/test-image1.jpg" alt="photo de l'hôtel">
+                            <div class="ms-5">
+                                <p class="m-1 mb-3 text-blue">Adresse :</p>
+                                <p class="m-1 mb-3 text-blue">Code Postal :</p>
+                                <p class="m-1 mb-3 text-blue">Ville :</p>
+                                <p class="m-1 mb-3 text-blue">Téléphone :</p>
+                                <p class="m-1 mb-3 text-blue">Num de chambre :</p>
+                                <p class="m-1 mb-3 text-blue">Date de séjour :</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container border shadow col m-2">
-                <h2 class="text-center mb-4 mt-4">Favoris</h2>
-                <div class="container">
+                <div class="col-md-6">
+                    <h2 class="text-center mb-4 mt-4">Favoris</h2>
                     <div class="row">
                         <div class="d-flex">
                             <div class="card border shadow mb-3">
@@ -116,9 +134,10 @@
                                     <div class="row">
                                         <h2 class="col-11 fs-3">Nom de l'hôtel 1</h2>
                                         <span class="d-flex justify-content-end col-1"><i
-                                                class="bi bi-x-circle-fill fs-3"></i></span>
+                                                class="bi bi-exclamation-circle-fill fs-3"></i></span>
                                     </div>
                                 </div>
+                                <hr class="customHr mt-0">
                                 <div class="card-body d-flex justify-content-between m-1">
                                     <img src="/test-image1.jpg" alt="photo de l'hôtel">
                                     <div class="col-7 justify-content-center">
@@ -136,12 +155,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!----- End container booked and favorites ----->
-
-    <div class="d-flex justify-content-center mt-7">
-        <button class="btnF btn-white w-50 nav-link m-3 px-2" type="submit">Supprimer mon compte</button>
+        <!----- End container booked and favorites ----->
     </div>
 </main>
 <!-------------Start Footer Section---------->
