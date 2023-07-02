@@ -28,63 +28,98 @@
 <!-----------End Nav Section---------------->
 <!------------Start Booking Form Section--------->
 <main>
-    <div class="container border shadow w-75 mt-5 mb-5">
-        <form method="post" action="/createUser" class="row">
-            <h1 class="text-center mt-3 mb-4">Inscription</h1>
-            <div class="col-md-6">
-                <label for="login" class="form-label"></label>
-                <input type="text" class="form-control" id="login" name="login" placeholder="Pseudonyme" required>
-            </div>
-            <div class="col-md-6">
-                <label for="lastName" class="form-label"></label>
-                <input type="text" class="form-control" id="lastName" name="lastNameU" placeholder="Nom" required>
-            </div>
-            <div class="col-md-6">
-                <label for="firstName" class="form-label"></label>
-                <input type="text" class="form-control" id="firstName" name="firstNameU" placeholder="Prénom" required>
-            </div>
-            <div class="col-md-6">
-                <label for="dateOfBirthU" class="form-label"></label>
-                <input type="date" class="form-control" id="dateOfBirthU" name="dateOfBirthU"
-                       placeholder="Date de naissance" required>
-            </div>
-            <div class="col-md-6">
-                <label for="mailU" class="form-label"></label>
-                <input type="email" class="form-control" id="mailU" name="mailU" placeholder="Email" required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationDefault05" class="form-label"></label>
-                <input type="tel" class="form-control" id="validationDefault05" name="cellPhoneU" placeholder="Portable"
-                       required>
-            </div>
-            <div class="col-md-6">
-                <label for="phone" class="form-label"></label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Fixe">
-            </div>
-            <div class="col-md-6">
-                <label for="password" class="form-label"></label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
-                       required>
-            </div>
-            <div class="col-md-6">
-                <label for="confirmPassword" class="form-label"></label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-                       placeholder="Confirmation du mot de passe" required>
-            </div>
-            <div class="col-12 d-flex justify-content-end">
-                <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                    <label class="form-check-label" for="invalidCheck2">
-                        J'accepte les conditions d'utilisations
-                    </label>
+    <div class="container">
+        <div class="d-flex flex-row my-5 justify-content-center">
+            <form method="post" action="/createUser" class="row">
+                <div class="card shadow mb-2 me-2 border bg-transparent justify-content-evenly px-0">
+                    <div class="card-head text-center">
+                        <h3 class="pt-3">Inscription</h3>
+                    </div>
+                    <hr class="customHr">
+                    <div class="card-text px-3">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <label for="login" class="form-label"></label>
+                                <input type="text" class="form-control" id="login" name="login" placeholder="Pseudonyme"
+                                       required>
+                            </div>
+                            <div>
+                                <label for="dateOfBirthU" class="form-label"></label>
+                                <input type="date" class="form-control" id="dateOfBirthU" name="dateOfBirthU"
+                                       placeholder="Date de naissance" required>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <label for="lastName" class="form-label"></label>
+                                <input type="text" class="form-control" id="lastName" name="lastNameU" placeholder="Nom"
+                                       required>
+                            </div>
+                            <div>
+                                <label for="firstName" class="form-label"></label>
+                                <input type="text" class="form-control" id="firstName" name="firstNameU"
+                                       placeholder="Prénom"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <label for="validationDefault05" class="form-label"></label>
+                                <input type="tel" class="form-control" id="validationDefault05" name="cellPhoneU"
+                                       placeholder="Portable"
+                                       required>
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label"></label>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                       placeholder="Fixe (facultatif)">
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div>
+                                <label for="mailU" class="form-label"></label>
+                                <input type="email" class="form-control" id="mailU" name="mailU" placeholder="Email"
+                                       required>
+                            </div>
+                            <div>
+                                <label for="password" class="form-label"></label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                       placeholder="Mot de passe"
+                                       required>
+                            </div>
+                            <div>
+                                <label for="confirmPassword" class="form-label"></label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                       placeholder="Confirmer" required>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <div class="form-check mt-3 pt-3">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                <label class="form-check-label" for="invalidCheck2">
+                                    J'accepte les conditions générales d'utilisations
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 m-5">
+                            <button class="btnF btn-white shadow py-2" type="submit">
+                                Créer un compte
+                            </button>
+                        </div>
+                    </div>
                 </div>
+            </form>
+            <div class="d-none d-md-flex mx-2 border-left"></div>
+            <div class="col-5 my-5 me-2 d-none d-md-flex flex-column align-items-center">
+                <img src="/dormir.png" class="card-img" alt="Logo">
+                <span class="d-flex ms-2">
+      <span class="text-logo size-text-logo">MINOREASE</span>
+    </span>
             </div>
-            <div class="d-flex justify-content-center mb-2 mt-5">
-                <button class="btnF btn-white w-50 nav-link m-3 px-2" type="submit">Créer un compte</button>
-            </div>
-        </form>
+        </div>
     </div>
 </main>
+
 <!------- End Update Password Form ------->
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
