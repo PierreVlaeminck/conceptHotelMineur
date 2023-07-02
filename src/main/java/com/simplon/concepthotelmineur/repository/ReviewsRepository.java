@@ -29,4 +29,5 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
      * @return a list of reviews associated with the rooms of the specified hostel
      */
     List<Reviews> findByBooking_Room_Hostel(Hostel hostel);
+
 }

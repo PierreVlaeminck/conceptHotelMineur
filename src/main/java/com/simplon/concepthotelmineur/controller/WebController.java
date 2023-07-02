@@ -134,6 +134,10 @@ public class WebController {
         List<BenefitHostel> benefitHostels = hostel.getBenefitHostels();
         List<Room> rooms = hostel.getRooms();
         List<Reviews> reviews = reviewsService.findReviewsByHostelLimited(hostel, 3);
+
+        Double averageScore = hostelService.calculateAverageScore(hostel);
+
+        model.addAttribute("averageScore", averageScore);
         model.addAttribute("reviews", reviews);
         model.addAttribute("hostel", hostel);
         model.addAttribute("benefitHostels", benefitHostels);
@@ -141,6 +145,7 @@ public class WebController {
 
         return "hostel";
     }
+
 
 
     /**
