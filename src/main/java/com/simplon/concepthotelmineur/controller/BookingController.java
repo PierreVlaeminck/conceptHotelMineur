@@ -28,15 +28,8 @@ public class BookingController {
 
     @PostMapping("/paiement")
     public String payProcess(@ModelAttribute BookingForm bookingForm, HttpSession session, Principal principal) {
-
+        UserProfile userProfile = userProfileRepository.findByUsername(principal.getName());
         // Créez des instances des entités Minor, Booking et UserProfile à partir des données du DTO
-        Minor minor = new Minor();
-        minor.setFirstName(bookingForm.getFirstName());
-        minor.setLastName(bookingForm.getLastName());
-        minor.setCellPhone(bookingForm.getCellphone());
-        minor.setDateOfBirthM(bookingForm.getDateOfBirthM());
-        minor.setFamilyRelationship(bookingForm.getFamilyRelationship());
-        minor.setAdditionalInformation(bookingForm.getAdditionalInformation());
 
         Booking booking = new Booking();
         booking.setBookingCode(bookingForm.getBookingCode());
@@ -44,14 +37,22 @@ public class BookingController {
         booking.setDepartureDate(bookingForm.getDepartureDate());
         booking.setTotalPrice(bookingForm.getTotalPrice());
         booking.setPending(bookingForm.getPending());
+
+        Minor minor = new Minor();
+        minor.setFirstName(bookingForm.getFirstName());
+        minor.setLastName(bookingForm.getLastName());
+        minor.setCellPhone(bookingForm.getCellphone());
+        minor.setDateOfBirthM(bookingForm.getDateOfBirthM());
+        minor.setFamilyRelationship(bookingForm.getFamilyRelationship());
+        minor.setAdditionalInformation(bookingForm.getAdditionalInformation());
+        minor.setUserProfile(userProfile);
         // Set other properties for the Booking entity
 
-        UserProfile userProfile = userProfileRepository.findByUsername(principal.getName());
         // Set properties for the UserProfile entity
 
         // Set associations between entities
-        booking.setMinor(minor);
         booking.setUserProfile(userProfile);
+        booking.setMinor(minor);
         // Set other associations
 
         // Enregistrez les entités dans votre système de persistance (par exemple, une base de données)
