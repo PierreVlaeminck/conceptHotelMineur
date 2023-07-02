@@ -29,7 +29,6 @@ public class BookingController {
     @PostMapping("/paiement")
     public String payProcess(@ModelAttribute BookingForm bookingForm, HttpSession session, Principal principal) {
         UserProfile userProfile = userProfileRepository.findByUsername(principal.getName());
-        // Créez des instances des entités Minor, Booking et UserProfile à partir des données du DTO
 
         Booking booking = new Booking();
         booking.setBookingCode(bookingForm.getBookingCode());
@@ -46,19 +45,13 @@ public class BookingController {
         minor.setFamilyRelationship(bookingForm.getFamilyRelationship());
         minor.setAdditionalInformation(bookingForm.getAdditionalInformation());
         minor.setUserProfile(userProfile);
-        // Set other properties for the Booking entity
 
-        // Set properties for the UserProfile entity
-
-        // Set associations between entities
         booking.setUserProfile(userProfile);
         booking.setMinor(minor);
-        // Set other associations
 
-        // Enregistrez les entités dans votre système de persistance (par exemple, une base de données)
         minorRepository.save(minor);
         bookingRepository.save(booking);
 
-        return "redirect:/profil";
+        return "redirect:/";
     }
 }

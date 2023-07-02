@@ -58,11 +58,12 @@ public class Booking {
     public Booking() {
     }
 
-    @PrePersist
+    @PostPersist
     private void generateBookingCode() {
         // Génération du code de réservation
         String codePrefix = "R";
         String codeNumber = String.format("%03d", idB); // Utilisez l'ID de l'entité pour générer le code
         bookingCode = codePrefix + codeNumber;
     }
+
 }
