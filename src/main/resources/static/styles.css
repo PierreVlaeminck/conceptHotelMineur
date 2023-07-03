@@ -186,3 +186,6 @@ footer a:hover {
 .bi-exclamation-circle.text-blue:hover{
     cursor: pointer;
 }
+.border-none{
+    border: none;
+}

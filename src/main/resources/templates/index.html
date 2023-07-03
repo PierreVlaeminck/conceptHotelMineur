@@ -114,7 +114,7 @@
                             <span th:text="${hostel.name}">Nom de l'hôtel</span>
                             <form method="post" action="/favoris">
                                 <input type="hidden" id="hostelId" name="hostelId" th:value="${hostel.idH}">
-                                <button type="submit">
+                                <button type="submit" class="bg-transparent border-none">
                                     <i class="bi bi-balloon-heart fs-3 bookmark-icon" data-hostel-id="${hostel.idH}"></i>
                                 </button>
                             </form>
