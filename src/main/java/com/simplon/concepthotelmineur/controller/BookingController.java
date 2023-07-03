@@ -1,5 +1,4 @@
 package com.simplon.concepthotelmineur.controller;
-
 import com.simplon.concepthotelmineur.dto.BookingForm;
 import com.simplon.concepthotelmineur.entity.Booking;
 import com.simplon.concepthotelmineur.entity.Minor;
@@ -17,15 +16,28 @@ import java.security.Principal;
 
 @Controller
 public class BookingController {
-    @Autowired
-    private MinorRepository minorRepository;
+    private final MinorRepository minorRepository;
 
-    @Autowired
-    private BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
-    @Autowired
-    private UserProfileRepository userProfileRepository;
+    private final UserProfileRepository userProfileRepository;
 
+    public BookingController(MinorRepository minorRepository,
+                             BookingRepository bookingRepository,
+                             UserProfileRepository userProfileRepository) {
+        this.minorRepository = minorRepository;
+        this.bookingRepository = bookingRepository;
+        this.userProfileRepository = userProfileRepository;
+    }
+
+    /**
+     * Processes the payment for a booking and saves the booking and associated minor in the database.
+     *
+     * @param bookingForm The BookingForm object containing the booking details.
+     * @param session     The HttpSession object.
+     * @param principal   The Principal object representing the currently authenticated user.
+     * @return A string representing the redirect URL to the home page.
+     */
     @PostMapping("/paiement")
     public String payProcess(@ModelAttribute BookingForm bookingForm, HttpSession session, Principal principal) {
         UserProfile userProfile = userProfileRepository.findByUsername(principal.getName());

@@ -20,8 +20,8 @@ public class BookmarkService {
     /**
      * Adds a bookmark.
      *
-     * @param bookmark the bookmark to add
-     * @return the added bookmark
+     * @param bookmark The bookmark to add.
+     * @return The added bookmark.
      */
     public Bookmark addBookmark(Bookmark bookmark) {
         return bookmarkRepository.save(bookmark);
@@ -30,12 +30,18 @@ public class BookmarkService {
     /**
      * Deletes a bookmark by its ID.
      *
-     * @param id the ID of the bookmark to delete
+     * @param id The ID of the bookmark to delete.
      */
     public void deleteBookmark(Long id) {
         bookmarkRepository.deleteById(id);
     }
 
+    /**
+     * Retrieves a list of all bookmarks associated with the specified user profile.
+     *
+     * @param userProfile The user profile entity.
+     * @return A list of bookmarks associated with the user profile.
+     */
     public List<Bookmark> findAllBookmarksByUserProfil(UserProfile userProfile) {
         return bookmarkRepository.getBookmarkByUserProfile(userProfile);
     }
