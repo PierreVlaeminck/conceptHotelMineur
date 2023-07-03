@@ -2,10 +2,7 @@ package com.simplon.concepthotelmineur.controller;
 
 import com.simplon.concepthotelmineur.dto.UserForm;
 import com.simplon.concepthotelmineur.entity.*;
-import com.simplon.concepthotelmineur.service.BookingService;
-import com.simplon.concepthotelmineur.service.HostelService;
-import com.simplon.concepthotelmineur.service.ReviewsService;
-import com.simplon.concepthotelmineur.service.UserProfileService;
+import com.simplon.concepthotelmineur.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -25,6 +22,8 @@ import java.util.List;
 public class WebController {
 
     private final HostelService hostelService;
+
+    private final BookmarkService bookmarkService;
     private final BookingService bookingService;
     private final UserProfileService userProfileService;
     private final ReviewsService reviewsService;
@@ -37,9 +36,10 @@ public class WebController {
      * @param userProfileService the UserProfileService to be used
      * @param reviewsService     the ReviewsService to be used
      */
-    public WebController(HostelService hostelService, BookingService bookingService,
+    public WebController(HostelService hostelService,BookmarkService bookmarkService, BookingService bookingService,
                          UserProfileService userProfileService, ReviewsService reviewsService) {
         this.hostelService = hostelService;
+        this.bookmarkService=bookmarkService;
         this.bookingService = bookingService;
         this.userProfileService = userProfileService;
         this.reviewsService = reviewsService;
@@ -169,7 +169,11 @@ public class WebController {
     public String getProfile(Model model, @AuthenticationPrincipal UserDetails userDetails) {
         String username = userDetails.getUsername();
         UserProfile userProfile = userProfileService.findByUsername(username);
+        List<Booking>bookings = bookingService.findAllBookingByUserProfil(userProfile);
+        List<Bookmark>bookmarks = bookmarkService.findAllBookmarksByUserProfil(userProfile);
         model.addAttribute("userProfile", userProfile);
+        model.addAttribute("bookings", bookings);
+        model.addAttribute("bookmarks", bookmarks);
         return "userPage";
     }
 

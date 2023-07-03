@@ -100,27 +100,50 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2 class="text-center mb-4 mt-4">Réservations</h2>
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4" th:each="bookings : ${bookings}">
                         <div class="card-head m-2">
                             <div class="row">
-                                <h2 class="col-10 fs-3">Nom de l'hôtel 1</h2>
-                                <span class="d-flex justify-content-end col-1"><i
-                                        class="bi bi-exclamation-circle-fill fs-3"></i></span>
-                                <span class="d-flex justify-content-end col-1"><i
-                                        class="bi bi-x-circle-fill fs-3"></i></span>
-                                <p class="m-1 text-blue">Numéro de réservation :</p>
+                                <h2 class="col-10 fs-3" th:text="${bookings.room.hostel.name}">Nom de l'hôtel 1</h2>
+                                <span class="d-flex justify-content-end col-1">
+                                   <i class="bi bi-exclamation-circle text-blue fs-3"></i>
+                                </span>
+                                <span class="d-flex justify-content-end col-1">
+                                    <i class="bi bi-x-circle text-danger fs-3"></i>
+                                </span>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 text-blue">Numéro de réservation :</p>
+                                    <span th:text="${bookings.bookingCode}"></span>
+                                </div>
                             </div>
                         </div>
                         <hr class="customHr mt-0">
                         <div class="card-body d-flex m-1">
                             <img src="/test-image1.jpg" alt="photo de l'hôtel">
                             <div class="ms-5">
-                                <p class="m-1 mb-3 text-blue">Adresse :</p>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 mb-3 text-blue">Adresse :</p>
+                                    <span th:text="${bookings.room.hostel.address}"></span>
+                                </div>
+                                <div class="d-flex align-items-baseline">
                                 <p class="m-1 mb-3 text-blue">Code Postal :</p>
-                                <p class="m-1 mb-3 text-blue">Ville :</p>
-                                <p class="m-1 mb-3 text-blue">Téléphone :</p>
-                                <p class="m-1 mb-3 text-blue">Num de chambre :</p>
-                                <p class="m-1 mb-3 text-blue">Date de séjour :</p>
+                                    <span th:text="${bookings.room.hostel.postalCode}"></span>
+                                </div>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 mb-3 text-blue">Ville :</p>
+                                    <span th:text="${bookings.room.hostel.city}"></span>
+                                </div>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 mb-3 text-blue">Téléphone :</p>
+                                    <span th:text="${bookings.room.hostel.phone}"></span>
+                                </div>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 mb-3 text-blue">Num de chambre :</p>
+                                    <span th:text="${bookings.room.roomNumber}"></span>
+                                </div>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="m-1 mb-3 text-blue">Date de séjour :</p>
+                                    <span th:text="${bookings.dateArrived} + ' au '+ ${bookings.departureDate}"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,27 +151,28 @@
                 <div class="col-md-6">
                     <h2 class="text-center mb-4 mt-4">Favoris</h2>
                     <div class="row">
-                        <div class="d-flex">
-                            <div class="card border shadow mb-3">
+                        <div class="d-flex flex-wrap">
+                            <div class="card border shadow mb-3" th:each="bookmarks : ${bookmarks}">
                                 <div class="card-head m-2">
                                     <div class="row">
-                                        <h2 class="col-11 fs-3">Nom de l'hôtel 1</h2>
-                                        <span class="d-flex justify-content-end col-1"><i
-                                                class="bi bi-exclamation-circle-fill fs-3"></i></span>
+                                        <h2 class="col-11 fs-3" th:text="${bookmarks.hostel.name}">Nom de l'hôtel 1</h2>
+                                        <input type="hidden" id="idH" th:name="idH" th:value="${bookmarks.hostel.idH}">
+                                        <span class="d-flex justify-content-end col-1">
+                                            <i class="bi bi-balloon-heart text-orange fs-3"></i>
+                                        </span>
                                     </div>
                                 </div>
                                 <hr class="customHr mt-0">
                                 <div class="card-body d-flex justify-content-between m-1">
                                     <img src="/test-image1.jpg" alt="photo de l'hôtel">
                                     <div class="col-7 justify-content-center">
-                                        <p class="m-1 mb-3 text-justify">Lorem ipsum dolor sit amet, consectetur
+                                        <p class="m-1 mb-3 text-justify" th:text="${bookmarks.hostel.description}">Lorem ipsum dolor sit amet, consectetur
                                             adipiscing elit. Nulla eu sodales augue. Fusce aliquam ipsum eget congue
                                             aliquam.</p>
-                                        <a th:href="@{/hotel}" class="btn btn-orange w-100"> <i
+                                        <a th:href="@{/hotel/{id}(id=${bookmarks.hostel.idH})}" class="btn btn-orange w-100 mt-5"> <i
                                                 class="bi bi-search me-2"></i> Plus d'infos</a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

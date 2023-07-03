@@ -1,9 +1,12 @@
 package com.simplon.concepthotelmineur.service;
 
 import com.simplon.concepthotelmineur.entity.Bookmark;
+import com.simplon.concepthotelmineur.entity.UserProfile;
 import com.simplon.concepthotelmineur.repository.BookmarkRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Service class for managing Bookmark entities.
@@ -31,5 +34,9 @@ public class BookmarkService {
      */
     public void deleteBookmark(Long id) {
         bookmarkRepository.deleteById(id);
+    }
+
+    public List<Bookmark> findAllBookmarksByUserProfil(UserProfile userProfile) {
+        return bookmarkRepository.getBookmarkByUserProfile(userProfile);
     }
 }

@@ -110,8 +110,9 @@
             <div class="col-9 p-0">
                 <div class="d-flex flex-wrap flex-row justify-content-between">
                     <div class="card border shadow col-3 mx-2 mt-5" th:each="hostel : ${hostelList}">
-                        <div class="card-head d-flex justify-content-center pt-3">
+                        <div class="card-head d-flex align-items-center justify-content-around pt-3">
                             <span th:text="${hostel.name}">Nom de l'hôtel</span>
+                            <i class="bi bi-balloon-heart fs-3"></i>
                         </div>
                         <div class="card-body flex-column d-flex align-items-center justify-content-center px-0">
                             <img src="/test-image1.jpg" alt="photo de l'hôtel" class="image-home mb-2">

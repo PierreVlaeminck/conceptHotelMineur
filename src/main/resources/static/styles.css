@@ -159,6 +159,9 @@ footer a:hover {
 .text-blue {
     color: #004AAD;
 }
+.text-orange {
+    color: #DD7F1E;
+}
 .border-bottom-none{
     border-bottom: none;
 }
@@ -168,4 +171,18 @@ footer a:hover {
 }
 .size-text-logo{
     font-size: xxx-large;
+}
+.bi-balloon-heart:hover{
+    color: #DD7F1E;
+    cursor: pointer;
+}
+.bi-balloon-heart.text-orange:hover{
+    color: black;
+    cursor: pointer;
+}
+.bi-x-circle.text-danger:hover{
+    cursor: pointer;
+}
+.bi-exclamation-circle.text-blue:hover{
+    cursor: pointer;
 }
