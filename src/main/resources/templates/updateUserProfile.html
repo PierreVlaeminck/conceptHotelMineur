@@ -29,52 +29,63 @@
 <!-----------End Nav Section---------------->
 <main>
     <form method="post" action="/profil/modification">
-        <h1 class="m-5">Mon espace</h1>
-
         <!----- Start update personal data form ----->
-
-        <div class="container border shadow mt-5 mb-5">
-
-            <h1 class="text-center mt-3 mb-4">Mes informations personnelles</h1>
-            <div>
-                <label class="form-label" for="firstNameU">Prénom</label>
-                <input class="form-control" type="text" id="firstNameU" name="firstNameU"
-                       th:field="${userProfile.firstNameU}" required>
+        <div class="d-flex justify-content-center">
+            <div class="card border shadow mt-5 mb-5 col-md-8">
+                <div class="card-head text-center">
+                    <h3 class="pt-3">Mes informations personnelles</h3>
+                </div>
+                <hr class="customHr">
+                <div class="card-text px-3">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="lastNameU">Nom :</label>
+                            <input class="form-control" type="text" id="lastNameU" name="lastNameU"
+                                   th:field="${userProfile.lastNameU}"
+                                   required>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-4" for="firstNameU">Prénom : </label>
+                            <input class="form-control" type="text" id="firstNameU" name="firstNameU"
+                                   th:field="${userProfile.firstNameU}" required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="dateOfBirthU">Date de naissance :</label>
+                            <input class="form-control" type="text" id="dateOfBirthU" name="dateOfBirthU"
+                                   th:field="${userProfile.dateOfBirthU}" required>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="mailU">Email :</label>
+                            <input class="form-control" type="text" id="mailU" name="mailU"
+                                   th:field="${userProfile.mailU}"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-3" for="phone">Fixe :</label>
+                            <input class="form-control" type="text" id="phone" name="phone"
+                                   th:field="${userProfile.phone}">
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <label class="form-label text-blue col-md-4" for="cellPhoneU">Portable :</label>
+                            <input class="form-control" type="text" id="cellPhoneU" name="cellPhoneU"
+                                   th:field="${userProfile.cellPhoneU}" required>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto my-5">
+                        <button class="btnF btn-white shadow py-2 text-decoration-none text-center"
+                           type="submit">
+                            Modifier
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="form-label" for="lastNameU">Nom</label>
-                <input class="form-control" type="text" id="lastNameU" name="lastNameU"
-                       th:field="${userProfile.lastNameU}" required>
-            </div>
-            <div>
-                <label class="form-label" for="dateOfBirthU">Date de naissance</label>
-                <input class="form-control" type="text" id="dateOfBirthU" name="dateOfBirthU"
-                       th:field="${userProfile.dateOfBirthU}" required>
-            </div>
-            <div>
-                <label class="form-label" for="mailU"></label>
-                <input class="form-control" type="text" id="mailU" name="mailU" th:field="${userProfile.mailU}"
-                       required>
-            </div>
-            <div>
-                <label class="form-label" for="phone"></label>
-                <input class="form-control" type="text" id="phone" name="phone" th:field="${userProfile.phone}">
-            </div>
-            <div>
-                <label class="form-label" for="cellPhoneU"></label>
-                <input class="form-control" type="text" id="cellPhoneU" name="cellPhoneU"
-                       th:field="${userProfile.cellPhoneU}" required>
-            </div>
-            <div class="d-flex justify-content-center mb-5 mt-5">
-                <button class="btnF btn-white w-50 nav-link m-3 px-2" type="submit">Modifier</button>
-            </div>
-
         </div>
         <!----- End update personal data form ----->
     </form>
-    <div class="d-flex justify-content-center mt-7">
-        <button class="btnF btn-white w-50 nav-link m-3 px-2" type="submit">Supprimer mon compte</button>
-    </div>
 </main>
 <!-------------Start Footer Section---------->
 <div th:replace="fragments/footer :: footer"></div>
