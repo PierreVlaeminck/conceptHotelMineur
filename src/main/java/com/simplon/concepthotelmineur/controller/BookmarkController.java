@@ -1,12 +1,16 @@
 package com.simplon.concepthotelmineur.controller;
 
 import com.simplon.concepthotelmineur.entity.Bookmark;
+import com.simplon.concepthotelmineur.entity.Hostel;
+import com.simplon.concepthotelmineur.entity.UserProfile;
 import com.simplon.concepthotelmineur.service.BookmarkService;
+import com.simplon.concepthotelmineur.service.HostelService;
+import com.simplon.concepthotelmineur.service.UserProfileService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Controller class for managing bookmarks.
@@ -15,27 +19,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class BookmarkController {
 
     private final BookmarkService bookmarkService;
+    private final UserProfileService userProfileService;
+    private final HostelService hostelService;
 
     /**
      * Constructs a new BookmarkController with the given BookmarkService.
      *
      * @param bookmarkService the BookmarkService to be used
      */
-    public BookmarkController(BookmarkService bookmarkService) {
+    public BookmarkController(BookmarkService bookmarkService, UserProfileService userProfileService, HostelService hostelService) {
         this.bookmarkService = bookmarkService;
+        this.userProfileService=userProfileService;
+        this.hostelService=hostelService;
     }
 
-    /**
-     * Adds a bookmark.
-     *
-     * @param bookmark the bookmark to be added
-     * @return the added bookmark
-     */
+
     @PostMapping("/favoris")
-    public Bookmark addBookmark(@RequestBody Bookmark bookmark) {
-        return bookmarkService.addBookmark(bookmark);
-    }
+    public String addBookmark(@RequestParam("hostelId") Long hostelId, Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        UserProfile userProfile = userProfileService.findByUsername(username);
+        Hostel hostel = hostelService.findHostelByIdH(hostelId);
 
+        Bookmark bookmark = new Bookmark();
+        bookmark.setUserProfile(userProfile);
+        bookmark.setHostel(hostel);
+        bookmarkService.addBookmark(bookmark);
+
+        return "redirect:/";
+    }
     /**
      * Deletes a bookmark with the specified ID.
      *

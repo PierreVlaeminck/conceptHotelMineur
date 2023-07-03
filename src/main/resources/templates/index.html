@@ -112,7 +112,12 @@
                     <div class="card border shadow col-3 mx-2 mt-5" th:each="hostel : ${hostelList}">
                         <div class="card-head d-flex align-items-center justify-content-around pt-3">
                             <span th:text="${hostel.name}">Nom de l'hôtel</span>
-                            <i class="bi bi-balloon-heart fs-3"></i>
+                            <form method="post" action="/favoris">
+                                <input type="hidden" id="hostelId" name="hostelId" th:value="${hostel.idH}">
+                                <button type="submit">
+                                    <i class="bi bi-balloon-heart fs-3 bookmark-icon" data-hostel-id="${hostel.idH}"></i>
+                                </button>
+                            </form>
                         </div>
                         <div class="card-body flex-column d-flex align-items-center justify-content-center px-0">
                             <img src="/test-image1.jpg" alt="photo de l'hôtel" class="image-home mb-2">
@@ -142,6 +147,26 @@
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/script.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".bookmark-icon").on("click", function() {
+            var hostelId = $(this).data("hostelId");
+
+            $.ajax({
+                url: "/favoris",
+                type: "POST",
+                data: { hostelId: hostelId },
+                success: function(response) {
+                    // Gérer la réponse du backend si nécessaire
+                },
+                error: function(xhr, status, error) {
+                    // Gérer les erreurs
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
